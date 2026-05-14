@@ -14,16 +14,94 @@
 }
 
 :root {
-  --background: #ffffff;
+  --background: #f6f2e9;
   --foreground: #0d1b2a;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(201, 168, 76, 0.28);
+  color: #060d15;
+}
+
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top, rgba(201, 168, 76, 0.12), transparent 32%),
+    linear-gradient(180deg, #f8f4ec 0%, #f4efe6 35%, #eef2f6 100%);
   color: var(--foreground);
   font-family: "Inter", system-ui, sans-serif;
+  min-height: 100vh;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(13, 27, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 27, 42, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 92%);
+  opacity: 0.45;
+  z-index: -1;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer-slow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-shimmer-slow {
+  background-size: 200% 200%;
+  animation: shimmer-slow 18s linear infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
 }

@@ -1,438 +1,189 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, CheckCircle2, MessageSquareMore, Sparkles } from "lucide-react";
+import { getLocale, withLocale } from "@/lib/i18n";
+import { offices } from "@/lib/site-content";
 
-const offices = [
-  {
-    city: "New Delhi (HQ)",
-    address: "Block A, Security Complex, Karol Bagh, New Delhi – 110005",
-    phone: "+91 11 2345 6789",
-    email: "delhi@policedogcentreindia.com",
+const copy = {
+  en: {
+    eyebrow: "Contact",
+    title: "Talk to the team behind the platform.",
+    body:
+      "For quotes, site reviews, store orders, or deployment planning, reach out and we will point you to the fastest path.",
+    formTitle: "Send a message",
+    successTitle: "Message sent",
+    successBody: "We will review your request and respond as soon as possible.",
+    officesTitle: "Office locations",
   },
-  {
-    city: "Mumbai",
-    address: "Unit 12, Andheri Industrial Estate, Andheri East, Mumbai – 400093",
-    phone: "+91 22 6789 1234",
-    email: "mumbai@policedogcentreindia.com",
-  },
-  {
-    city: "Bengaluru",
-    address: "No. 45, Whitefield Main Road, Bengaluru – 560066",
-    phone: "+91 80 4567 8901",
-    email: "bengaluru@policedogcentreindia.com",
-  },
-];
+} as const;
 
 const serviceOptions = [
-  "Narcotics Detection",
-  "Explosive Detection",
-  "Patrol & Guard Dogs",
-  "Search & Rescue",
-  "Event Security",
-  "Corporate K9 Security",
-  "K9 Training & Certification",
-  "Other",
+  { value: "narcotics", label: "Narcotics detection" },
+  { value: "explosive", label: "Explosive detection" },
+  { value: "patrol", label: "Patrol & guard" },
+  { value: "store", label: "Store order" },
+  { value: "booking", label: "Booking / consultation" },
 ];
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    organization: "",
-    service: "",
-    message: "",
-  });
+export default function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = use(searchParams);
+  const locale = "en";
+  const t = copy[locale];
+  const nav = (href: string) => href;
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 900));
     setLoading(false);
     setSubmitted(true);
   };
 
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-navy-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-gold-400 transition-colors">
-              Home
+      <section className="bg-navy-950 px-4 py-20 text-white sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">{t.eyebrow}</p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">{t.title}</h1>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">{t.body}</p>
+          <div className="mt-8 flex flex-wrap gap-3 text-sm">
+            <Link href={nav("/booking")} className="rounded-full bg-gold-500 px-5 py-3 font-bold text-navy-950 transition-transform hover:scale-[1.02]">
+              {locale === "hi" ? "बुकिंग खोलें" : "Open booking"}
             </Link>
-            <span>/</span>
-            <span className="text-gold-400">Contact Us</span>
+            <a href="https://wa.me/911234567890" className="rounded-full border border-white/15 bg-white/5 px-5 py-3 font-bold text-white backdrop-blur transition-colors hover:bg-white/10">
+              {locale === "hi" ? "WhatsApp चैट" : "WhatsApp chat"}
+            </a>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-            Contact Us
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            Reach out to our team for a free consultation, service enquiry, or
-            to discuss your K9 security requirements.
-          </p>
         </div>
       </section>
 
-      {/* Contact Info + Form */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-            {/* Contact Details */}
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <h2 className="text-2xl font-bold text-navy-900 mb-6">
-                  Get in Touch
-                </h2>
-                <div className="space-y-5">
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <Phone className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Phone
-                      </div>
-                      <a
-                        href="tel:+911234567890"
-                        className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
-                      >
-                        +91 12345 67890
-                      </a>
-                      <br />
-                      <a
-                        href="tel:+911800001234"
-                        className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
-                      >
-                        1800-00-1234 (Toll Free)
-                      </a>
-                    </div>
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+          <aside className="space-y-6">
+            <div className="rounded-[32px] bg-navy-950 p-8 text-white shadow-[0_24px_70px_rgba(6,13,21,0.25)]">
+              <h2 className="text-2xl font-black">{locale === "hi" ? "त्वरित संपर्क" : "Quick contact"}</h2>
+              <div className="mt-6 space-y-5 text-sm leading-7 text-slate-300">
+                <div className="flex gap-4">
+                  <Phone className="mt-1 h-5 w-5 text-gold-400" />
+                  <div>
+                    <div className="font-semibold text-white">Phone</div>
+                    <a href="tel:+911234567890" className="hover:text-gold-400">+91 12345 67890</a>
                   </div>
-
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <Mail className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Email
-                      </div>
-                      <a
-                        href="mailto:info@policedogcentreindia.com"
-                        className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
-                      >
-                        info@policedogcentreindia.com
-                      </a>
-                    </div>
+                </div>
+                <div className="flex gap-4">
+                  <Mail className="mt-1 h-5 w-5 text-gold-400" />
+                  <div>
+                    <div className="font-semibold text-white">Email</div>
+                    <a href="mailto:info@policedogcentreindia.com" className="hover:text-gold-400">info@policedogcentreindia.com</a>
                   </div>
-
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <MapPin className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Headquarters
-                      </div>
-                      <p className="text-gray-600 text-sm">
-                        Block A, Security Complex,
-                        <br />
-                        Karol Bagh, New Delhi – 110005
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <Clock className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Working Hours
-                      </div>
-                      <p className="text-gray-600 text-sm">
-                        Monday – Saturday: 9:00 AM – 6:00 PM
-                        <br />
-                        Sunday: Closed (Emergency line available)
-                      </p>
-                    </div>
+                </div>
+                <div className="flex gap-4">
+                  <Clock className="mt-1 h-5 w-5 text-gold-400" />
+                  <div>
+                    <div className="font-semibold text-white">Hours</div>
+                    <p>{locale === "hi" ? "सोम - शनि: 9:00 AM - 6:00 PM" : "Mon - Sat: 9:00 AM - 6:00 PM"}</p>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Emergency Notice */}
-              <div className="bg-navy-900 rounded-xl p-6 border-l-4 border-gold-500">
-                <div className="text-gold-400 font-bold text-sm mb-2">
-                  Emergency Security Support
+            <div className="rounded-[32px] border border-white/70 bg-white/85 p-8 shadow-[0_24px_70px_rgba(13,27,42,0.08)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">{t.officesTitle}</p>
+              <div className="mt-6 space-y-4">
+                {offices.map((office) => (
+                  <div key={office.email} className="rounded-[24px] border border-slate-100 bg-white p-5">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="mt-1 h-5 w-5 text-gold-500" />
+                      <div>
+                        <h3 className="text-lg font-bold text-navy-900">{office.city[locale]}</h3>
+                        <p className="mt-1 text-sm leading-7 text-slate-600">{office.address}</p>
+                        <p className="mt-2 text-sm font-semibold text-slate-700">{office.phone}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </aside>
+
+          <div className="space-y-8">
+            {submitted ? (
+              <div className="rounded-[32px] border border-white/70 bg-white/85 p-8 text-center shadow-[0_24px_70px_rgba(13,27,42,0.08)]">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
+                  <CheckCircle2 className="h-8 w-8" />
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  For urgent K9 security deployment, our emergency line operates
-                  24×7.
-                </p>
-                <a
-                  href="tel:+911234500000"
-                  className="inline-block mt-3 text-gold-400 font-bold text-sm hover:text-gold-300 transition-colors"
-                >
-                  +91 12345 00000 (24×7)
+                <h2 className="mt-6 text-3xl font-black text-navy-900">{t.successTitle}</h2>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{t.successBody}</p>
+                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                  <button onClick={() => setSubmitted(false)} className="rounded-full bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-transform hover:scale-[1.02]">
+                    {locale === "hi" ? "और संदेश भेजें" : "Send another"}
+                  </button>
+                  <Link href={nav("/services")} className="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-navy-900 transition-colors hover:bg-slate-50">
+                    {locale === "hi" ? "सेवाएँ देखें" : "View services"}
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="rounded-[32px] border border-white/70 bg-white/85 p-8 shadow-[0_24px_70px_rgba(13,27,42,0.08)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">{t.formTitle}</p>
+                <h2 className="mt-2 text-3xl font-black text-navy-900">{locale === "hi" ? "अपनी ज़रूरत बताएँ" : "Tell us what you need"}</h2>
+
+                <div className="mt-6 grid gap-5 md:grid-cols-2">
+                  <input required name="name" placeholder={locale === "hi" ? "पूरा नाम" : "Full name"} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-gold-500" />
+                  <input required type="email" name="email" placeholder={locale === "hi" ? "ईमेल पता" : "Email address"} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-gold-500" />
+                  <input required name="phone" placeholder={locale === "hi" ? "फोन नंबर" : "Phone number"} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-gold-500" />
+                  <input name="organization" placeholder={locale === "hi" ? "संगठन / कंपनी" : "Organization / company"} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-gold-500" />
+                </div>
+
+                <div className="mt-5 grid gap-5 md:grid-cols-2">
+                  <select name="service" required className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-colors focus:border-gold-500">
+                    <option value="">{locale === "hi" ? "सेवा चुनें" : "Choose a service"}</option>
+                    {serviceOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label[locale]}
+                      </option>
+                    ))}
+                  </select>
+                  <input type="text" name="subject" placeholder={locale === "hi" ? "विषय" : "Subject"} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-gold-500" />
+                </div>
+
+                <textarea required name="message" rows={6} placeholder={locale === "hi" ? "अपनी आवश्यकता का संक्षिप्त विवरण" : "Briefly describe what you need"} className="mt-5 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-gold-500" />
+
+                <button type="submit" disabled={loading} className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy-950 px-6 py-4 text-sm font-bold text-white transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60">
+                  <MessageSquareMore className="h-4 w-4" />
+                  {loading ? (locale === "hi" ? "भेजा जा रहा है..." : "Sending...") : locale === "hi" ? "संदेश भेजें" : "Send message"}
+                </button>
+              </form>
+            )}
+
+            <div className="rounded-[32px] bg-navy-950 p-8 text-white shadow-[0_24px_70px_rgba(6,13,21,0.25)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">{locale === "hi" ? "त्वरित विकल्प" : "Quick actions"}</p>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <Link href={nav("/booking")} className="rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10">
+                  <div className="flex items-center gap-3 text-gold-400">
+                    <Sparkles className="h-4 w-4" />
+                    <span className="font-semibold">{locale === "hi" ? "बुकिंग" : "Booking"}</span>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{locale === "hi" ? "कॉल या अपॉइंटमेंट बुक करें" : "Book a call or appointment"}</p>
+                </Link>
+                <a href="https://wa.me/911234567890" className="rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10">
+                  <div className="flex items-center gap-3 text-gold-400">
+                    <MessageSquareMore className="h-4 w-4" />
+                    <span className="font-semibold">WhatsApp</span>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{locale === "hi" ? "तुरंत चैट शुरू करें" : "Start a quick chat"}</p>
                 </a>
               </div>
             </div>
-
-            {/* Contact Form */}
-            <div className="lg:col-span-3">
-              {submitted ? (
-                <div className="bg-white rounded-2xl p-12 border border-gray-100 shadow-sm text-center h-full flex flex-col items-center justify-center">
-                  <div className="bg-green-50 rounded-full p-5 mb-5">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
-                  </div>
-                  <h3 className="text-navy-900 font-bold text-2xl mb-3">
-                    Message Received!
-                  </h3>
-                  <p className="text-gray-500 mb-6 max-w-sm text-sm leading-relaxed">
-                    Thank you for contacting Police Dog Centre India. Our team
-                    will get back to you within 24 hours.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({
-                        name: "",
-                        email: "",
-                        phone: "",
-                        organization: "",
-                        service: "",
-                        message: "",
-                      });
-                    }}
-                    className="text-gold-500 font-semibold text-sm hover:text-gold-600 transition-colors"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
-                >
-                  <h2 className="text-2xl font-bold text-navy-900 mb-6">
-                    Send Us a Message
-                  </h2>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
-                      >
-                        Full Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your full name"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
-                      >
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.com"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
-                      >
-                        Phone Number <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+91 98765 43210"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="organization"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
-                      >
-                        Organization
-                      </label>
-                      <input
-                        id="organization"
-                        name="organization"
-                        type="text"
-                        value={formData.organization}
-                        onChange={handleChange}
-                        placeholder="Company / Agency name"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mb-5">
-                    <label
-                      htmlFor="service"
-                      className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
-                    >
-                      Service Required <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      required
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors bg-white"
-                    >
-                      <option value="">Select a service...</option>
-                      {serviceOptions.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="mb-6">
-                    <label
-                      htmlFor="message"
-                      className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
-                    >
-                      Message <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Describe your security requirements, location, duration, and any specific needs..."
-                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-navy-900 hover:bg-navy-800 disabled:opacity-70 text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2"
-                  >
-                    {loading ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
-            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Regional Offices */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
-              Our Locations
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Regional Offices
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {offices.map((office) => (
-              <div
-                key={office.city}
-                className="bg-gray-50 rounded-xl p-7 border border-gray-100 hover:border-gold-500/30 transition-all"
-              >
-                <h3 className="text-navy-900 font-bold text-lg mb-4 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-gold-500" />
-                  {office.city}
-                </h3>
-                <div className="space-y-3 text-sm text-gray-600">
-                  <p>{office.address}</p>
-                  <a
-                    href={`tel:${office.phone.replace(/\s/g, "")}`}
-                    className="flex items-center gap-2 hover:text-gold-500 transition-colors"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-gold-500" />
-                    {office.phone}
-                  </a>
-                  <a
-                    href={`mailto:${office.email}`}
-                    className="flex items-center gap-2 hover:text-gold-500 transition-colors"
-                  >
-                    <Mail className="w-3.5 h-3.5 text-gold-500" />
-                    {office.email}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Map placeholder */}
-      <section className="bg-navy-900 h-80 flex items-center justify-center">
-        <div className="text-center">
-          <MapPin className="w-12 h-12 text-gold-400 mx-auto mb-4" />
-          <p className="text-white font-semibold text-lg">
-            Police Dog Centre India — New Delhi HQ
-          </p>
-          <p className="text-gray-400 text-sm mt-2">
-            Block A, Security Complex, Karol Bagh, New Delhi – 110005
-          </p>
-          <a
-            href="https://maps.google.com/?q=Karol+Bagh+New+Delhi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 text-gold-400 hover:text-gold-300 text-sm font-medium underline underline-offset-2 transition-colors"
-          >
-            Open in Google Maps →
-          </a>
         </div>
       </section>
     </>

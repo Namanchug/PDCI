@@ -1,10 +1,19 @@
+"use client";
+
 import Link from "next/link";
-import { Shield, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Shield, Phone, Mail, MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { getLocale, withLocale } from "@/lib/i18n";
 
 const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services" },
+  { href: "/store", label: "Store" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/faq", label: "FAQ" },
   { href: "/k9-security-services", label: "K9 Security Services" },
+  { href: "/booking", label: "Booking" },
   { href: "/contact", label: "Contact Us" },
 ];
 
@@ -15,18 +24,24 @@ const services = [
   "Search & Rescue",
   "Event Security",
   "Corporate K9 Security",
+  "Store & Merchandise",
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const locale = getLocale(searchParams.get("lang"));
+  const linkHref = (href: string) => withLocale(href, locale);
+
   return (
-    <footer className="bg-navy-950 text-gray-400">
+    <footer className="border-t border-white/10 bg-navy-950 text-gray-400">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gold-500 p-2 rounded-full">
+              <div className="bg-gold-500 p-2 rounded-full shadow-lg shadow-gold-500/20">
                 <Shield className="w-6 h-6 text-navy-900" />
               </div>
               <div className="leading-tight">
@@ -40,27 +55,27 @@ export default function Footer() {
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mt-4">
               India&apos;s premier K9 security solutions provider. Delivering
-              world-class trained security dogs and professional handlers since
-              2005.
+              world-class trained security dogs, security packages, and
+              professional handlers since 2005.
             </p>
             <div className="mt-5 flex gap-3">
               <a
-                href="#"
-                className="bg-navy-800 hover:bg-gold-500 hover:text-navy-900 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
-                aria-label="Facebook"
+                href="https://wa.me/911234567890"
+                className="bg-white/5 hover:bg-gold-500 hover:text-navy-900 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                aria-label="WhatsApp"
               >
-                f
+                <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
-                href="#"
-                className="bg-navy-800 hover:bg-gold-500 hover:text-navy-900 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
-                aria-label="Twitter"
+                href="https://www.instagram.com"
+                className="bg-white/5 hover:bg-gold-500 hover:text-navy-900 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
+                aria-label="Instagram"
               >
-                X
+                ig
               </a>
               <a
-                href="#"
-                className="bg-navy-800 hover:bg-gold-500 hover:text-navy-900 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
+                href="https://www.linkedin.com"
+                className="bg-white/5 hover:bg-gold-500 hover:text-navy-900 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
                 aria-label="LinkedIn"
               >
                 in
@@ -77,7 +92,7 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={linkHref(link.href)}
                     className="text-sm hover:text-gold-400 transition-colors flex items-center gap-2"
                   >
                     <span className="text-gold-500 text-xs">›</span>
@@ -138,9 +153,13 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-navy-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Police Dog Centre India. All rights reserved.</p>
-          <p>Securing India with K9 Excellence</p>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-gray-500 sm:flex-row sm:px-6 lg:px-8">
+          <p>
+            © {new Date().getFullYear()} Police Dog Centre India. All rights reserved.
+          </p>
+          <p className={pathname === "/" ? "text-gold-400" : ""}>
+            Securing India with K9 Excellence
+          </p>
         </div>
       </div>
     </footer>
