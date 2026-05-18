@@ -2,66 +2,83 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
-
-const offices = [
-  {
-    city: "New Delhi (HQ)",
-    address: "Block A, Security Complex, Karol Bagh, New Delhi – 110005",
-    phone: "+91 11 2345 6789",
-    email: "delhi@policedogcentreindia.com",
-  },
-  {
-    city: "Mumbai",
-    address: "Unit 12, Andheri Industrial Estate, Andheri East, Mumbai – 400093",
-    phone: "+91 22 6789 1234",
-    email: "mumbai@policedogcentreindia.com",
-  },
-  {
-    city: "Bengaluru",
-    address: "No. 45, Whitefield Main Road, Bengaluru – 560066",
-    phone: "+91 80 4567 8901",
-    email: "bengaluru@policedogcentreindia.com",
-  },
-];
+import { MapPin, Phone, Mail, Send, CheckCircle } from "lucide-react";
 
 const serviceOptions = [
   "Narcotics Detection",
   "Explosive Detection",
   "Patrol & Guard Dogs",
-  "Search & Rescue",
   "Event Security",
-  "Corporate K9 Security",
   "K9 Training & Certification",
   "Other",
 ];
 
+const initialFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  organization: "",
+  service: "",
+  message: "",
+};
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    organization: "",
-    service: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
+    setError("");
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const resetForm = () => {
+    setSubmitted(false);
+    setError("");
+    setFormData(initialFormData);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = (await response.json().catch(() => null)) as
+        | { message?: string }
+        | null;
+
+      if (!response.ok) {
+        throw new Error(
+          result?.message ??
+          "Unable to send your message right now. Please try again."
+        );
+      }
+
+      setSubmitted(true);
+      setFormData(initialFormData);
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Unable to send your message right now. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -106,17 +123,17 @@ export default function ContactPage() {
                         Phone
                       </div>
                       <a
-                        href="tel:+911234567890"
+                        href="tel:+919818562642"
                         className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
                       >
-                        +91 12345 67890
+                        +91 98185 62642
                       </a>
                       <br />
                       <a
-                        href="tel:+911800001234"
+                        href="tel:+918287793696"
                         className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
                       >
-                        1800-00-1234 (Toll Free)
+                        +91 82877 93696
                       </a>
                     </div>
                   </div>
@@ -130,10 +147,10 @@ export default function ContactPage() {
                         Email
                       </div>
                       <a
-                        href="mailto:info@policedogcentreindia.com"
+                        href="mailto:policedogcentreindia@gmail.com"
                         className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
                       >
-                        info@policedogcentreindia.com
+                        policedogcentreindia@gmail.com
                       </a>
                     </div>
                   </div>
@@ -153,40 +170,7 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
-
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <Clock className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Working Hours
-                      </div>
-                      <p className="text-gray-600 text-sm">
-                        Monday – Saturday: 9:00 AM – 6:00 PM
-                        <br />
-                        Sunday: Closed (Emergency line available)
-                      </p>
-                    </div>
-                  </div>
                 </div>
-              </div>
-
-              {/* Emergency Notice */}
-              <div className="bg-navy-900 rounded-xl p-6 border-l-4 border-gold-500">
-                <div className="text-gold-400 font-bold text-sm mb-2">
-                  Emergency Security Support
-                </div>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  For urgent K9 security deployment, our emergency line operates
-                  24×7.
-                </p>
-                <a
-                  href="tel:+911234500000"
-                  className="inline-block mt-3 text-gold-400 font-bold text-sm hover:text-gold-300 transition-colors"
-                >
-                  +91 12345 00000 (24×7)
-                </a>
               </div>
             </div>
 
@@ -206,15 +190,7 @@ export default function ContactPage() {
                   </p>
                   <button
                     onClick={() => {
-                      setSubmitted(false);
-                      setFormData({
-                        name: "",
-                        email: "",
-                        phone: "",
-                        organization: "",
-                        service: "",
-                        message: "",
-                      });
+                      resetForm();
                     }}
                     className="text-gold-500 font-semibold text-sm hover:text-gold-600 transition-colors"
                   >
@@ -347,6 +323,12 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {error ? (
+                    <div className="mb-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                      {error}
+                    </div>
+                  ) : null}
+
                   <button
                     type="submit"
                     disabled={loading}
@@ -371,70 +353,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Regional Offices */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
-              Our Locations
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Regional Offices
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {offices.map((office) => (
-              <div
-                key={office.city}
-                className="bg-gray-50 rounded-xl p-7 border border-gray-100 hover:border-gold-500/30 transition-all"
-              >
-                <h3 className="text-navy-900 font-bold text-lg mb-4 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-gold-500" />
-                  {office.city}
-                </h3>
-                <div className="space-y-3 text-sm text-gray-600">
-                  <p>{office.address}</p>
-                  <a
-                    href={`tel:${office.phone.replace(/\s/g, "")}`}
-                    className="flex items-center gap-2 hover:text-gold-500 transition-colors"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-gold-500" />
-                    {office.phone}
-                  </a>
-                  <a
-                    href={`mailto:${office.email}`}
-                    className="flex items-center gap-2 hover:text-gold-500 transition-colors"
-                  >
-                    <Mail className="w-3.5 h-3.5 text-gold-500" />
-                    {office.email}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Map placeholder */}
-      <section className="bg-navy-900 h-80 flex items-center justify-center">
-        <div className="text-center">
-          <MapPin className="w-12 h-12 text-gold-400 mx-auto mb-4" />
-          <p className="text-white font-semibold text-lg">
-            Police Dog Centre India — New Delhi HQ
-          </p>
-          <p className="text-gray-400 text-sm mt-2">
-            Block A, Security Complex, Karol Bagh, New Delhi – 110005
-          </p>
-          <a
-            href="https://maps.google.com/?q=Karol+Bagh+New+Delhi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 text-gold-400 hover:text-gold-300 text-sm font-medium underline underline-offset-2 transition-colors"
-          >
-            Open in Google Maps →
-          </a>
-        </div>
-      </section>
     </>
   );
 }

@@ -2,11 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 import {
   Shield,
-  Search,
   AlertTriangle,
   Eye,
   Users,
-  Building2,
   Zap,
   Dog,
   CheckCircle,
@@ -17,127 +15,103 @@ import {
 export const metadata: Metadata = {
   title: "K9 Security Services | Police Dog Centre India",
   description:
-    "Explore PDCI's comprehensive K9 security services – narcotics detection, explosive detection, patrol dogs, search & rescue, event security, and more.",
+    "Professional K9 security services covering detection, patrol, event support, and handler training.",
 };
 
 const services = [
   {
     icon: AlertTriangle,
     title: "Narcotics Detection",
-    shortDesc: "Drug detection K9 teams for any environment",
+    shortDesc: "Targeted screening for controlled environments",
+    image: "/k9-detection/narco.jpg",
     description:
-      "Our highly specialized narcotics detection dogs are trained to identify a wide range of controlled substances including heroin, cocaine, methamphetamine, cannabis, and prescription drug misuse. Deployed in airports, seaports, customs checkpoints, educational institutions, hotels, and corporate premises.",
+      "Our narcotics detection teams are trained to identify a broad range of controlled substances and concealment methods. They are deployed in airports, seaports, customs checkpoints, educational institutions, hospitality venues, and corporate facilities.",
     features: [
-      "Multi-drug detection capability",
+      "Broad-spectrum substance detection",
       "Passive alert methodology",
-      "Certified by recognized agencies",
-      "Available for spot checks & routine screening",
-      "Suitable for schools, offices, events",
+      "Suitable for routine or ad hoc screening",
+      "Discreet deployment in public-facing spaces",
+      "Operational reporting available on request",
     ],
     breeds: "Belgian Malinois, Labrador Retriever, Springer Spaniel",
   },
   {
     icon: Zap,
     title: "Explosive Detection",
-    shortDesc: "Bomb & IED detection for critical venues",
+    shortDesc: "Threat screening for high-risk venues",
+    image: "/k9-detection/explosive.jpg",
     description:
-      "Our explosive detection K9 units undergo rigorous training to detect a vast range of explosive compounds including RDX, TNT, PETN, ANFO, improvised devices, and more. These teams are deployed at VIP events, government buildings, airports, metro stations, and critical infrastructure.",
+      "Our explosive detection K9 units support pre-event sweeps, perimeter checks, baggage screening, and route security for environments with elevated threat exposure. Teams are deployed with structured protocols and clear reporting.",
     features: [
-      "Detection of 15+ explosive compounds",
+      "Venue, vehicle, and baggage screening",
       "Vehicle, luggage & area sweeps",
-      "Pre-event & real-time threat assessment",
-      "Coordination with bomb disposal squads",
-      "Available on short notice for emergencies",
+      "Pre-event and day-of-operations sweeps",
+      "Rapid deployment for urgent requirements",
+      "Coordination with site security teams",
     ],
     breeds: "German Shepherd, Belgian Malinois, Golden Retriever",
   },
   {
     icon: Shield,
-    title: "Patrol & Guard Dogs",
-    shortDesc: "Deterrence and perimeter security",
+    title: "Patrol & Perimeter Security",
+    shortDesc: "Visible deterrence and rapid response support",
+    image: "/k9-detection/patrol.jpg",
     description:
-      "Our patrol and guard dogs are trained in obedience, protection, and apprehension. They serve as a powerful deterrent and active security measure for factories, warehouses, construction sites, gated communities, and government installations. Each dog is paired with a professionally trained handler.",
+      "Patrol K9 teams provide a strong deterrent and an immediate response layer for factories, warehouses, construction sites, residential compounds, and government facilities. Each deployment is led by a trained handler with defined patrol and escalation procedures.",
     features: [
-      "24/7 deployment capability",
-      "Obedience & protection trained",
-      "Handler-dog team deployment",
-      "Effective deterrent & rapid response",
-      "Perimeter and area patrols",
+      "24/7 deployment options",
+      "Handler-led patrol operations",
+      "Perimeter and access-point coverage",
+      "Controlled deterrence and response",
+      "Scalable for short- or long-term assignments",
     ],
     breeds: "German Shepherd, Doberman, Rottweiler, Belgian Malinois",
   },
   {
-    icon: Search,
-    title: "Search & Rescue (SAR)",
-    shortDesc: "Locating missing persons and disaster survivors",
-    description:
-      "Our SAR K9 teams are equipped to locate missing persons, disaster survivors, and evidence in challenging environments — collapsed buildings, forests, mountainous terrain, and disaster sites. These teams coordinate with NDRF, police, and civil authorities.",
-    features: [
-      "Urban & wilderness search capability",
-      "Disaster & rubble rescue trained",
-      "Cadaver dog operations",
-      "Night operation ready",
-      "NDRF coordination & rapid deployment",
-    ],
-    breeds: "German Shepherd, Belgian Malinois, Bloodhound, Labrador",
-  },
-  {
     icon: Eye,
     title: "Tracking & Trailing",
-    shortDesc: "Following criminal and missing person trails",
+    shortDesc: "Scent tracking for investigations and recovery",
+    image: "/k9-detection/tracking.jpg",
     description:
-      "Our tracking dogs are trained to follow scent trails of suspects, escaped individuals, or missing persons across varied terrains and time intervals. Widely used by police, investigative agencies, and private security firms for post-incident investigation and active pursuit.",
+      "Tracking dogs are trained to follow scent trails across urban and rural environments to support investigations, recovery operations, and missing-person searches. They are commonly used by law enforcement and private security teams.",
     features: [
-      "Follow trails up to 24+ hours old",
-      "Track across urban & rural terrain",
-      "Coordinate with police units",
-      "Evidence identification",
-      "Suspect apprehension support",
+      "Follow trails across varied terrain",
+      "Useful for recent and older scent trails",
+      "Supports investigative and recovery work",
+      "Works with police and security teams",
+      "Helps establish operational direction",
     ],
     breeds: "Bloodhound, German Shepherd, Belgian Malinois",
   },
   {
     icon: Users,
     title: "Event Security",
-    shortDesc: "K9 teams for events, venues & gatherings",
+    shortDesc: "K9 support for venues and public gatherings",
+    image: "/k9-detection/event.jpg",
     description:
-      "For concerts, political rallies, sports events, religious gatherings, and corporate functions, PDCI provides specialized K9 security teams. Our event security packages include pre-event sweeps, perimeter monitoring, crowd deterrence dogs, and rapid response units.",
+      "For concerts, rallies, sports events, religious gatherings, and public gatherings, PDCI provides structured K9 support focused on pre-event screening, perimeter control, and rapid incident response.",
     features: [
       "Pre-event venue sweep",
-      "Explosive & narcotics detection at entry",
-      "Crowd management K9 support",
-      "VIP protection assistance",
-      "Post-event clearance",
+      "Entry-point screening support",
+      "Crowd deterrence and perimeter monitoring",
+      "VIP and restricted-zone coverage",
+      "Post-event clearance checks",
     ],
     breeds: "German Shepherd, Belgian Malinois, Labrador",
   },
   {
-    icon: Building2,
-    title: "Corporate K9 Security",
-    shortDesc: "Customized K9 programs for businesses",
-    description:
-      "We design bespoke K9 security programs for corporate clients including IT parks, banks, data centers, pharmaceutical companies, and manufacturing facilities. Our solutions include access control dog teams, periodic narcotics/explosive sweeps, and full-time K9 guard deployment.",
-    features: [
-      "Bespoke security assessment",
-      "Periodic sweep schedules",
-      "Full-time K9 guard deployment",
-      "Staff security awareness training",
-      "Compliance documentation provided",
-    ],
-    breeds: "German Shepherd, Belgian Malinois, Doberman",
-  },
-  {
     icon: Dog,
     title: "K9 Training & Certification",
-    shortDesc: "Training programs for dog handlers",
+    shortDesc: "Structured training for handlers and teams",
+    image: "/k9-detection/certifications.jpg",
     description:
-      "Beyond deployment, PDCI runs structured K9 training programs for police units, private security agencies, and individuals. Our courses range from basic obedience and agility to advanced detection and patrol work, all certified by recognized agencies.",
+      "PDCI offers training programs for police units, private security providers, and individual handlers. Courses cover obedience, agility, detection, patrol handling, and recertification pathways.",
     features: [
-      "Basic to advanced K9 courses",
-      "Handler training & certification",
-      "Specialized detection courses",
-      "Police unit training programs",
-      "Refresher & recertification courses",
+      "Basic to advanced training pathways",
+      "Handler development and assessment",
+      "Detection and patrol specialization",
+      "Police and private-sector programs",
+      "Refresher and recertification support",
     ],
     breeds: "All working breeds accepted for training",
   },
@@ -146,27 +120,27 @@ const services = [
 const process = [
   {
     step: "01",
-    title: "Security Assessment",
+    title: "Site Assessment",
     description:
-      "Our team conducts a thorough on-site assessment to understand your specific security requirements and risks.",
+      "We evaluate operational risks, access points, and deployment requirements before recommending a K9 solution.",
   },
   {
     step: "02",
-    title: "Custom Solution Design",
+    title: "Deployment Planning",
     description:
-      "We design a K9 security solution tailored to your environment, budget, and threat profile.",
+      "We align dog selection, handler requirements, and scheduling with your environment and risk profile.",
   },
   {
     step: "03",
-    title: "Team Deployment",
+    title: "Operational Deployment",
     description:
-      "Certified K9 teams are deployed with full documentation, handler credentials, and operational protocols.",
+      "Certified K9 teams arrive with documentation, protocols, and handler credentials ready for service.",
   },
   {
     step: "04",
-    title: "Ongoing Support",
+    title: "Review & Support",
     description:
-      "We provide continuous monitoring, periodic reviews, and rapid response to evolving security needs.",
+      "We remain available for adjustments, follow-up visits, and escalations as requirements evolve.",
   },
 ];
 
@@ -187,9 +161,58 @@ export default function K9ServicesPage() {
             K9 Security Services
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Comprehensive K9 security solutions — from narcotics &amp; explosive
-            detection to patrol, search &amp; rescue, and specialized training.
+            Professional K9 security solutions for detection, patrol, event
+            support, and specialist training.
           </p>
+        </div>
+      </section>
+
+      {/* Overview */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Wide-ranging K9 Security Solutions are provided through highly trained and certified K9 teams well-versed in explosive, firearms, and narcotics detection, personal protection, and guarding. These trained K9 Teams are available in multiple formats, all of which may be tailored to your schedule, facility, and budget.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Explosive Detection",
+                body: "Detection of explosive ordinance and firearms at Air Cargo, Sports Stadiums, Concert Venues, Convention Centers and Events, Transportation Facilities and Vehicles, Health Care Facilities, Critical Infrastructure including pre-Destination K-9 Detection Sweeps.",
+              },
+              {
+                title: "Tactical K9 Security",
+                body: "We can assist you with virtually every security need for your event, ranging from armed guards and canine units to other more unique services for your safety concerns.",
+              },
+              {
+                title: "K9 Tactical Checkpoint & Perimeter Patrol",
+                body: "K-9 Support & Deployment for Law Enforcement and high-security perimeter operations requiring rapid response and deterrence.",
+              },
+              {
+                title: "Narcotics Detection",
+                body: "Detection of narcotics substances — marijuana, cocaine, heroin, methamphetamines, and any other prohibited drugs — in support of Law Enforcement Organizations.",
+              },
+              {
+                title: "Customized K9 Security",
+                body: "Highly experienced teams of Police Dog Centre India are capable to offer you customized security solutions, tailor-made to suit your requirements and overcome security threats and challenges.",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-gold-500/30 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center shrink-0">
+                    <span className="text-gold-600 font-bold text-xs">{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h3 className="text-navy-900 font-bold text-sm">{item.title}</h3>
+                </div>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -201,11 +224,12 @@ export default function K9ServicesPage() {
               Our Expertise
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Complete K9 Security Portfolio
+              Professional K9 Security Capabilities
             </h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-              Each service is delivered by certified handlers with professionally
-              trained dogs, backed by 20+ years of operational excellence.
+              Each service is delivered by trained handlers and operationally
+              ready dogs with a focus on discipline, discretion, and reliable
+              performance.
             </p>
           </div>
 
@@ -219,25 +243,35 @@ export default function K9ServicesPage() {
                   className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
                 >
                   <div
-                    className={`grid grid-cols-1 lg:grid-cols-5 ${isEven ? "" : "lg:flex-row-reverse"}`}
+                    className={`grid grid-cols-1 ${service.image ? "lg:grid-cols-5" : "lg:grid-cols-1"}`}
                   >
-                    {/* Icon & title panel */}
-                    <div
-                      className={`lg:col-span-1 bg-navy-900 p-8 flex flex-col items-center justify-center text-center ${!isEven ? "lg:order-last" : ""}`}
-                    >
-                      <div className="bg-gold-500/10 rounded-full p-4 mb-4">
-                        <Icon className="w-8 h-8 text-gold-400" />
-                      </div>
-                      <h3 className="text-white font-bold text-base">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-400 text-xs mt-2">
-                        {service.shortDesc}
-                      </p>
-                    </div>
+                    {/* Image panel — only rendered when an image exists */}
+                    {service.image && (
+                      <div
+                        className={`lg:col-span-2 min-h-[260px] ${!isEven ? "lg:order-last" : ""}`}
+                        style={{
+                          backgroundImage: `url(${service.image})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      />
+                    )}
 
                     {/* Content */}
-                    <div className="lg:col-span-4 p-8">
+                    <div className={`${service.image ? "lg:col-span-3" : ""} p-8`}>
+                      {/* Title row */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="bg-navy-900 rounded-lg p-2 shrink-0">
+                          <Icon className="w-5 h-5 text-gold-400" />
+                        </div>
+                        <div>
+                          <h3 className="text-navy-900 font-bold text-base">
+                            {service.title}
+                          </h3>
+                          <p className="text-gray-400 text-xs">{service.shortDesc}</p>
+                        </div>
+                      </div>
+
                       <p className="text-gray-600 text-sm leading-relaxed mb-6">
                         {service.description}
                       </p>
@@ -329,18 +363,20 @@ export default function K9ServicesPage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
             {[
-              { emoji: "🐕", name: "German Shepherd", role: "Patrol & Detection" },
-              { emoji: "🐕‍🦺", name: "Belgian Malinois", role: "Multi-Purpose" },
-              { emoji: "🦮", name: "Labrador Retriever", role: "Narcotics Detection" },
-              { emoji: "🐩", name: "Bloodhound", role: "Tracking & Trailing" },
-              { emoji: "🐕", name: "Doberman", role: "Guard & Patrol" },
-              { emoji: "🦮", name: "Golden Retriever", role: "Explosive Detection" },
+              { initials: "GS", name: "German Shepherd", role: "Patrol and Detection" },
+              { initials: "BM", name: "Belgian Malinois", role: "Multi-Purpose" },
+              { initials: "LR", name: "Labrador Retriever", role: "Narcotics Detection" },
+              { initials: "BH", name: "Bloodhound", role: "Tracking and Trailing" },
+              { initials: "DB", name: "Doberman", role: "Guard and Patrol" },
+              { initials: "GR", name: "Golden Retriever", role: "Explosive Detection" },
             ].map((breed) => (
               <div
                 key={breed.name}
                 className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-gold-500/30 transition-all"
               >
-                <div className="text-4xl mb-3">{breed.emoji}</div>
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gold-500/10 text-navy-900 text-sm font-bold">
+                  {breed.initials}
+                </div>
                 <div className="text-navy-900 font-bold text-xs mb-1">
                   {breed.name}
                 </div>
@@ -358,8 +394,8 @@ export default function K9ServicesPage() {
             Need a K9 Security Solution?
           </h2>
           <p className="text-navy-800/80 text-lg mb-8">
-            Our security experts are ready to design a custom K9 solution for
-            your specific needs.
+            Our team can design a K9 deployment plan tailored to your site,
+            schedule, and risk profile.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
