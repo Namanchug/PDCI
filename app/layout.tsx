@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -37,6 +38,7 @@ export default function RootLayout({
         >
           Chat now
         </a>
+        <Analytics />
       </body>
     </html>
   );
