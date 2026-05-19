@@ -15,24 +15,52 @@ import {
 
 const services = [
   {
-    title: "Narcotics Detection",
+    title: "Tracking & Trailing Dogs",
     description:
-      "Discreet K9 screening for controlled substances in vehicles, baggage, cargo, and sensitive facilities.",
+      "Crime scene investigation and suspect tracking through scent work across urban and rural terrain, supporting law enforcement in missing person recovery.",
+    href: "/k9-security-services#tracking-trailing",
   },
   {
     title: "Explosive Detection",
     description:
-      "Structured explosive detection sweeps for venues, transport hubs, and critical infrastructure.",
+      "Structured explosive detection sweeps for venues, transport hubs, and critical infrastructure. Certified under MHA K9 PET protocol with >90% accuracy.",
+    href: "/k9-security-services#explosive-detection",
   },
   {
-    title: "Patrol & Perimeter Security",
+    title: "Narcotics Detection",
     description:
-      "Handler-led patrol teams for visible deterrence, access control, and rapid response support.",
+      "Discreet K9 screening for controlled substances in vehicles, baggage, cargo, airports, and sensitive facilities.",
+    href: "/k9-security-services#narcotics-detection",
   },
   {
-    title: "Event Security",
+    title: "Patrol Dogs",
     description:
-      "K9 support for concerts, rallies, festivals, and VIP gatherings with pre-event sweeps and perimeter checks.",
+      "Handler-led patrol teams for visible deterrence, access control, and rapid response. Advanced Assault K9 configuration available for high-risk operations.",
+    href: "/k9-security-services#patrol-dogs",
+  },
+  {
+    title: "Event Security Dogs",
+    description:
+      "K9 support for concerts, rallies, festivals, and VIP gatherings with pre-event sweeps, perimeter checks, and crowd management.",
+    href: "/k9-security-services#event-security",
+  },
+  {
+    title: "Behaviour Assessment & Selection",
+    description:
+      "Scientific evaluation using the MHA-aligned K9 BAT model for selection of pups and adult dogs suited to specific police and security roles.",
+    href: "/k9-security-services#behaviour-assessment",
+  },
+  {
+    title: "Proficiency Evaluation & Certification",
+    description:
+      "Independent third-party K9 PET certification as per MHA AKLAN SOP, with annual accreditation valid for 12 months and six-monthly audit support.",
+    href: "/k9-security-services#proficiency-evaluation",
+  },
+  {
+    title: "Pet Dog Training / Boarding & Behaviour Modification",
+    description:
+      "Science-based obedience training, behaviour modification, and professional boarding for companion dogs at police K9 facility standards.",
+    href: "/k9-security-services#pet-dog-training",
   },
 ];
 
@@ -133,18 +161,6 @@ export default function HomePage() {
   const resettingRef = useRef(false);
   const touchStartX = useRef<number | null>(null);
 
-
-  const leaderProfile = {
-    name: "Col (Dr) P K Chug (Retd)",
-    title: "India's Pioneer in Military & Police K9 Operations",
-    imageSrc: "/col-p-k-chug.jpg",
-    imageAlt: "Col (Dr) P K Chug (Retd)",
-    paragraphs: [
-      "Colonel PK Chug is the leading Military and Police K9 Trainer of India who has pioneered enormous work in developing the subject of 'Working Dogs' in the country based on contemporary dog training techniques and introducing the 'Operant Conditioning' to the Police K9 training in India.",
-      "He is a former Colonel of the Indian Army (Remount Veterinary Corps - RVC) with an enriching 25 years military service of outstanding order where he was conferred Honours and Awards in nearly every assignment. He had commanded the 'Specialized Army Dog Units' with the Army and Special Forces including his last command of the most prestigious K9 Unit of elite NSG Black Cats. He is known for introducing multiple innovative & inexpensive dog training aids, effective military doctrines and tactically sound solutions to augment the performance of Military and Police Service K9s (PSKs). His command of NSG's K9 Unit, was exemplary for the security organizations where he established the concept of 'Assault K9' in highly risky building interventions, imparted sense of directional training to his dogs for the first time in the world using 'K9 Vision System' while training off-leash sending them away from Handlers directing through wireless radio communications.",
-      "He also introduced revolutionary concepts of Canine Remote Delivery System (CRDS), Laser Guided Detection & Patrol K9s and successfully integrated 'Dogs with Drones' for tactical advantages during highly sensitive and risky special operations. After voluntary retirement from active military service, Col Chug was entrusted with pan India responsibility of 'Mainstreaming and Augmentation of Police K9s in the Country' as Head of the newly established 'MHA Police K9 Cell' under the Ministry of Home Affairs (MHA), Government of India for 03 years during which he contributed immensely in standardization of Police K9 standards and best practices. He conducted series of 'Police K9 Workshops', Started 'MHA's Annual National Police K9 Seminars' and Publication of 'National Police K9 Journal' as its founding Editor every six months in vernacular language",
-    ],
-  };
 
   // ── Navigation helpers ──────────────────────────────────────────────────────
 
@@ -303,6 +319,7 @@ export default function HomePage() {
                 <img
                   src={src}
                   alt=""
+                  loading={isActive ? "eager" : "lazy"}
                   aria-hidden="true"
                   style={{
                     width: "100%",
@@ -442,106 +459,6 @@ export default function HomePage() {
       </section>
 
 
-      {/* ━━━ LEADERSHIP PROFILE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section
-        style={{
-          background: `
-            radial-gradient(circle at top left, rgba(201,164,90,0.07), transparent 28%),
-            radial-gradient(circle at bottom right, rgba(15,23,42,0.03), transparent 35%),
-            #eef2f6
-          `,
-          borderTop: "1px solid rgba(201,164,90,0.12)",
-          borderBottom: "1px solid rgba(201,164,90,0.08)",
-          paddingTop: "5rem",
-          paddingBottom: "5rem",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,500px)_minmax(0,1fr)] lg:items-center">
-            {/* Image card */}
-            <div
-              className="relative mx-auto w-full max-w-[500px] overflow-hidden rounded-[2rem] lg:mx-0"
-              style={{
-                background: "linear-gradient(145deg, #ffffff, #f3f7fb)",
-                boxShadow:
-                  "0 18px 40px rgba(16,24,40,0.06), 0 0 0 1px rgba(201,164,90,0.10)",
-              }}
-            >
-              <div className="relative aspect-[3/4] w-full">
-                <Image
-                  src={leaderProfile.imageSrc}
-                  alt={leaderProfile.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-contain object-center"
-                  style={{ objectPosition: "center 14%", transform: "translateY(-18px)" }}
-                />
-              </div>
-              <div
-                className="absolute inset-x-4 bottom-4 rounded-2xl px-4 py-3"
-                style={{
-                  background: "rgba(255,255,255,0.92)",
-                  backdropFilter: "blur(6px)",
-                  border: "1px solid rgba(201,164,90,0.10)",
-                }}
-              >
-                <p
-                  className="text-[10px] font-semibold uppercase tracking-[0.35em]"
-                  style={{ color: "#9f7b35" }}
-                >
-                  Military K9 Leadership
-                </p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: "#0b1726" }}>
-                  {leaderProfile.name}
-                </p>
-              </div>
-            </div>
-
-            {/* Text content */}
-            <div className="space-y-6">
-              <div>
-                <span
-                  className="inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em]"
-                  style={{
-                    background: "rgba(201,164,90,0.12)",
-                    color: "#9f7b35",
-                    border: "1px solid rgba(201,164,90,0.18)",
-                  }}
-                >
-                  Founder & Chief Trainer
-                </span>
-
-                {/* Gold accent line */}
-                <div
-                  className="mt-6 mb-4"
-                  style={{
-                    width: "5rem",
-                    height: "2px",
-                    background: "linear-gradient(to right, #c9a45a, transparent)",
-                  }}
-                />
-
-                <h2
-                  className="text-3xl font-bold sm:text-4xl"
-                  style={{ color: "#0b1726" }}
-                >
-                  {leaderProfile.name}
-                </h2>
-                <p className="mt-2 text-lg font-semibold" style={{ color: "#9f7b35" }}>
-                  {leaderProfile.title}
-                </p>
-              </div>
-
-              <div className="space-y-4 text-base leading-8" style={{ color: "#475569" }}>
-                {leaderProfile.paragraphs.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ━━━ SERVICES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
         style={{
@@ -569,19 +486,15 @@ export default function HomePage() {
               Professional K9 Security Services
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-base" style={{ color: "#475569" }}>
-              Structured K9 deployments for detection, perimeter control, and
-              event support.
+              Comprehensive K9 deployments spanning detection, tracking, patrol, event security, assessment, certification, and companion dog training.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, i) => (
               <div
                 key={service.title}
-                className="group relative overflow-hidden p-8 transition-all duration-500 rounded-xl"
+                className="group relative overflow-hidden p-7 transition-all duration-500 rounded-xl flex flex-col"
                 style={{
                   background: "linear-gradient(180deg, #ffffff, #f3f7fb)",
                   border: "1px solid rgba(15,23,42,0.06)",
@@ -607,9 +520,9 @@ export default function HomePage() {
 
                 {/* Number */}
                 <div
-                  className="font-black mb-6 leading-none"
+                  className="font-black mb-5 leading-none"
                   style={{
-                    fontSize: "3.5rem",
+                    fontSize: "3rem",
                     background: "linear-gradient(to bottom, rgba(201,164,90,0.95), rgba(159,123,53,0.6))",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -622,7 +535,7 @@ export default function HomePage() {
 
                 {/* Divider */}
                 <div
-                  className="mb-5 transition-all duration-500"
+                  className="mb-4 transition-all duration-500"
                   style={{
                     width: "2rem",
                     height: "1px",
@@ -631,14 +544,28 @@ export default function HomePage() {
                 />
 
                 <h3
-                  className="font-bold text-base mb-3 uppercase tracking-wider transition-colors duration-300 group-hover:text-[#9f7b35]"
+                  className="font-bold text-sm mb-3 uppercase tracking-wider transition-colors duration-300 group-hover:text-[#9f7b35]"
                   style={{ color: "#0b1726", letterSpacing: "0.08em" }}
                 >
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#334155" }}>
+                <p className="text-sm leading-relaxed flex-1" style={{ color: "#334155" }}>
                   {service.description}
                 </p>
+
+                {/* Learn More button */}
+                <div className="mt-5 pt-4" style={{ borderTop: "1px solid rgba(201,164,90,0.15)" }}>
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold transition-colors duration-200"
+                    style={{ color: "#9f7b35" }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#c9a45a")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#9f7b35")}
+                  >
+                    Learn More
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

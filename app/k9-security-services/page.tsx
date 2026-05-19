@@ -10,110 +10,153 @@ import {
   CheckCircle,
   ArrowRight,
   Phone,
+  ClipboardList,
+  Heart,
+  Award,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "K9 Security Services | Police Dog Centre India",
   description:
-    "Professional K9 security services covering detection, patrol, event support, and handler training.",
+    "Professional K9 security services covering tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training.",
 };
 
 const services = [
   {
-    icon: AlertTriangle,
-    title: "Narcotics Detection",
-    shortDesc: "Targeted screening for controlled environments",
-    image: "/k9-detection/narco.jpg",
+    icon: Eye,
+    slug: "tracking-trailing",
+    title: "Tracking & Trailing Dogs",
+    shortDesc: "Crime scene investigation and suspect tracking",
+    image: "/k9-detection/tracking.jpg",
     description:
-      "Our narcotics detection teams are trained to identify a broad range of controlled substances and concealment methods. They are deployed in airports, seaports, customs checkpoints, educational institutions, hospitality venues, and corporate facilities.",
+      "Tracker-Trailing Dogs (TR) are deployed for crime scene investigation and suspect tracking, following scent trails across urban, rural, and forested environments. Leveraging their extraordinary olfactory capability, these dogs support law enforcement agencies in locating suspects, missing persons, and evidence — often after significant time has elapsed. Trained in accordance with MHA standards, PDCI's tracking teams are a reliable force multiplier for investigative and recovery operations.",
     features: [
-      "Broad-spectrum substance detection",
-      "Passive alert methodology",
-      "Suitable for routine or ad hoc screening",
-      "Discreet deployment in public-facing spaces",
-      "Operational reporting available on request",
+      "Crime scene investigation and scent work",
+      "Suspect tracking across urban and rural terrain",
+      "Missing person and evidence recovery",
+      "Works alongside police and security teams",
+      "Operates on recent as well as older scent trails",
     ],
-    breeds: "Belgian Malinois, Labrador Retriever, Springer Spaniel",
+    breeds: "Bloodhound, German Shepherd, Belgian Malinois",
   },
   {
     icon: Zap,
+    slug: "explosive-detection",
     title: "Explosive Detection",
     shortDesc: "Threat screening for high-risk venues",
     image: "/k9-detection/explosive.jpg",
     description:
-      "Our explosive detection K9 units support pre-event sweeps, perimeter checks, baggage screening, and route security for environments with elevated threat exposure. Teams are deployed with structured protocols and clear reporting.",
+      "Our Explosive Detection Dog Teams (EDDTs) are trained to identify all five MHA-classified classes of explosive substances — Aliphatic Nitro, Aromatic Nitro, Nitrate Ester, Nitramines, and Acid Salts — including home-made IEDs, TATP, HMTD, and military-grade ordnance. Certified under the MHA's K9 Proficiency Evaluation Test (K9 PET) protocol with a minimum 90% detection score, these teams support airport and cargo security, pre-event venue sweeps, baggage screening, vehicle checks, and route clearance.",
     features: [
-      "Venue, vehicle, and baggage screening",
-      "Vehicle, luggage & area sweeps",
-      "Pre-event and day-of-operations sweeps",
-      "Rapid deployment for urgent requirements",
-      "Coordination with site security teams",
+      "Detection of all 5 MHA-classified explosive classes",
+      "IED, TATP, HMTD, and home-made explosive detection",
+      "Venue, vehicle, baggage, and open-area sweeps",
+      "Pre-event and day-of-operations clearance",
+      "MHA K9 PET certified with >90% accuracy",
     ],
     breeds: "German Shepherd, Belgian Malinois, Golden Retriever",
   },
   {
+    icon: AlertTriangle,
+    slug: "narcotics-detection",
+    title: "Narcotics Detection",
+    shortDesc: "Targeted screening for controlled environments",
+    image: "/k9-detection/narco.jpg",
+    description:
+      "Our Narcotics Detection Dog Teams (NDDTs) are trained and certified to identify a wide range of controlled substances — including Marijuana, Cocaine, Heroin, Opiates, Methamphetamine, and MDMA — across airports, seaports, customs checkpoints, educational institutions, hospitality venues, and corporate facilities. Passive alert methodology ensures discreet, non-disruptive screening. All teams are certified as per the MHA AKLAN SOP with a minimum 90% detection rate, with annual recertification.",
+    features: [
+      "Mandatory substances: Marijuana and Cocaine",
+      "Additional: Heroin, Meth, MDMA, Opiates, and more",
+      "Passive alert methodology for discreet screening",
+      "Suitable for airports, ports, institutions, and events",
+      "MHA-certified teams with annual recertification",
+    ],
+    breeds: "Belgian Malinois, Labrador Retriever, Springer Spaniel",
+  },
+  {
     icon: Shield,
-    title: "Patrol & Perimeter Security",
-    shortDesc: "Visible deterrence and rapid response support",
+    slug: "patrol-dogs",
+    title: "Patrol Dogs",
+    shortDesc: "Visible deterrence, rapid response, and assault capability",
     image: "/k9-detection/patrol.jpg",
     description:
-      "Patrol K9 teams provide a strong deterrent and an immediate response layer for factories, warehouses, construction sites, residential compounds, and government facilities. Each deployment is led by a trained handler with defined patrol and escalation procedures.",
+      "PDCI's Patrol K9 teams provide a strong deterrent and an immediate response layer for factories, warehouses, residential compounds, government facilities, and PCR van operations. Trained using modern operant conditioning techniques — not outdated coercive methods — these dogs demonstrate superior initiative, controlled aggression, and reliable off-leash obedience. Advanced Assault K9 configurations are also available for anti-terror squads, NSG-style special interventions, and building clearance operations.",
     features: [
-      "24/7 deployment options",
-      "Handler-led patrol operations",
-      "Perimeter and access-point coverage",
-      "Controlled deterrence and response",
+      "24/7 deployment for perimeter and access-point coverage",
+      "Controlled deterrence and rapid incident response",
+      "Assault K9 configuration for special forces support",
+      "Handler-led patrol with defined escalation procedures",
       "Scalable for short- or long-term assignments",
     ],
     breeds: "German Shepherd, Doberman, Rottweiler, Belgian Malinois",
   },
   {
-    icon: Eye,
-    title: "Tracking & Trailing",
-    shortDesc: "Scent tracking for investigations and recovery",
-    image: "/k9-detection/tracking.jpg",
-    description:
-      "Tracking dogs are trained to follow scent trails across urban and rural environments to support investigations, recovery operations, and missing-person searches. They are commonly used by law enforcement and private security teams.",
-    features: [
-      "Follow trails across varied terrain",
-      "Useful for recent and older scent trails",
-      "Supports investigative and recovery work",
-      "Works with police and security teams",
-      "Helps establish operational direction",
-    ],
-    breeds: "Bloodhound, German Shepherd, Belgian Malinois",
-  },
-  {
     icon: Users,
-    title: "Event Security",
+    slug: "event-security",
+    title: "Event Security Dogs",
     shortDesc: "K9 support for venues and public gatherings",
     image: "/k9-detection/event.jpg",
     description:
-      "For concerts, rallies, sports events, religious gatherings, and public gatherings, PDCI provides structured K9 support focused on pre-event screening, perimeter control, and rapid incident response.",
+      "For concerts, rallies, sports events, religious gatherings, and VIP protection assignments, PDCI provides structured K9 security support focused on pre-event venue sweeps, entry-point explosive and narcotics screening, perimeter monitoring, and crowd management. Teams are deployed with defined response protocols and are experienced operating in large, high-footfall public environments while maintaining full discretion and handler control.",
     features: [
-      "Pre-event venue sweep",
-      "Entry-point screening support",
+      "Pre-event explosive and narcotics venue sweep",
+      "Entry-point and baggage screening support",
       "Crowd deterrence and perimeter monitoring",
-      "VIP and restricted-zone coverage",
-      "Post-event clearance checks",
+      "VIP and restricted-zone protection",
+      "Post-event clearance and incident response",
     ],
     breeds: "German Shepherd, Belgian Malinois, Labrador",
   },
   {
-    icon: Dog,
-    title: "K9 Training & Certification",
-    shortDesc: "Structured training for handlers and teams",
+    icon: ClipboardList,
+    slug: "behaviour-assessment",
+    title: "Behaviour Assessment & Selection of Dogs",
+    shortDesc: "Scientific selection of dogs for specialised duties",
+    image: "/k9-detection/tracking.jpg",
+    description:
+      "Selecting the right dog is the foundation of any high-performing K9 team. PDCI applies the advanced 'K9 Behavioural Assessment' (K9 BAT) model — developed by Col. (Dr.) P.K. Chug for the Ministry of Home Affairs — to scientifically evaluate and select pups and adult dogs for specific police and security roles. The assessment evaluates prey drive, nerve strength, temperament, trainability, and stress recovery to ensure only the most suitable dogs are matched to demanding operational roles.",
+    features: [
+      "MHA-aligned K9 BAT assessment model",
+      "Pup and adult dog evaluation for police duties",
+      "Drive, temperament, and stress resilience testing",
+      "Breed suitability matching for specialised roles",
+      "Supported by structured dog breeding programme guidance",
+    ],
+    breeds: "German Shepherd, Belgian Malinois, Labrador, Springer Spaniel, Bloodhound",
+  },
+  {
+    icon: Award,
+    slug: "proficiency-evaluation",
+    title: "Proficiency Evaluation & Certification",
+    shortDesc: "MHA-compliant K9 team assessment and accreditation",
     image: "/k9-detection/certifications.jpg",
     description:
-      "PDCI offers training programs for police units, private security providers, and individual handlers. Courses cover obedience, agility, detection, patrol handling, and recertification pathways.",
+      "PDCI conducts independent, third-party K9 Proficiency Evaluation Tests (K9 PET) for Explosive Detection Dog Teams (EDDTs) and Narcotics Detection Dog Teams (NDDTs) as mandated by the MHA's AKLAN SOP (Augmentation of K9s by Licensing as per Accreditation Norms). Certification requires a minimum 91.66% pass rate across four mandatory scenario-based searches — Building, Vehicle, Open Area, and Baggage. Annual certification with six-monthly internal audit support ensures continued operational credibility and judicial admissibility.",
     features: [
-      "Basic to advanced training pathways",
-      "Handler development and assessment",
-      "Detection and patrol specialization",
-      "Police and private-sector programs",
-      "Refresher and recertification support",
+      "MHA AKLAN SOP-compliant third-party evaluation",
+      "Explosive and narcotics detection dog certification",
+      "Minimum 91.66% pass rate for K9 PET accreditation",
+      "Mandatory scenarios: Building, Vehicle, Open Area, Baggage",
+      "Annual certification + six-monthly internal audit support",
     ],
-    breeds: "All working breeds accepted for training",
+    breeds: "All police service K9 breeds accepted for evaluation",
+  },
+  {
+    icon: Heart,
+    slug: "pet-dog-training",
+    title: "Pet Dog Training / Boarding & Behaviour Modification",
+    shortDesc: "Professional training and care for companion dogs",
+    image: "/k9-detection/patrol.jpg",
+    description:
+      "PDCI extends its police-standard training expertise to pet dog owners across India. Using the same science-based operant conditioning techniques applied to police K9s, our trainers help family dogs develop reliable obedience, social confidence, and good manners. Boarding services maintain the same high standards of professional care. For dogs exhibiting problem behaviours — aggression, anxiety, reactivity, excessive barking, or leash issues — our structured behaviour modification programmes address root causes for lasting results.",
+    features: [
+      "Basic and advanced obedience using reward-based methods",
+      "Behaviour modification for aggression, anxiety, and reactivity",
+      "Professional boarding at police K9 facility standards",
+      "Personalised programmes designed for each individual dog",
+      "Ongoing handler coaching and follow-up support",
+    ],
+    breeds: "All breeds welcomed for training and boarding",
   },
 ];
 
@@ -161,58 +204,8 @@ export default function K9ServicesPage() {
             K9 Security Services
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Professional K9 security solutions for detection, patrol, event
-            support, and specialist training.
+            Comprehensive K9 security solutions spanning tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training — all delivered to MHA-aligned standards.
           </p>
-        </div>
-      </section>
-
-      {/* Overview */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Wide-ranging K9 Security Solutions are provided through highly trained and certified K9 teams well-versed in explosive, firearms, and narcotics detection, personal protection, and guarding. These trained K9 Teams are available in multiple formats, all of which may be tailored to your schedule, facility, and budget.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Explosive Detection",
-                body: "Detection of explosive ordinance and firearms at Air Cargo, Sports Stadiums, Concert Venues, Convention Centers and Events, Transportation Facilities and Vehicles, Health Care Facilities, Critical Infrastructure including pre-Destination K-9 Detection Sweeps.",
-              },
-              {
-                title: "Tactical K9 Security",
-                body: "We can assist you with virtually every security need for your event, ranging from armed guards and canine units to other more unique services for your safety concerns.",
-              },
-              {
-                title: "K9 Tactical Checkpoint & Perimeter Patrol",
-                body: "K-9 Support & Deployment for Law Enforcement and high-security perimeter operations requiring rapid response and deterrence.",
-              },
-              {
-                title: "Narcotics Detection",
-                body: "Detection of narcotics substances — marijuana, cocaine, heroin, methamphetamines, and any other prohibited drugs — in support of Law Enforcement Organizations.",
-              },
-              {
-                title: "Customized K9 Security",
-                body: "Highly experienced teams of Police Dog Centre India are capable to offer you customized security solutions, tailor-made to suit your requirements and overcome security threats and challenges.",
-              },
-            ].map((item, i) => (
-              <div
-                key={item.title}
-                className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-gold-500/30 hover:shadow-md transition-all"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center shrink-0">
-                    <span className="text-gold-600 font-bold text-xs">{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                  <h3 className="text-navy-900 font-bold text-sm">{item.title}</h3>
-                </div>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.body}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -240,7 +233,8 @@ export default function K9ServicesPage() {
               return (
                 <div
                   key={service.title}
-                  className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                  id={service.slug}
+                  className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden scroll-mt-24"
                 >
                   <div
                     className={`grid grid-cols-1 ${service.image ? "lg:grid-cols-5" : "lg:grid-cols-1"}`}

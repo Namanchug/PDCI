@@ -7,6 +7,8 @@ const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/k9-security-services", label: "K9 Security Services" },
+    { href: "/k9-seminars-workshops", label: "K9 Seminars & Workshops" },
+    { href: "/accreditations", label: "Accreditations" },
     { href: "/contact", label: "Contact Us" },
 ];
 
@@ -34,7 +36,7 @@ export default function Header() {
                             className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-xl border border-[#d8c08a]/20 bg-[rgba(248,242,231,0.96)] p-1.5 md:h-24 md:w-24"
                         >
                             <img
-                                src="/logo.png"
+                                src="/logo.jpg"
                                 alt="Police Dog Centre India logo"
                                 className="h-full w-full object-contain"
                             />

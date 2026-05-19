@@ -26,11 +26,12 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/pdci-logo.png"
+                src="/pdci-logo.jpg"
                 alt="Police Dog Centre India logo"
                 width={48}
                 height={48}
                 className="shrink-0 object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
               <div className="leading-tight">
                 <div className="text-white font-bold text-sm tracking-wide">

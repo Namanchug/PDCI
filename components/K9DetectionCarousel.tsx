@@ -165,6 +165,7 @@ export default function K9DetectionCarousel() {
               <img
                 src={src}
                 alt=""
+                loading={isActive ? "eager" : "lazy"}
                 aria-hidden="true"
                 style={{
                   width: "100%",

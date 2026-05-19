@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   keywords:
     "K9 security India, police dog training, narcotics detection dog, explosive detection, security dogs India",
   icons: {
-    icon: "/pdci-logo.png",
-    apple: "/pdci-logo.png",
+    icon: "/pdci-logo.jpg",
+    apple: "/pdci-logo.jpg",
   },
 };
 
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" data-scroll-behavior="smooth">
       <body className={`${inter.className} min-h-full flex flex-col`}>
         <Header />
         <main className="flex-1">{children}</main>
