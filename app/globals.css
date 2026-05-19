@@ -1,37 +1,107 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-950: #07111f;
+  --color-navy-950: #060d15;
   --color-navy-900: #0d1b2a;
-  --color-navy-800: #13263d;
-  --color-navy-700: #1c3858;
-  --color-navy-600: #2c4d74;
-  --color-gold-300: #f6dfab;
-  --color-gold-400: #e8c97a;
-  --color-gold-500: #c9a45a;
-  --color-gold-600: #9f7b35;
+  --color-navy-800: #1a2e45;
+  --color-navy-700: #243d5c;
+  --color-navy-600: #2e5075;
+  --color-gold-300: #f0d080;
+  --color-gold-400: #e8c56f;
+  --color-gold-500: #c9a84c;
+  --color-gold-600: #a8882f;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
 :root {
-  --background: #f6f1e8;
-  --foreground: #132033;
+  --background: #f6f2e9;
+  --foreground: #0d1b2a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(201, 168, 76, 0.28);
+  color: #060d15;
 }
 
 body {
   background:
-    radial-gradient(circle at top, rgba(201, 164, 90, 0.1), transparent 24%),
-    radial-gradient(
-      circle at bottom right,
-      rgba(15, 23, 42, 0.08),
-      transparent 28%
-    ),
-    linear-gradient(180deg, #fbf7f0 0%, #f1eadf 100%);
+    radial-gradient(circle at top, rgba(201, 168, 76, 0.12), transparent 32%),
+    linear-gradient(180deg, #f8f4ec 0%, #f4efe6 35%, #eef2f6 100%);
   color: var(--foreground);
   font-family: "Inter", system-ui, sans-serif;
-  zoom: 0.85;
+  min-height: 100vh;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(13, 27, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 27, 42, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 92%);
+  opacity: 0.45;
+  z-index: -1;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer-slow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-shimmer-slow {
+  background-size: 200% 200%;
+  animation: shimmer-slow 18s linear infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
 }

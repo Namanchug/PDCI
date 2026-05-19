@@ -1,411 +1,153 @@
-import { Metadata } from "next";
 import Link from "next/link";
-import {
-  Shield,
-  AlertTriangle,
-  Eye,
-  Users,
-  Zap,
-  Dog,
-  CheckCircle,
-  ArrowRight,
-  Phone,
-  ClipboardList,
-  Heart,
-  Award,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, Shield, Sparkles, Target } from "lucide-react";
+import { getLocale, withLocale } from "@/lib/i18n";
+import { services } from "@/lib/site-content";
 
-export const metadata: Metadata = {
-  title: "K9 Security Services | Police Dog Centre India",
-  description:
-    "Professional K9 security services covering tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training.",
-};
-
-const services = [
-  {
-    icon: Eye,
-    slug: "tracking-trailing",
-    title: "Tracking & Trailing Dogs",
-    shortDesc: "Crime scene investigation and suspect tracking",
-    image: "/k9-detection/tracking.jpg",
-    description:
-      "Tracker-Trailing Dogs (TR) are deployed for crime scene investigation and suspect tracking, following scent trails across urban, rural, and forested environments. Leveraging their extraordinary olfactory capability, these dogs support law enforcement agencies in locating suspects, missing persons, and evidence — often after significant time has elapsed. Trained in accordance with MHA standards, PDCI's tracking teams are a reliable force multiplier for investigative and recovery operations.",
-    features: [
-      "Crime scene investigation and scent work",
-      "Suspect tracking across urban and rural terrain",
-      "Missing person and evidence recovery",
-      "Works alongside police and security teams",
-      "Operates on recent as well as older scent trails",
-    ],
-    breeds: "Bloodhound, German Shepherd, Belgian Malinois",
+const copy = {
+  en: {
+    eyebrow: "Detailed K9 services",
+    title: "Every service is structured, certified, and deployable.",
+    body:
+      "This page gives a deeper look at how each PDCI service works in practice, what it includes, and where it fits best.",
+    process: "Deployment process",
+    useCases: "Best-fit scenarios",
   },
-  {
-    icon: Zap,
-    slug: "explosive-detection",
-    title: "Explosive Detection",
-    shortDesc: "Threat screening for high-risk venues",
-    image: "/k9-detection/explosive.jpg",
-    description:
-      "Our Explosive Detection Dog Teams (EDDTs) are trained to identify all five MHA-classified classes of explosive substances — Aliphatic Nitro, Aromatic Nitro, Nitrate Ester, Nitramines, and Acid Salts — including home-made IEDs, TATP, HMTD, and military-grade ordnance. Certified under the MHA's K9 Proficiency Evaluation Test (K9 PET) protocol with a minimum 90% detection score, these teams support airport and cargo security, pre-event venue sweeps, baggage screening, vehicle checks, and route clearance.",
-    features: [
-      "Detection of all 5 MHA-classified explosive classes",
-      "IED, TATP, HMTD, and home-made explosive detection",
-      "Venue, vehicle, baggage, and open-area sweeps",
-      "Pre-event and day-of-operations clearance",
-      "MHA K9 PET certified with >90% accuracy",
-    ],
-    breeds: "German Shepherd, Belgian Malinois, Golden Retriever",
-  },
-  {
-    icon: AlertTriangle,
-    slug: "narcotics-detection",
-    title: "Narcotics Detection",
-    shortDesc: "Targeted screening for controlled environments",
-    image: "/k9-detection/narco.jpg",
-    description:
-      "Our Narcotics Detection Dog Teams (NDDTs) are trained and certified to identify a wide range of controlled substances — including Marijuana, Cocaine, Heroin, Opiates, Methamphetamine, and MDMA — across airports, seaports, customs checkpoints, educational institutions, hospitality venues, and corporate facilities. Passive alert methodology ensures discreet, non-disruptive screening. All teams are certified as per the MHA AKLAN SOP with a minimum 90% detection rate, with annual recertification.",
-    features: [
-      "Mandatory substances: Marijuana and Cocaine",
-      "Additional: Heroin, Meth, MDMA, Opiates, and more",
-      "Passive alert methodology for discreet screening",
-      "Suitable for airports, ports, institutions, and events",
-      "MHA-certified teams with annual recertification",
-    ],
-    breeds: "Belgian Malinois, Labrador Retriever, Springer Spaniel",
-  },
-  {
-    icon: Shield,
-    slug: "patrol-dogs",
-    title: "Patrol Dogs",
-    shortDesc: "Visible deterrence, rapid response, and assault capability",
-    image: "/k9-detection/patrol.jpg",
-    description:
-      "PDCI's Patrol K9 teams provide a strong deterrent and an immediate response layer for factories, warehouses, residential compounds, government facilities, and PCR van operations. Trained using modern operant conditioning techniques — not outdated coercive methods — these dogs demonstrate superior initiative, controlled aggression, and reliable off-leash obedience. Advanced Assault K9 configurations are also available for anti-terror squads, NSG-style special interventions, and building clearance operations.",
-    features: [
-      "24/7 deployment for perimeter and access-point coverage",
-      "Controlled deterrence and rapid incident response",
-      "Assault K9 configuration for special forces support",
-      "Handler-led patrol with defined escalation procedures",
-      "Scalable for short- or long-term assignments",
-    ],
-    breeds: "German Shepherd, Doberman, Rottweiler, Belgian Malinois",
-  },
-  {
-    icon: Users,
-    slug: "event-security",
-    title: "Event Security Dogs",
-    shortDesc: "K9 support for venues and public gatherings",
-    image: "/k9-detection/event.jpg",
-    description:
-      "For concerts, rallies, sports events, religious gatherings, and VIP protection assignments, PDCI provides structured K9 security support focused on pre-event venue sweeps, entry-point explosive and narcotics screening, perimeter monitoring, and crowd management. Teams are deployed with defined response protocols and are experienced operating in large, high-footfall public environments while maintaining full discretion and handler control.",
-    features: [
-      "Pre-event explosive and narcotics venue sweep",
-      "Entry-point and baggage screening support",
-      "Crowd deterrence and perimeter monitoring",
-      "VIP and restricted-zone protection",
-      "Post-event clearance and incident response",
-    ],
-    breeds: "German Shepherd, Belgian Malinois, Labrador",
-  },
-  {
-    icon: ClipboardList,
-    slug: "behaviour-assessment",
-    title: "Behaviour Assessment & Selection of Dogs",
-    shortDesc: "Scientific selection of dogs for specialised duties",
-    image: "/k9-detection/tracking.jpg",
-    description:
-      "Selecting the right dog is the foundation of any high-performing K9 team. PDCI applies the advanced 'K9 Behavioural Assessment' (K9 BAT) model — developed by Col. (Dr.) P.K. Chug for the Ministry of Home Affairs — to scientifically evaluate and select pups and adult dogs for specific police and security roles. The assessment evaluates prey drive, nerve strength, temperament, trainability, and stress recovery to ensure only the most suitable dogs are matched to demanding operational roles.",
-    features: [
-      "MHA-aligned K9 BAT assessment model",
-      "Pup and adult dog evaluation for police duties",
-      "Drive, temperament, and stress resilience testing",
-      "Breed suitability matching for specialised roles",
-      "Supported by structured dog breeding programme guidance",
-    ],
-    breeds: "German Shepherd, Belgian Malinois, Labrador, Springer Spaniel, Bloodhound",
-  },
-  {
-    icon: Award,
-    slug: "proficiency-evaluation",
-    title: "Proficiency Evaluation & Certification",
-    shortDesc: "MHA-compliant K9 team assessment and accreditation",
-    image: "/k9-detection/certifications.jpg",
-    description:
-      "PDCI conducts independent, third-party K9 Proficiency Evaluation Tests (K9 PET) for Explosive Detection Dog Teams (EDDTs) and Narcotics Detection Dog Teams (NDDTs) as mandated by the MHA's AKLAN SOP (Augmentation of K9s by Licensing as per Accreditation Norms). Certification requires a minimum 91.66% pass rate across four mandatory scenario-based searches — Building, Vehicle, Open Area, and Baggage. Annual certification with six-monthly internal audit support ensures continued operational credibility and judicial admissibility.",
-    features: [
-      "MHA AKLAN SOP-compliant third-party evaluation",
-      "Explosive and narcotics detection dog certification",
-      "Minimum 91.66% pass rate for K9 PET accreditation",
-      "Mandatory scenarios: Building, Vehicle, Open Area, Baggage",
-      "Annual certification + six-monthly internal audit support",
-    ],
-    breeds: "All police service K9 breeds accepted for evaluation",
-  },
-  {
-    icon: Heart,
-    slug: "pet-dog-training",
-    title: "Pet Dog Training / Boarding & Behaviour Modification",
-    shortDesc: "Professional training and care for companion dogs",
-    image: "/k9-detection/patrol.jpg",
-    description:
-      "PDCI extends its police-standard training expertise to pet dog owners across India. Using the same science-based operant conditioning techniques applied to police K9s, our trainers help family dogs develop reliable obedience, social confidence, and good manners. Boarding services maintain the same high standards of professional care. For dogs exhibiting problem behaviours — aggression, anxiety, reactivity, excessive barking, or leash issues — our structured behaviour modification programmes address root causes for lasting results.",
-    features: [
-      "Basic and advanced obedience using reward-based methods",
-      "Behaviour modification for aggression, anxiety, and reactivity",
-      "Professional boarding at police K9 facility standards",
-      "Personalised programmes designed for each individual dog",
-      "Ongoing handler coaching and follow-up support",
-    ],
-    breeds: "All breeds welcomed for training and boarding",
-  },
-];
+} as const;
 
 const process = [
   {
     step: "01",
-    title: "Site Assessment",
-    description:
-      "We evaluate operational risks, access points, and deployment requirements before recommending a K9 solution.",
+    title: "Assess",
+    description: "We review your risks, timing, and terrain before deployment.",
   },
   {
     step: "02",
-    title: "Deployment Planning",
-    description:
-      "We align dog selection, handler requirements, and scheduling with your environment and risk profile.",
+    title: "Design",
+    description: "We match the right dog, handler, and protocol to your use case.",
   },
   {
     step: "03",
-    title: "Operational Deployment",
-    description:
-      "Certified K9 teams arrive with documentation, protocols, and handler credentials ready for service.",
+    title: "Deploy",
+    description: "The team arrives ready with documentation and operational direction.",
   },
   {
     step: "04",
-    title: "Review & Support",
-    description:
-      "We remain available for adjustments, follow-up visits, and escalations as requirements evolve.",
+    title: "Review",
+    description: "We monitor results and adjust the plan as conditions change.",
   },
 ];
 
-export default function K9ServicesPage() {
+export default async function K9ServicesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const locale = "en";
+  const t = copy[locale];
+  const nav = (href: string) => href;
+
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-navy-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-gold-400 transition-colors">
-              Home
+      <section className="bg-navy-950 px-4 py-20 text-white sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">{t.eyebrow}</p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">{t.title}</h1>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">{t.body}</p>
+          <div className="mt-8 flex flex-wrap gap-3 text-sm">
+            <Link href={nav("/contact")} className="rounded-full bg-gold-500 px-5 py-3 font-bold text-navy-950 transition-transform hover:scale-[1.02]">
+              {locale === "hi" ? "इनक्वायरी भेजें" : "Send enquiry"}
             </Link>
-            <span>/</span>
-            <span className="text-gold-400">K9 Security Services</span>
+            <Link href={nav("/store")} className="rounded-full border border-white/15 bg-white/5 px-5 py-3 font-bold text-white backdrop-blur transition-colors hover:bg-white/10">
+              {locale === "hi" ? "स्टोर देखें" : "Explore store"}
+            </Link>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-            K9 Security Services
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            Comprehensive K9 security solutions spanning tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training — all delivered to MHA-aligned standards.
-          </p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
-              Our Expertise
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Professional K9 Security Capabilities
-            </h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-              Each service is delivered by trained handlers and operationally
-              ready dogs with a focus on discipline, discretion, and reliable
-              performance.
-            </p>
-          </div>
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-6">
+            {services.map((service, index) => (
+              <article key={service.title[locale]} className="overflow-hidden rounded-[32px] border border-white/70 bg-white/85 shadow-[0_20px_60px_rgba(13,27,42,0.08)]">
+                <div className="grid gap-0 lg:grid-cols-[0.36fr_0.64fr]">
+                  <div className="bg-navy-950 p-8 text-white">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/15 text-3xl">
+                      {service.icon}
+                    </div>
+                    <h2 className="mt-6 text-2xl font-black">{service.title[locale]}</h2>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{service.description[locale]}</p>
+                  </div>
 
-          <div className="space-y-8">
-            {services.map((service, i) => {
-              const Icon = service.icon;
-              const isEven = i % 2 === 0;
-              return (
-                <div
-                  key={service.title}
-                  id={service.slug}
-                  className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden scroll-mt-24"
-                >
-                  <div
-                    className={`grid grid-cols-1 ${service.image ? "lg:grid-cols-5" : "lg:grid-cols-1"}`}
-                  >
-                    {/* Image panel — only rendered when an image exists */}
-                    {service.image && (
-                      <div
-                        className={`lg:col-span-2 min-h-[260px] ${!isEven ? "lg:order-last" : ""}`}
-                        style={{
-                          backgroundImage: `url(${service.image})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }}
-                      />
-                    )}
-
-                    {/* Content */}
-                    <div className={`${service.image ? "lg:col-span-3" : ""} p-8`}>
-                      {/* Title row */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-navy-900 rounded-lg p-2 shrink-0">
-                          <Icon className="w-5 h-5 text-gold-400" />
-                        </div>
-                        <div>
-                          <h3 className="text-navy-900 font-bold text-base">
-                            {service.title}
-                          </h3>
-                          <p className="text-gray-400 text-xs">{service.shortDesc}</p>
-                        </div>
-                      </div>
-
-                      <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                        {service.description}
-                      </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                          <h4 className="text-navy-900 font-bold text-xs uppercase tracking-wider mb-3">
-                            Key Capabilities
-                          </h4>
-                          <ul className="space-y-2">
-                            {service.features.map((f) => (
-                              <li
-                                key={f}
-                                className="flex items-start gap-2 text-sm text-gray-600"
-                              >
-                                <CheckCircle className="w-4 h-4 text-gold-500 mt-0.5 shrink-0" />
-                                {f}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="text-navy-900 font-bold text-xs uppercase tracking-wider mb-3">
-                            Breeds Used
-                          </h4>
-                          <p className="text-sm text-gray-500">
-                            {service.breeds}
-                          </p>
-                          <div className="mt-6">
-                            <Link
-                              href="/contact"
-                              className="inline-flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold px-5 py-2.5 rounded transition-colors"
-                            >
-                              Enquire About This Service
-                              <ArrowRight className="w-3.5 h-3.5" />
-                            </Link>
+                  <div className="space-y-6 p-8">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">{t.useCases}</p>
+                      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                        {[
+                          locale === "hi" ? "कॉर्पोरेट परिसर" : "Corporate campuses",
+                          locale === "hi" ? "उच्च-जोखिम इवेंट" : "High-risk events",
+                          locale === "hi" ? "इन्फ्रास्ट्रक्चर साइट्स" : "Infrastructure sites",
+                          locale === "hi" ? "इमरजेंसी रिस्पॉन्स" : "Emergency response",
+                        ].map((item) => (
+                          <div key={item} className="rounded-2xl border border-slate-100 bg-white p-4 text-sm text-slate-600">
+                            <Target className="mb-2 h-4 w-4 text-gold-500" />
+                            {item}
                           </div>
-                        </div>
+                        ))}
                       </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm font-bold uppercase tracking-[0.24em] text-navy-900">{locale === "hi" ? "मुख्य क्षमताएँ" : "Key capabilities"}</h3>
+                      <ul className="mt-4 grid gap-3 md:grid-cols-2">
+                        {service.features.map((feature) => (
+                          <li key={feature[locale]} className="flex items-start gap-2 text-sm text-slate-600">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
+                            {feature[locale]}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-2xl bg-slate-50 p-5">
+                      <h3 className="text-sm font-bold uppercase tracking-[0.24em] text-navy-900">{locale === "hi" ? "उपयुक्त नस्लें" : "Recommended breeds"}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">{service.breeds[locale]}</p>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process */}
-      <section className="bg-navy-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-gold-400 font-semibold text-sm tracking-widest uppercase">
-              How We Work
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
-              Our Deployment Process
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {process.map((p) => (
-              <div key={p.step} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-gold-500 flex items-center justify-center mx-auto mb-5">
-                  <span className="text-navy-900 font-extrabold text-lg">
-                    {p.step}
-                  </span>
-                </div>
-                <h3 className="text-white font-bold text-base mb-3">
-                  {p.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {p.description}
-                </p>
-              </div>
+                {index < services.length - 1 ? <div className="h-px bg-slate-100" /> : null}
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Dog Breeds We Work With */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
-              Our K9 Partners
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Breeds We Train & Deploy
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-            {[
-              { initials: "GS", name: "German Shepherd", role: "Patrol and Detection" },
-              { initials: "BM", name: "Belgian Malinois", role: "Multi-Purpose" },
-              { initials: "LR", name: "Labrador Retriever", role: "Narcotics Detection" },
-              { initials: "BH", name: "Bloodhound", role: "Tracking and Trailing" },
-              { initials: "DB", name: "Doberman", role: "Guard and Patrol" },
-              { initials: "GR", name: "Golden Retriever", role: "Explosive Detection" },
-            ].map((breed) => (
-              <div
-                key={breed.name}
-                className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-gold-500/30 transition-all"
-              >
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gold-500/10 text-navy-900 text-sm font-bold">
-                  {breed.initials}
-                </div>
-                <div className="text-navy-900 font-bold text-xs mb-1">
-                  {breed.name}
-                </div>
-                <div className="text-gray-400 text-xs">{breed.role}</div>
-              </div>
+      <section className="px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[32px] bg-navy-950 p-8 text-white shadow-[0_24px_70px_rgba(6,13,21,0.25)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">{t.process}</p>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {process.map((step) => (
+              <article key={step.step} className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                <div className="text-3xl font-black text-gold-300">{step.step}</div>
+                <h3 className="mt-3 text-lg font-bold">{step.title[locale]}</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-300">{step.description[locale]}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-gold-500 py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 mb-4">
-            Need a K9 Security Solution?
-          </h2>
-          <p className="text-navy-800/80 text-lg mb-8">
-            Our team can design a K9 deployment plan tailored to your site,
-            schedule, and risk profile.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-navy-900 hover:bg-navy-800 text-white font-bold px-8 py-4 rounded transition-colors shadow-lg"
-            >
-              Request a Consultation
-              <ArrowRight className="w-5 h-5" />
+      <section className="px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[32px] border border-white/70 bg-white/85 p-8 shadow-[0_24px_70px_rgba(13,27,42,0.08)]">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">{locale === "hi" ? "अगला कदम" : "Next step"}</p>
+              <h2 className="mt-2 text-3xl font-black text-navy-900">{locale === "hi" ? "अपनी तैनाती योजना शुरू करें" : "Start your deployment plan"}</h2>
+            </div>
+            <Link href={nav("/booking")} className="inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-transform hover:scale-[1.02] hover:bg-gold-400">
+              {locale === "hi" ? "बुकिंग खोलें" : "Open booking"}
+              <ArrowRight className="h-4 w-4" />
             </Link>
-            <a
-              href="tel:+911234567890"
-              className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-navy-900 font-bold px-8 py-4 rounded transition-colors border-2 border-navy-900/20"
-            >
-              <Phone className="w-5 h-5" />
-              Call: +91 12345 67890
-            </a>
           </div>
         </div>
       </section>
