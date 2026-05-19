@@ -1,50 +1,40 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Shield, Target, Eye, Award, CheckCircle, ArrowRight, Users } from "lucide-react";
+import { Shield, Target, Eye, Award, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us | Police Dog Centre India",
   description:
-    "Learn about Police Dog Centre India – our history, mission, vision, and commitment to delivering elite K9 security solutions since 2005.",
+    "Learn about Police Dog Centre India – our mission, leadership, and commitment to modernizing K9 training in India through operant conditioning.",
 };
 
-const milestones = [
-  {
-    year: "2005",
-    title: "Founded",
-    description:
-      "Established in New Delhi by retired police and military officers with a vision to professionalize K9 security in India.",
-  },
-  {
-    year: "2008",
-    title: "First Government Contract",
-    description:
-      "Secured our first major government contract, deploying K9 teams for airport security.",
-  },
-  {
-    year: "2012",
-    title: "National Expansion",
-    description:
-      "Expanded operations to 10 states with dedicated regional training centers in Mumbai and Bangalore.",
-  },
-  {
-    year: "2016",
-    title: "International Certification",
-    description:
-      "Achieved international K9 certification, aligning our training standards with global best practices.",
-  },
-  {
-    year: "2019",
-    title: "500 K9 Units Milestone",
-    description:
-      "Reached a landmark of 500 trained and deployed K9 units across India.",
-  },
-  {
-    year: "2023",
-    title: "18 States & Growing",
-    description:
-      "Currently operational across 18 states with over 300 clients from government, corporate, and event sectors.",
-  },
+const achievements = [
+  "India's Top Military and Police K9 Trainer having Prepared and Deployed Hundreds of Dogs for Counter-Terror Operations.",
+  "An Army Veteran with Over 25 Years of Operational Experience in Army/RVC with Unique Distinction of Commanding 'Specialized Dog Units' for exceptional six terms; including once with Indian Special Forces and Twice with Elite NSG Black Cats.",
+  "Pioneering Work in Developing Indian Army's Military Working Dog (MWD) Training, Assessment and Employment Doctrines.",
+  "Known for Introducing Multiple Innovative & Inexpensive Dog Training Aids, Effective Military Doctrines and Tactically Sound, Customised Solutions to Augment the Performance of Military and Police Service K9s (PSKs) including Revolutionary 'Heliborne Slithering with Army Dogs'.",
+  "Introduced the 'Quadrants of Operant Conditioning' to Transform Police K9 Training in India based on Contemporary Dog Training Techniques.",
+  "Conducted Large Number of 'Police K9 Workshops' with Various Central Armed Police Forces for \"Bridging Gaps in Augmentation of K9 Performance\" for Over 1000 Police K9 Handlers, Trainers and Supervisors.",
+  "Conducted Multiple 'Training of Trainer' (ToT) Courses for Indian Police and Law Enforcement Organizations.",
+  "Introduced the Concept of 'Assault K9' in Intervention Operations in NSG and for the First Time in the World, Trained & Demonstrated the path-breaking 'K9 Vision System' (KVS) — Training Assault Dogs on Wireless Command System using Remote Radio Controlled Device while the Dog is Off-leash.",
+  "Pioneered the revolutionary 'Canine Remote Delivery System' (CRDS), 'Laser Guided Detection' & 'Patrol K9s' and Successfully Integrated 'Dogs with Drones' for Tactical Advantages during Highly Sensitive Special Missions.",
+  "Founding and Former Head of the 'Police K9 Cell' with Police Modernization Division/Ministry of Home Affairs, Government of India for 03 Years.",
+  "Drafted the 'Roadmap & Action Plan' of the MHA/Government of India to bring in Transformational Changes in the Training and Deployment of Police Service K9s (PSKs) among various CAPFs, State Police and Other Law Enforcement Organizations.",
+  "Started Conducting 'MHA's National Police K9 Seminar' annually in India.",
+  "Publication of MHA's 'National Police K9 Journal' as its Founding Editor twice every year.",
+  "An International Speaker and Master K9 Trainer, Authored a Large Number of Professional and Technical Articles for Leading Publications on Technical Subjects.",
+  "Sole 'Change Agent' in the Country Leading to Draft Various Technical Standards/SOPs for Police K9s — including Police Dog Breeding Guidelines, 'K9 Behavioural Assessment' (K9 BAT), 'K9 Proficiency Evaluation Test' (K9 PET), and the Ground-breaking 'National Register for Working Dogs' (NRWD).",
+];
+
+const honours = [
+  "'Chief of Army Staff Commendation' (COAS CC**) — on three occasions",
+  "Army Commander's (EC) Commendation",
+  "United Nation's Force Commander Commendation",
+  "Citation by US Department of Defense (DoD) for USNS (Mercy) Mission",
+  "'Best Administrator's Award' for the year 2020 by Pearl Foundation",
+  "Fellow of National Academy of Veterinary Sciences (NAVS) India — 2021",
+  "Fellow of Indian Association for Advancement of Veterinary Research (IAAVR) — 2022",
 ];
 
 const values = [
@@ -61,57 +51,17 @@ const values = [
       "We set the benchmark in K9 training and deployment, constantly raising the bar for quality and performance.",
   },
   {
-    icon: Users,
-    title: "Partnership",
-    description:
-      "We build long-term relationships with our clients, understanding their unique security needs.",
-  },
-  {
     icon: Target,
     title: "Precision",
     description:
       "Every mission is executed with military-grade precision, leaving nothing to chance.",
   },
-];
-
-const team = [
   {
-    name: "DIG (Retd.) Ramesh Chauhan",
-    role: "Founder & Chairman",
-    experience: "35+ years in Indian Police Service",
+    icon: Eye,
+    title: "Innovation",
     description:
-      "Former Deputy Inspector General with specialization in K9 operations and security management.",
+      "We continuously pioneer new methods — from operant conditioning protocols to integrating dogs with drones.",
   },
-  {
-    name: "Col. (Retd.) Suresh Mehta",
-    role: "Director of Operations",
-    experience: "28 years in Indian Army",
-    description:
-      "Decorated military officer, ex-Army Dog Unit commander with expertise in tactical K9 deployments.",
-  },
-  {
-    name: "Dr. Anita Bose",
-    role: "Chief Veterinary Officer",
-    experience: "20+ years in veterinary science",
-    description:
-      "Specialist in working dog health, nutrition, and performance optimization for service animals.",
-  },
-  {
-    name: "Inspector (Retd.) Vijay Singh",
-    role: "Head of Training",
-    experience: "22 years K9 training",
-    description:
-      "Master dog trainer with expertise in narcotics detection, explosive detection, and patrol dog training.",
-  },
-];
-
-const certifications = [
-  "Bureau of Police Research and Development (BPR&D) Certified",
-  "National Security Guard (NSG) Approved Vendor",
-  "CISF (Central Industrial Security Force) Empanelled",
-  "ISO 9001:2015 Quality Management Certified",
-  "International Police Association (IPA) Member",
-  "Indian Army Veterinary Corps – Approved Training Partner",
 ];
 
 export default function AboutPage() {
@@ -131,8 +81,9 @@ export default function AboutPage() {
             About PDCI
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Two decades of safeguarding India with elite K9 security —
-            professional, certified, and trusted.
+            Modernizing K9 training across India — replacing coercive methods
+            with science-based operant conditioning for police, law enforcement,
+            and pet parents.
           </p>
         </div>
       </section>
@@ -146,74 +97,58 @@ export default function AboutPage() {
                 Who We Are
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2 mb-6">
-                India&apos;s Trusted K9 Security Partner
+                Police Dog Centre India
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Police Dog Centre India (PDCI) was founded in 2005 by a team
-                  of retired Indian Police Service and Army officers who
-                  recognized the immense potential of K9 units in modern
-                  security operations. What started as a small training facility
-                  in New Delhi has grown into India&apos;s most respected K9
-                  security organization.
+                  At Police Dog Centre INDIA, we help in providing specialized
+                  training and consultancy services to a large number of police
+                  and law enforcement organizations. We would like to continue
+                  sharing our vast experience and in-depth knowledge with Police
+                  K9 Practitioners to ensure sustainable modernization in this
+                  niche field among diverse security organizations in India.
                 </p>
                 <p>
-                  Over the past two decades, we have trained and deployed more
-                  than 500 K9 units across India, serving government agencies,
-                  airports, seaports, corporate campuses, and large-scale public
-                  events. Our dogs are trained in narcotics detection, explosive
-                  detection, patrol, tracking, and search &amp; rescue — making
-                  us a one-stop solution for all K9 security needs.
+                  Our mission is to replace the old-school coercive dog training
+                  with quadrants of modern operant conditioning protocols and
+                  develop dog training based on scientific knowledge, and
+                  practical experience by collecting &amp; recording data to
+                  teach dog training better.
                 </p>
                 <p>
-                  PDCI&apos;s commitment to excellence is reflected in our
-                  rigorous training protocols, our team of expert handlers, and
-                  our unwavering dedication to keeping India safe. Every K9 unit
-                  we deploy is a testament to our belief that security is not
-                  just a service — it&apos;s a responsibility.
+                  Additionally, we aim for pet parents in India to make the most
+                  of their friendship with their furry friends. We know that each
+                  animal is different, and we work with you and your pet to
+                  provide tailor-made guidance that creates long-lasting change.
+                  Whether you have a new pet or already own a pet with behavioral
+                  challenges, we are here to support you.
                 </p>
-              </div>
-
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {[
-                  ["500+", "Trained K9 Units"],
-                  ["300+", "Clients Served"],
-                  ["18+", "States Operational"],
-                  ["20+", "Years of Excellence"],
-                ].map(([val, label]) => (
-                  <div
-                    key={label}
-                    className="bg-gray-50 rounded-xl p-5 border border-gray-100"
-                  >
-                    <div className="text-3xl font-extrabold text-navy-900 mb-1">
-                      {val}
-                    </div>
-                    <div className="text-gray-500 text-sm">{label}</div>
-                  </div>
-                ))}
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-navy-900 rounded-2xl p-10 h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-8xl mb-6">🐕‍🦺</div>
-                  <div className="text-white text-2xl font-bold">
-                    Elite K9 Forces
-                  </div>
-                  <div className="text-gold-400 mt-2">
-                    Trained to Protect. Built to Serve.
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-gold-500 rounded-xl p-5 shadow-lg">
-                <div className="text-navy-900 font-extrabold text-2xl">20+</div>
-                <div className="text-navy-800 text-xs font-medium">
-                  Years of Service
-                </div>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-lg h-[480px]">
+              <Image
+                src="/about-who-we-are.jpg"
+                alt="PDCI handler training a Belgian Malinois on the field"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Motto Banner */}
+      <section className="bg-gold-500 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-navy-900 font-bold text-lg sm:text-xl tracking-wide">
+            Our Motto for preparing 4D K9s &mdash;{" "}
+            <span className="text-navy-900">
+              Deter &bull; Detect &bull; Defend &bull; Dominate
+            </span>
+          </p>
         </div>
       </section>
 
@@ -229,16 +164,17 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold">Our Mission</h3>
               </div>
               <p className="text-gray-300 leading-relaxed text-base">
-                To provide India with the highest standard of K9 security
-                services through expertly trained dogs and professional
-                handlers, making communities, organizations, and critical
-                infrastructure safer — one K9 team at a time.
+                To replace the old-school coercive dog training with quadrants
+                of modern operant conditioning protocols and develop dog training
+                based on scientific knowledge and practical experience — by
+                collecting &amp; recording data to teach dog training better
+                among diverse security organizations in India.
               </p>
               <div className="mt-8 space-y-3">
                 {[
-                  "Deliver certified, world-class K9 security",
-                  "Innovate training methods continuously",
-                  "Build long-term security partnerships",
+                  "Deliver science-based, world-class K9 training",
+                  "Innovate and pioneer new K9 techniques continuously",
+                  "Build long-term partnerships with law enforcement",
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-3">
                     <CheckCircle className="w-4 h-4 text-gold-400 mt-0.5 shrink-0" />
@@ -256,16 +192,16 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold">Our Vision</h3>
               </div>
               <p className="text-navy-800 leading-relaxed text-base">
-                To be recognized as Asia&apos;s leading K9 security
-                organization, setting the gold standard for canine training,
-                deployment, and security excellence — while making India the
-                global benchmark for K9 security professionalism.
+                To ensure sustainable modernization of K9 training across India,
+                sharing vast experience and in-depth knowledge with Police K9
+                Practitioners — making India the global benchmark for
+                science-driven K9 security professionalism.
               </p>
               <div className="mt-8 space-y-3">
                 {[
-                  "Expand to every major Indian city",
-                  "Establish Asia-leading training standards",
-                  "Train & certify K9 professionals nationwide",
+                  "Mainstream Police Service K9 teams nationwide",
+                  "Establish operant conditioning as the national standard",
+                  "Train &amp; certify K9 professionals across all forces",
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-3">
                     <CheckCircle className="w-4 h-4 text-navy-900 mt-0.5 shrink-0" />
@@ -273,52 +209,6 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Journey */}
-      <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
-              Our Story
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Two Decades of Growth
-            </h2>
-          </div>
-
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200 hidden sm:block" />
-            <div className="space-y-10">
-              {milestones.map((m, i) => (
-                <div key={m.year} className="flex gap-8 items-start">
-                  <div className="relative shrink-0 hidden sm:flex">
-                    <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center text-xs font-extrabold z-10 ${
-                        i % 2 === 0
-                          ? "bg-navy-900 text-gold-400"
-                          : "bg-gold-500 text-navy-900"
-                      }`}
-                    >
-                      {m.year}
-                    </div>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-6 flex-1 border border-gray-100">
-                    <div className="sm:hidden text-gold-500 font-bold text-sm mb-1">
-                      {m.year}
-                    </div>
-                    <h3 className="text-navy-900 font-bold text-lg mb-2">
-                      {m.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      {m.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -359,7 +249,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Team */}
+      {/* Leadership — Col PK Chug */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -367,86 +257,139 @@ export default function AboutPage() {
               Leadership
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Meet Our Team
+              Chief Trainer and Managing Director (CMD)
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+            {/* Photo & credentials card */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+              <div className="relative h-80 w-full">
+                <Image
+                  src="/picture2.jpg"
+                  alt="Col PK Chug (Retd) – MD & Chief Trainer, Police Dog Centre India"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-navy-900 font-bold text-lg mb-1">
+                  Col (Dr) P K Chug (Retd)
+                </h3>
+                <div className="text-gold-500 font-semibold text-sm mb-3">
+                  Chief Trainer and Managing Director (CMD)
+                  Police Dog Centre INDIA
+                </div>
+                <div className="space-y-1 text-blue-500 text-xs leading-relaxed1">
+                  <p>Advisory Board Member &nbsp;&&nbsp; Assessor, International Commission on Detector Dogs (ICODD), USA</p>
+                </div>
+                <div className="space-y-1 text-gray-500 text-xs leading-relaxed1">
+                  <br />
+                  <p>Former and Founding Head of Police K9 Cell</p>
+                  <p>Ministry of Home Affairs, Government of India</p>
+                  <br />
+                  <p>Founder Editor — MHA's National Police K9 Journal</p>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100 text-gray-400 text-xs">
+                  BVSc &amp; AH &nbsp;|&nbsp; MVSc &nbsp;|&nbsp; MBA &nbsp;|&nbsp; PhD
+                  <br />
+                  Fellow NAVS &nbsp;|&nbsp; Fellow IAAVR
+                  <br />
+                </div>
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div className="lg:col-span-2 space-y-4 text-gray-600 leading-relaxed">
+              <p>
+                Colonel PK Chug is the leading Military and Police K9 Trainer of
+                India who has pioneered enormous work in developing the subject
+                of &lsquo;Working Dogs&rsquo; in India based on contemporary dog
+                training techniques and introducing the &lsquo;Operant
+                Conditioning&rsquo; to the Police K9 training in India.
+              </p>
+              <p>
+                He is a former Colonel of the Indian Army (Remount Veterinary
+                Corps — RVC) with an enriching experience of nearly 25 years of
+                chequered military service who has never accepted the status quo.
+                He had commanded the &lsquo;Specialized Army Dog Units&rsquo; on
+                6 occasions with the Army and Special Forces including his last
+                command of the most prestigious K9 Unit of elite NSG Black Cats.
+              </p>
+              <p>
+                He is known for introducing multiple innovative &amp; inexpensive
+                dog training aids, effective military doctrines and tactically
+                sound solutions to augment the performance of Military and Police
+                Service K9s (PSKs).
+              </p>
+              <p>
+                He has established &lsquo;Police Dog Centre INDIA&rsquo; at New
+                Delhi to continue the mission of modernizing Police Dog Training
+                in India — sharing his vast experience and in-depth knowledge
+                with Police K9 Practitioners, providing specialized consultancy
+                and training services to a large number of Police and Law
+                Enforcement Organizations, and also offering training and
+                boarding services for pet parents with Police K9 standards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
+              Track Record
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
+              Achievements
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {achievements.map((item, i) => (
               <div
-                key={member.name}
-                className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                key={i}
+                className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100"
               >
-                <div className="bg-navy-900 h-40 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-gold-500/20 border-2 border-gold-500/40 flex items-center justify-center">
-                    <span className="text-3xl">👤</span>
-                  </div>
+                <div className="bg-navy-900 text-gold-400 font-bold text-xs rounded-full w-7 h-7 flex items-center justify-center shrink-0 mt-0.5">
+                  {i + 1}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-navy-900 font-bold text-sm mb-1">
-                    {member.name}
-                  </h3>
-                  <div className="text-gold-500 text-xs font-semibold mb-2">
-                    {member.role}
-                  </div>
-                  <div className="text-gray-400 text-xs mb-3 italic">
-                    {member.experience}
-                  </div>
-                  <p className="text-gray-500 text-xs leading-relaxed">
-                    {member.description}
-                  </p>
-                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="bg-white py-20">
+      {/* Honours & Awards */}
+      <section className="bg-navy-900 py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
-              Accreditations
+            <span className="text-gold-400 font-semibold text-sm tracking-widest uppercase">
+              Recognition
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
-              Certifications & Affiliations
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
+              Honours &amp; Awards
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {certifications.map((cert) => (
+            {honours.map((honour) => (
               <div
-                key={cert}
-                className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100"
+                key={honour}
+                className="flex items-start gap-4 bg-navy-800 rounded-xl p-5 border border-navy-700"
               >
                 <div className="bg-gold-500/10 rounded-full p-2 shrink-0">
-                  <Award className="w-4 h-4 text-gold-500" />
+                  <Award className="w-4 h-4 text-gold-400" />
                 </div>
-                <span className="text-navy-900 text-sm font-medium leading-relaxed">
-                  {cert}
+                <span className="text-gray-300 text-sm font-medium leading-relaxed">
+                  {honour}
                 </span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-navy-900 py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Partner With India&apos;s K9 Experts
-          </h2>
-          <p className="text-gray-400 mb-8">
-            Discover how PDCI can elevate your security operations with elite K9
-            solutions.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold px-8 py-4 rounded transition-colors"
-          >
-            Get in Touch
-            <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </section>
     </>

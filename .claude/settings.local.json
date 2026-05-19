@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(powershell -Command ' *)",
+      "Bash(dir /b \"C:\\\\Users\\\\naman\\\\OneDrive\\\\Desktop\\\\PDCI\")",
+      "Bash(find /mnt/c/Users/naman/OneDrive/Desktop/PDCI/public -type d 2>/dev/null | head -30 && find /mnt/c/Users/naman/OneDrive/Desktop/PDCI/public -name \"*.jpg\" -o -name \"*.png\" 2>/dev/null | head -30)",
+      "Read(//mnt/c/Users/naman/OneDrive/Desktop/PDCI/**)"
+    ]
+  }
+}
