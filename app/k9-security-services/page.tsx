@@ -191,7 +191,7 @@ export default function K9ServicesPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-navy-900 py-20">
+      <section className="bg-navy-900 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
             <Link href="/" className="hover:text-gold-400 transition-colors">
@@ -200,7 +200,7 @@ export default function K9ServicesPage() {
             <span>/</span>
             <span className="text-gold-400">K9 Security Services</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             K9 Security Services
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
@@ -210,13 +210,13 @@ export default function K9ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
               Our Expertise
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2">
               Professional K9 Security Capabilities
             </h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
@@ -226,7 +226,7 @@ export default function K9ServicesPage() {
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-5">
             {services.map((service, i) => {
               const Icon = service.icon;
               const isEven = i % 2 === 0;
@@ -316,11 +316,11 @@ export default function K9ServicesPage() {
       {/* Our Process */}
       <section className="bg-navy-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-gold-400 font-semibold text-sm tracking-widest uppercase">
               How We Work
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-2">
               Our Deployment Process
             </h2>
           </div>
@@ -345,13 +345,13 @@ export default function K9ServicesPage() {
       </section>
 
       {/* Dog Breeds We Work With */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
               Our K9 Partners
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2">
               Breeds We Train & Deploy
             </h2>
           </div>
@@ -384,7 +384,7 @@ export default function K9ServicesPage() {
       {/* CTA */}
       <section className="bg-gold-500 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-navy-900 mb-4">
             Need a K9 Security Solution?
           </h2>
           <p className="text-navy-800/80 text-lg mb-8">

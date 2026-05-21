@@ -84,7 +84,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-navy-900 py-20">
+      <section className="bg-navy-900 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
             <Link href="/" className="hover:text-gold-400 transition-colors">
@@ -93,10 +93,10 @@ export default function ContactPage() {
             <span>/</span>
             <span className="text-gold-400">Contact Us</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Contact Us
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
+          <p className="text-gray-300 text-base max-w-2xl">
             Reach out to our team for a free consultation, service enquiry, or
             to discuss your K9 security requirements.
           </p>
@@ -104,11 +104,11 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info + Form */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             {/* Contact Details */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-5">
               <div>
                 <h2 className="text-2xl font-bold text-navy-900 mb-6">
                   Get in Touch

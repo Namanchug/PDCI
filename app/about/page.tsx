@@ -68,7 +68,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-navy-900 py-20">
+      <section className="bg-navy-900 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
             <Link href="/" className="hover:text-gold-400 transition-colors">
@@ -77,10 +77,10 @@ export default function AboutPage() {
             <span>/</span>
             <span className="text-gold-400">About Us</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             About PDCI
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
+          <p className="text-gray-300 text-base max-w-2xl">
             Modernizing K9 training across India — replacing coercive methods
             with science-based operant conditioning for police, law enforcement,
             and pet parents.
@@ -89,14 +89,14 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Are */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
                 Who We Are
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2 mb-6">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2 mb-6">
                 Police Dog Centre India
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
@@ -153,7 +153,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-navy-900 rounded-2xl p-10 text-white">
@@ -217,11 +217,11 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="bg-navy-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-gold-400 font-semibold text-sm tracking-widest uppercase">
               What We Stand For
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-2">
               Our Core Values
             </h2>
           </div>
@@ -250,18 +250,18 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership — Col PK Chug */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
               Leadership
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2">
               Chief Trainer and Managing Director (CMD)
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             {/* Photo & credentials card */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
               <div className="relative h-80 w-full">
@@ -338,13 +338,13 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
               Track Record
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2">
               Achievements
             </h2>
           </div>
@@ -367,11 +367,11 @@ export default function AboutPage() {
       {/* Honours & Awards */}
       <section className="bg-navy-900 py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-gold-400 font-semibold text-sm tracking-widest uppercase">
               Recognition
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-2">
               Honours &amp; Awards
             </h2>
           </div>

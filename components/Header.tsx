@@ -8,6 +8,7 @@ const navItems = [
     { href: "/about", label: "About" },
     { href: "/k9-security-services", label: "K9 Security Services" },
     { href: "/k9-seminars-workshops", label: "K9 Seminars & Workshops" },
+    { href: "/forensic-k9-education", label: "Forensic K9 & Education" },
     { href: "/accreditations", label: "Accreditations" },
     { href: "/contact", label: "Contact Us" },
 ];

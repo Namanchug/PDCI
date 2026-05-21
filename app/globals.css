@@ -29,7 +29,7 @@ body {
     linear-gradient(180deg, #fbf7f0 0%, #f1eadf 100%);
   color: var(--foreground);
   font-family: "Inter", system-ui, sans-serif;
-  zoom: 0.85;
+  zoom: 0.93;
 }
 
 html {

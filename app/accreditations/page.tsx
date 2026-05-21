@@ -139,7 +139,7 @@ export default function AccreditationsPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-navy-900 py-20">
+      <section className="bg-navy-900 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
             <Link href="/" className="hover:text-gold-400 transition-colors">
@@ -148,10 +148,10 @@ export default function AccreditationsPage() {
             <span>/</span>
             <span className="text-gold-400">Accreditations</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Accreditations
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
+          <p className="text-gray-300 text-base max-w-2xl">
             Police Dog Centre India is formally recognised and accredited by
             leading national and international bodies — validating our standards
             in K9 training, breeding, canine forensics education, and global
@@ -163,15 +163,15 @@ export default function AccreditationsPage() {
 
 
       {/* Accreditations — Two-Column Layout */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section intro */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
               Accreditations &amp; Collaborations
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2">
               Recognised Nationally &amp; Internationally
             </h2>
             <p className="text-gray-500 mt-3 max-w-2xl mx-auto text-sm leading-relaxed">
@@ -181,7 +181,7 @@ export default function AccreditationsPage() {
           </div>
 
           {/* Two-column split */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-0 relative">
 
             {/* Vertical divider (desktop only) */}
             <div className="hidden lg:block absolute inset-y-0 left-1/2 w-px bg-gray-200 -translate-x-1/2" />
@@ -236,7 +236,7 @@ export default function AccreditationsPage() {
           <span className="text-gold-400 font-semibold text-sm tracking-widest uppercase">
             Why It Matters
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-2 mb-6">
             The Mark of Verified Excellence
           </h2>
           <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
