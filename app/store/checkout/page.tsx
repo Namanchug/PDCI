@@ -31,7 +31,6 @@ const emptyForm: FormData = {
     pincode: "",
 };
 
-// ── Field component OUTSIDE CheckoutPage to prevent remount on each keystroke ──
 function Field({
     label,
     name,
@@ -160,6 +159,22 @@ export default function CheckoutPage() {
                         status: "paid",
                         address: `${form.address}, ${form.city}, ${form.state} - ${form.pincode}`,
                     });
+
+                    // ── Send confirmation email ──
+                    await fetch("/api/send-order-email", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name: form.name,
+                            email: form.email,
+                            phone: form.phone,
+                            items,
+                            total,
+                            address: `${form.address}, ${form.city}, ${form.state} - ${form.pincode}`,
+                            paymentId: response.razorpay_payment_id,
+                        }),
+                    });
+
                     clearCart();
                     setOrderId(response.razorpay_payment_id);
                     setSuccess(true);
@@ -203,7 +218,7 @@ export default function CheckoutPage() {
                         <span className="text-[#f8f2e7] font-semibold">{form.name}</span>!
                     </p>
                     <p className="text-sm text-[#d0d8e3] mb-1">
-                        A confirmation will be sent to{" "}
+                        A confirmation has been sent to{" "}
                         <span className="text-[#c9a45a]">{form.email}</span>
                     </p>
                     <p className="text-xs text-[#d0d8e3] mt-2 mb-6">
