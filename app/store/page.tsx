@@ -8,7 +8,8 @@ const categories = ["All", "Apparel", "Dog Equipment", "Dog Toys", "Accessories"
 function getFirstImage(images: Product["images"]): string {
     if (!images || images.length === 0) return "/placeholder.jpg";
     const first = images[0];
-    return typeof first === "string" ? first : first.url;
+    if (!first) return "/placeholder.jpg";
+    return typeof first === "string" ? first : (first.url ?? "/placeholder.jpg");
 }
 
 export default function StorePage() {
@@ -127,16 +128,7 @@ export default function StorePage() {
 }
 
 function ProductCard({ product }: { product: Product }) {
-    const [hovered, setHovered] = useState(false);
-    const images = product.images;
-
-    const img1 = getFirstImage(images);
-    const img2 =
-        images.length > 1
-            ? typeof images[1] === "string"
-                ? images[1]
-                : (images[1] as { url: string }).url
-            : img1;
+    const displayImg = getFirstImage(product.images);
 
     return (
         <Link href={`/store/${product.id}`}>
@@ -145,22 +137,19 @@ function ProductCard({ product }: { product: Product }) {
                 style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(201,164,90,0.15)",
-                    boxShadow: hovered
-                        ? "0 20px 40px rgba(0,0,0,0.4)"
-                        : "0 4px 12px rgba(0,0,0,0.2)",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
                 }}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
             >
                 {/* Image */}
                 <div className="relative aspect-square overflow-hidden bg-[#0a1628]">
                     <img
-                        src={hovered ? img2 : img1}
+                        src={displayImg}
                         alt={product.name}
-                        className="h-full w-full object-cover transition-all duration-500"
+                        className="h-full w-full object-contain transition-all duration-500"
                     />
+
                     {product.has_colors && (
-                        <div className="absolute bottom-2 left-2 flex gap-1">
+                        <div className="absolute bottom-6 left-2 flex gap-1">
                             {product.colors.slice(0, 4).map((c) => (
                                 <div
                                     key={c}
@@ -171,6 +160,7 @@ function ProductCard({ product }: { product: Product }) {
                             ))}
                         </div>
                     )}
+
                     <div
                         className="absolute top-2 right-2 rounded-full px-2 py-0.5 text-[0.6rem] font-bold text-[#0f1f33]"
                         style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}

@@ -69,10 +69,18 @@ export default function ProductDetailPage() {
             })
             : allImages;
 
-    const imageUrls: string[] =
-        filteredImages.length > 0
-            ? filteredImages.map((img) => (typeof img === "string" ? img : img.url))
-            : allImages.map((img) => (typeof img === "string" ? img : img.url));
+    const extractUrl = (img: unknown): string | null => {
+        if (!img) return null;
+        if (typeof img === "string") return img;
+        if (typeof img === "object" && "url" in img && typeof (img as { url: unknown }).url === "string") {
+            return (img as { url: string }).url;
+        }
+        return null;
+    };
+
+    const imageUrls: string[] = (filteredImages.length > 0 ? filteredImages : allImages)
+        .map(extractUrl)
+        .filter((url): url is string => url !== null);
 
     const currentImg = imageUrls[activeImg] ?? "";
 
@@ -214,7 +222,7 @@ export default function ProductDetailPage() {
                             <img
                                 src={currentImg}
                                 alt={product.name}
-                                className="h-full w-full object-cover transition-all duration-300"
+                                className="h-full w-full object-contain transition-all duration-300"
                             />
                             <button className="absolute top-3 right-3 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition">
                                 <ZoomIn size={16} />
@@ -275,7 +283,7 @@ export default function ProductDetailPage() {
                                             opacity: i === activeImg ? 1 : 0.6,
                                         }}
                                     >
-                                        <img src={url} alt="" className="h-full w-full object-cover" />
+                                        <img src={url} alt="" className="h-full w-full object-contain" />
                                     </button>
                                 ))}
                             </div>

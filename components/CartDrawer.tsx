@@ -68,7 +68,7 @@ export default function CartDrawer() {
                                     <img
                                         src={imgSrc}
                                         alt={item.name}
-                                        className="h-16 w-16 rounded-lg object-cover flex-shrink-0"
+                                        className="h-16 w-16 rounded-lg object-contain flex-shrink-0 bg-[#0a1628]"
                                     />
                                     <div className="flex flex-1 flex-col gap-1 min-w-0">
                                         <p className="text-sm font-semibold text-[#f8f2e7] leading-tight truncate">
