@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase, Product } from "@/lib/supabase";
 import Link from "next/link";
 
-const categories = ["All", "Apparel", "Dog Equipment", "Dog Toys", "Accessories"];
+const categories = ["All", "Leashes and Harnesses", "Detection Dog Equipment", "Patrol Dog Equipment", "Dog Training Aids", "Dog Toys", "Training Vest and Pouches", "Apparel", "Accessories"];
 
 function getFirstImage(images: Product["images"]): string {
     if (!images || images.length === 0) return "/placeholder.jpg";

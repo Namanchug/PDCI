@@ -89,6 +89,16 @@ export default function ProductDetailPage() {
         setActiveImg(0);
     };
 
+    // Get stock for the current color + size combo
+    const variantKey = [selectedColor, selectedSize].filter(Boolean).join("-");
+    const currentStock =
+        variantKey && product.variant_stock?.[variantKey] !== undefined
+            ? product.variant_stock[variantKey]
+            : product.has_colors && selectedColor && product.color_stock?.[selectedColor] !== undefined
+                ? product.color_stock[selectedColor]
+                : product.stock ?? 0;
+
+
     const handleAddToCart = () => {
         if (!product) return;
         addItem({
@@ -329,28 +339,47 @@ export default function ProductDetailPage() {
                                     <span className="font-normal text-[#c9a45a]">{selectedColor}</span>
                                 </p>
                                 <div className="flex flex-wrap gap-2">
-                                    {product.colors.map((color) => (
-                                        <button
-                                            key={color}
-                                            onClick={() => handleColorChange(color)}
-                                            className="rounded-full px-4 py-1.5 text-sm font-medium transition-all"
-                                            style={
-                                                selectedColor === color
-                                                    ? {
-                                                        background: "linear-gradient(135deg,#c9a45a,#f7dfb0)",
-                                                        color: "#0f1f33",
-                                                        fontWeight: 700,
-                                                    }
-                                                    : {
-                                                        background: "rgba(255,255,255,0.05)",
-                                                        color: "#d0d8e3",
-                                                        border: "1px solid rgba(201,164,90,0.25)",
-                                                    }
-                                            }
-                                        >
-                                            {color}
-                                        </button>
-                                    ))}
+                                    {product.colors.map((color) => {
+                                        const colorOutOfStock = product.has_sizes
+                                            ? product.sizes.every(
+                                                (s) => (product.variant_stock?.[`${color}-${s}`] ?? 0) === 0
+                                            )
+                                            : (product.variant_stock?.[color] ?? product.color_stock?.[color] ?? 0) === 0;
+                                        return (
+                                            <button
+                                                key={color}
+                                                onClick={() => !colorOutOfStock && handleColorChange(color)}
+                                                disabled={colorOutOfStock}
+                                                className="rounded-full px-4 py-1.5 text-sm font-medium transition-all relative"
+                                                style={
+                                                    colorOutOfStock
+                                                        ? {
+                                                            background: "rgba(255,255,255,0.03)",
+                                                            color: "#4a5f75",
+                                                            border: "1px solid rgba(255,255,255,0.06)",
+                                                            cursor: "not-allowed",
+                                                            textDecoration: "line-through",
+                                                        }
+                                                        : selectedColor === color
+                                                            ? {
+                                                                background: "linear-gradient(135deg,#c9a45a,#f7dfb0)",
+                                                                color: "#0f1f33",
+                                                                fontWeight: 700,
+                                                            }
+                                                            : {
+                                                                background: "rgba(255,255,255,0.05)",
+                                                                color: "#d0d8e3",
+                                                                border: "1px solid rgba(201,164,90,0.25)",
+                                                            }
+                                                }
+                                            >
+                                                {color}
+                                                {colorOutOfStock && (
+                                                    <span className="ml-1 text-[0.6rem] text-red-400/70">Out of stock</span>
+                                                )}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
@@ -373,27 +402,40 @@ export default function ProductDetailPage() {
                                     )}
                                 </div>
                                 <div className="flex flex-wrap gap-2">
-                                    {product.sizes.map((size) => (
-                                        <button
-                                            key={size}
-                                            onClick={() => setSelectedSize(size)}
-                                            className="h-10 min-w-[42px] rounded-lg px-3 text-sm font-semibold transition-all"
-                                            style={
-                                                selectedSize === size
-                                                    ? {
-                                                        background: "linear-gradient(135deg,#c9a45a,#f7dfb0)",
-                                                        color: "#0f1f33",
-                                                    }
-                                                    : {
-                                                        background: "rgba(255,255,255,0.05)",
-                                                        color: "#d0d8e3",
-                                                        border: "1px solid rgba(201,164,90,0.25)",
-                                                    }
-                                            }
-                                        >
-                                            {size}
-                                        </button>
-                                    ))}
+                                    {product.sizes.map((size) => {
+                                        const sizeKey = [selectedColor, size].filter(Boolean).join("-");
+                                        const sizeOutOfStock = (product.variant_stock?.[sizeKey] ?? 0) === 0;
+                                        return (
+                                            <button
+                                                key={size}
+                                                onClick={() => !sizeOutOfStock && setSelectedSize(size)}
+                                                disabled={sizeOutOfStock}
+                                                className="rounded-full px-4 py-1.5 text-sm font-medium transition-all"
+                                                style={
+                                                    sizeOutOfStock
+                                                        ? {
+                                                            background: "rgba(255,255,255,0.03)",
+                                                            color: "#4a5f75",
+                                                            border: "1px solid rgba(255,255,255,0.06)",
+                                                            cursor: "not-allowed",
+                                                            textDecoration: "line-through",
+                                                        }
+                                                        : selectedSize === size
+                                                            ? {
+                                                                background: "linear-gradient(135deg,#c9a45a,#f7dfb0)",
+                                                                color: "#0f1f33",
+                                                            }
+                                                            : {
+                                                                background: "rgba(255,255,255,0.05)",
+                                                                color: "#d0d8e3",
+                                                                border: "1px solid rgba(201,164,90,0.25)",
+                                                            }
+                                                }
+                                            >
+                                                {size}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
@@ -412,7 +454,7 @@ export default function ProductDetailPage() {
                                     {quantity}
                                 </span>
                                 <button
-                                    onClick={() => setQuantity((q) => q + 1)}
+                                    onClick={() => setQuantity((q) => Math.min(q + 1, currentStock))}
                                     className="h-10 w-10 rounded-full border border-[#d8c08a]/30 text-[#f8f2e7] hover:bg-white/10 transition text-lg flex items-center justify-center"
                                 >
                                     +
@@ -423,11 +465,12 @@ export default function ProductDetailPage() {
                         {/* Add to cart */}
                         <button
                             onClick={handleAddToCart}
-                            className="flex items-center justify-center gap-2 rounded-full py-4 text-base font-bold text-[#0f1f33] transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                            disabled={currentStock === 0}
+                            className="flex items-center justify-center gap-2 rounded-full py-4 text-base font-bold text-[#0f1f33] transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:scale-100"
                             style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
                         >
                             <ShoppingCart size={18} />
-                            {added ? "Added to Cart! ✓" : "Add to Cart"}
+                            {currentStock === 0 ? "Out of Stock" : added ? "Added to Cart! ✓" : "Add to Cart"}
                         </button>
 
                         <div
@@ -472,27 +515,6 @@ export default function ProductDetailPage() {
                                     </div>
                                 </div>
                             )}
-                        </div>
-
-                        {/* Trust badges */}
-                        <div className="grid grid-cols-3 gap-3 pt-2">
-                            {[
-                                { icon: "🐾", label: "K9 Grade" },
-                                { icon: "🇮🇳", label: "Made in India" },
-                                { icon: "✓", label: "Verified Quality" },
-                            ].map((b) => (
-                                <div
-                                    key={b.label}
-                                    className="flex flex-col items-center gap-1 rounded-xl p-3 text-center"
-                                    style={{
-                                        background: "rgba(255,255,255,0.04)",
-                                        border: "1px solid rgba(201,164,90,0.12)",
-                                    }}
-                                >
-                                    <span className="text-xl">{b.icon}</span>
-                                    <span className="text-[0.65rem] font-semibold text-[#d0d8e3]">{b.label}</span>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 </div>

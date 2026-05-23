@@ -16,6 +16,8 @@ type FormData = {
     email: string;
     phone: string;
     address: string;
+    address2: string;
+    landmark: string;
     city: string;
     state: string;
     pincode: string;
@@ -26,6 +28,8 @@ const emptyForm: FormData = {
     email: "",
     phone: "",
     address: "",
+    address2: "",
+    landmark: "",
     city: "",
     state: "",
     pincode: "",
@@ -82,7 +86,14 @@ export default function CheckoutPage() {
     const [success, setSuccess] = useState(false);
     const [orderId, setOrderId] = useState("");
 
-    const shipping = 0;
+    function getShipping(price: number): number {
+        if (price >= 2500) return 0;
+        if (price >= 2000) return 250;
+        if (price >= 1000) return 200;
+        return 100;
+    }
+
+    const shipping = getShipping(totalPrice);
     const total = totalPrice + shipping;
 
     function handleFieldChange(name: keyof FormData, value: string) {
@@ -157,10 +168,16 @@ export default function CheckoutPage() {
                         razorpay_order_id: rzpOrderId,
                         razorpay_payment_id: response.razorpay_payment_id,
                         status: "paid",
-                        address: `${form.address}, ${form.city}, ${form.state} - ${form.pincode}`,
+                        address: `${form.address}, ${form.address2}, ${form.city}, ${form.state} - ${form.pincode}${form.landmark ? ` (Near: ${form.landmark})` : ""}`,
                     });
 
                     // ── Send confirmation email ──
+                    await fetch("/api/deduct-stock", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ items }),
+                    });
+
                     await fetch("/api/send-order-email", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -170,7 +187,7 @@ export default function CheckoutPage() {
                             phone: form.phone,
                             items,
                             total,
-                            address: `${form.address}, ${form.city}, ${form.state} - ${form.pincode}`,
+                            address: `${form.address}, ${form.address2}, ${form.city}, ${form.state} - ${form.pincode}${form.landmark ? ` (Near: ${form.landmark})` : ""}`,
                             paymentId: response.razorpay_payment_id,
                         }),
                     });
@@ -308,12 +325,38 @@ export default function CheckoutPage() {
                                 value={form.email} error={errors.email} onChange={handleFieldChange} />
                             <Field label="Mobile Number" name="phone" type="tel" placeholder="9XXXXXXXXX"
                                 value={form.phone} error={errors.phone} onChange={handleFieldChange} />
-                            <Field label="Full Address" name="address" placeholder="House No, Street, Area"
+                            <Field label="Address Line 1" name="address" placeholder="House No, Flat, Building Name"
                                 value={form.address} error={errors.address} onChange={handleFieldChange} />
+                            <Field label="Address Line 2" name="address2" placeholder="Street, Area, Colony"
+                                value={form.address2} error={errors.address2} onChange={handleFieldChange} />
+                            <Field label="Landmark" name="landmark" placeholder="Near Apollo Hospital, Opp. SBI Bank"
+                                value={form.landmark} error={errors.landmark} onChange={handleFieldChange} />
                             <Field label="City" name="city" placeholder="New Delhi" half
                                 value={form.city} error={errors.city} onChange={handleFieldChange} />
-                            <Field label="State" name="state" placeholder="Delhi" half
-                                value={form.state} error={errors.state} onChange={handleFieldChange} />
+                            <div className="col-span-1">
+                                <label className="mb-1 block text-xs font-semibold text-[#d0d8e3] uppercase tracking-wide">
+                                    State <span className="text-[#c9a45a]">*</span>
+                                </label>
+                                <select
+                                    value={form.state}
+                                    onChange={(e) => handleFieldChange("state", e.target.value)}
+                                    className="w-full rounded-xl px-4 py-3 text-sm text-[#f8f2e7] outline-none transition"
+                                    style={{
+                                        background: "rgba(255,255,255,0.06)",
+                                        border: errors.state ? "1px solid #f87171" : "1px solid rgba(201,164,90,0.2)",
+                                        appearance: "none",
+                                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9a45a' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
+                                        backgroundRepeat: "no-repeat",
+                                        backgroundPosition: "right 16px center",
+                                    }}
+                                >
+                                    <option value="" disabled style={{ background: "#0f1f33" }}>Select State</option>
+                                    {["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"].map((s) => (
+                                        <option key={s} value={s} style={{ background: "#0f1f33", color: "#f8f2e7" }}>{s}</option>
+                                    ))}
+                                </select>
+                                {errors.state && <p className="mt-1 text-xs text-red-400">{errors.state}</p>}
+                            </div>
                             <Field label="Pincode" name="pincode" placeholder="110001" half
                                 value={form.pincode} error={errors.pincode} onChange={handleFieldChange} />
                         </div>
@@ -373,7 +416,9 @@ export default function CheckoutPage() {
                                 </div>
                                 <div className="flex justify-between text-[#d0d8e3]">
                                     <span>Shipping</span>
-                                    <span className="text-green-400">Free</span>
+                                    <span className={shipping === 0 ? "text-green-400" : "text-[#f8f2e7]"}>
+                                        {shipping === 0 ? "Free" : `₹${shipping}`}
+                                    </span>
                                 </div>
                                 <div className="h-px w-full my-1" style={{ background: "rgba(201,164,90,0.2)" }} />
                                 <div className="flex justify-between text-base font-bold">
