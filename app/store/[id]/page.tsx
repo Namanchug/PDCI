@@ -82,7 +82,13 @@ export default function ProductDetailPage() {
         .map(extractUrl)
         .filter((url): url is string => url !== null);
 
-    const currentImg = imageUrls[activeImg] ?? "";
+    const mediaItems: string[] = [
+        ...imageUrls,
+        ...(product.video_urls?.length ? product.video_urls : product.video_url ? [product.video_url] : []),
+    ];
+
+    const currentMedia = mediaItems[activeImg] ?? "";
+    const isVideo = (url: string) => url.endsWith(".mp4") || url.endsWith(".webm") || url.endsWith(".mov");
 
     const handleColorChange = (color: string) => {
         setSelectedColor(color);
@@ -97,7 +103,6 @@ export default function ProductDetailPage() {
             : product.has_colors && selectedColor && product.color_stock?.[selectedColor] !== undefined
                 ? product.color_stock[selectedColor]
                 : product.stock ?? 0;
-
 
     const handleAddToCart = () => {
         if (!product) return;
@@ -196,11 +201,19 @@ export default function ProductDetailPage() {
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
                     onClick={() => setLightbox(false)}
                 >
-                    <img
-                        src={currentImg}
-                        alt={product.name}
-                        className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl"
-                    />
+                    {isVideo(currentMedia) ? (
+                        <video
+                            src={currentMedia}
+                            controls
+                            className="max-h-[90vh] max-w-[90vw] rounded-xl"
+                        />
+                    ) : (
+                        <img
+                            src={currentMedia}
+                            alt={product.name}
+                            className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl"
+                        />
+                    )}
                     <button className="absolute top-4 right-4 text-white hover:text-[#c9a45a]">
                         <X size={28} />
                     </button>
@@ -218,32 +231,43 @@ export default function ProductDetailPage() {
                 </button>
 
                 <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-                    {/* ── LEFT: Images ── */}
+                    {/* ── LEFT: Media ── */}
                     <div className="flex flex-col gap-4">
-                        {/* Main image */}
+                        {/* Main media */}
                         <div
                             className="relative aspect-square w-full overflow-hidden rounded-2xl cursor-zoom-in"
                             style={{
                                 background: "#0a1628",
                                 border: "1px solid rgba(201,164,90,0.2)",
                             }}
-                            onClick={() => setLightbox(true)}
+                            onClick={() => !isVideo(currentMedia) && setLightbox(true)}
                         >
-                            <img
-                                src={currentImg}
-                                alt={product.name}
-                                className="h-full w-full object-contain transition-all duration-300"
-                            />
-                            <button className="absolute top-3 right-3 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition">
-                                <ZoomIn size={16} />
-                            </button>
+                            {isVideo(currentMedia) ? (
+                                <video
+                                    src={currentMedia}
+                                    controls
+                                    className="h-full w-full object-contain"
+                                    onClick={(e) => e.stopPropagation()}
+                                />
+                            ) : (
+                                <img
+                                    src={currentMedia}
+                                    alt={product.name}
+                                    className="h-full w-full object-contain transition-all duration-300"
+                                />
+                            )}
+                            {!isVideo(currentMedia) && (
+                                <button className="absolute top-3 right-3 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition">
+                                    <ZoomIn size={16} />
+                                </button>
+                            )}
                             {/* Prev / Next arrows */}
-                            {imageUrls.length > 1 && (
+                            {mediaItems.length > 1 && (
                                 <>
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            setActiveImg((prev) => (prev - 1 + imageUrls.length) % imageUrls.length);
+                                            setActiveImg((prev) => (prev - 1 + mediaItems.length) % mediaItems.length);
                                         }}
                                         className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition"
                                     >
@@ -252,7 +276,7 @@ export default function ProductDetailPage() {
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            setActiveImg((prev) => (prev + 1) % imageUrls.length);
+                                            setActiveImg((prev) => (prev + 1) % mediaItems.length);
                                         }}
                                         className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition"
                                     >
@@ -261,9 +285,9 @@ export default function ProductDetailPage() {
                                 </>
                             )}
                             {/* Dot indicators */}
-                            {imageUrls.length > 1 && (
+                            {mediaItems.length > 1 && (
                                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                                    {imageUrls.map((_, i) => (
+                                    {mediaItems.map((_, i) => (
                                         <button
                                             key={i}
                                             onClick={(e) => { e.stopPropagation(); setActiveImg(i); }}
@@ -279,9 +303,9 @@ export default function ProductDetailPage() {
                         </div>
 
                         {/* Thumbnails */}
-                        {imageUrls.length > 1 && (
+                        {mediaItems.length > 1 && (
                             <div className="flex gap-2 overflow-x-auto pb-1">
-                                {imageUrls.map((url, i) => (
+                                {mediaItems.map((url, i) => (
                                     <button
                                         key={i}
                                         onClick={() => setActiveImg(i)}
@@ -293,7 +317,11 @@ export default function ProductDetailPage() {
                                             opacity: i === activeImg ? 1 : 0.6,
                                         }}
                                     >
-                                        <img src={url} alt="" className="h-full w-full object-contain" />
+                                        {isVideo(url) ? (
+                                            <video src={url} className="h-full w-full object-contain" />
+                                        ) : (
+                                            <img src={url} alt="" className="h-full w-full object-contain" />
+                                        )}
                                     </button>
                                 ))}
                             </div>
@@ -477,30 +505,6 @@ export default function ProductDetailPage() {
                             className="h-px w-full"
                             style={{ background: "linear-gradient(to right, rgba(201,164,90,0.4), transparent)" }}
                         />
-
-                        {/* Video */}
-                        {(product.video_urls?.length || product.video_url) && (
-                            <div className="flex flex-col gap-3">
-                                <h2
-                                    className="text-lg font-bold text-[#f8f2e7]"
-                                    style={{ fontFamily: "'Times New Roman', serif" }}
-                                >
-                                    Product Videos
-                                </h2>
-                                {(product.video_urls?.length
-                                    ? product.video_urls
-                                    : [product.video_url!]
-                                ).map((url, i) => (
-                                    <video
-                                        key={i}
-                                        src={url}
-                                        controls
-                                        className="w-full rounded-xl"
-                                        style={{ border: "1px solid rgba(201,164,90,0.25)" }}
-                                    />
-                                ))}
-                            </div>
-                        )}
 
                         {/* Description */}
                         <div className="flex flex-col gap-3">

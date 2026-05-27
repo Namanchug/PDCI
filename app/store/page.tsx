@@ -176,7 +176,7 @@ function ProductCard({ product }: { product: Product }) {
                     </h3>
                     {product.has_sizes && (
                         <p className="text-[0.65rem] text-[#d0d8e3]">
-                            Sizes: {product.sizes.join(", ")}
+                            {product.size_label ?? "Sizes"}: {product.sizes.join(", ")}
                         </p>
                     )}
                     <div className="mt-auto pt-2 flex items-center justify-between">
@@ -207,6 +207,9 @@ function colorToHex(color: string): string {
         "Black / Beige (Reversible)": "#888",
         Silver: "#c0c0c0",
         Color: "#c9a45a",
+        Brown: "#7b4f2e",
+        Red: "#cc2222",
+        Sand: "#c2a97a",
     };
     return map[color] ?? "#c9a45a";
 }

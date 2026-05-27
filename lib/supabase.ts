@@ -20,6 +20,7 @@ export type Product = {
     note?: string;
   };
   has_sizes: boolean;
+  size_label?: string;
   has_colors: boolean;
   stock: number;
   video_url?: string;
