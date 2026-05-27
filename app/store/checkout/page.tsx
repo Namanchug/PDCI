@@ -35,6 +35,8 @@ const emptyForm: FormData = {
     pincode: "",
 };
 
+const [verifiedTotal, setVerifiedTotal] = useState<number | null>(null);
+
 function Field({
     label,
     name,
@@ -85,6 +87,7 @@ export default function CheckoutPage() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [orderId, setOrderId] = useState("");
+    const [verifiedTotal, setVerifiedTotal] = useState<number | null>(null);
 
     function getShipping(price: number): number {
         if (price >= 2500) return 0;
@@ -137,17 +140,18 @@ export default function CheckoutPage() {
             const res = await fetch("/api/razorpay", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ amount: total }),
+                body: JSON.stringify({ items }),   // ← send items, not amount
             });
-            const { orderId: rzpOrderId, error } = await res.json();
+            const { orderId: rzpOrderId, amount: verifiedAmount, error } = await res.json();
             if (error) throw new Error(error);
+            setVerifiedTotal(verifiedAmount);
 
             const loaded = await loadRazorpayScript();
             if (!loaded) throw new Error("Razorpay failed to load");
 
             const rzp = new window.Razorpay({
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-                amount: Math.round(total * 100),
+                amount: Math.round(verifiedAmount * 100),
                 currency: "INR",
                 name: "Police Dog Centre India",
                 description: "Order from PDCI Store",
@@ -164,7 +168,7 @@ export default function CheckoutPage() {
                         customer_email: form.email,
                         customer_phone: form.phone,
                         items: items,
-                        total: total,
+                        total: verifiedAmount,
                         razorpay_order_id: rzpOrderId,
                         razorpay_payment_id: response.razorpay_payment_id,
                         status: "paid",
@@ -172,11 +176,15 @@ export default function CheckoutPage() {
                     });
 
                     // ── Send confirmation email ──
-                    await fetch("/api/deduct-stock", {
+                    const stockRes = await fetch("/api/deduct-stock", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ items }),
                     });
+
+                    if (!stockRes.ok) {
+                        console.error("Stock deduction failed:", await stockRes.text());
+                    }
 
                     await fetch("/api/send-order-email", {
                         method: "POST",
@@ -186,7 +194,7 @@ export default function CheckoutPage() {
                             email: form.email,
                             phone: form.phone,
                             items,
-                            total,
+                            total: verifiedAmount,
                             address: `${form.address}, ${form.address2}, ${form.city}, ${form.state} - ${form.pincode}${form.landmark ? ` (Near: ${form.landmark})` : ""}`,
                             paymentId: response.razorpay_payment_id,
                         }),
@@ -440,7 +448,7 @@ export default function CheckoutPage() {
                                     Processing...
                                 </span>
                             ) : (
-                                `Pay ₹${total.toLocaleString("en-IN")} via Razorpay`
+                                `Pay ₹${(verifiedTotal ?? total).toLocaleString("en-IN")} via Razorpay`
                             )}
                         </button>
 

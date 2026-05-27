@@ -251,7 +251,7 @@ export default function ForensicK9EducationPage() {
                 The <strong className="text-navy-900">Professional Diploma in Canine Forensics (PDCF)</strong>,
                 launched at NFSU Delhi Campus, was developed by internationally acclaimed
                 military and police K9 expert <strong className="text-navy-900">Col. (Dr.) P.K. Chug</strong>{" "}
-                in collaboration with PDC India. The 6-month hybrid program allows working
+                in collaboration with Police Dog Centre India. The 6-month hybrid program allows working
                 professionals to upgrade their skills without career interruption — four months
                 of online instruction followed by two months of intensive hands-on training,
                 including escorted visits to restricted facilities unavailable to the general public.
