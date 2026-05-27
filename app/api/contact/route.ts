@@ -53,20 +53,20 @@ function buildHtmlBody(form: ContactFormPayload) {
             ([label, value]) => `
               <tr>
                 <td style="padding: 8px 12px 8px 0; vertical-align: top; width: 180px; font-weight: 700; border-bottom: 1px solid #e5e7eb;">${escapeHtml(
-                  label
+                  label,
                 )}</td>
                 <td style="padding: 8px 0; vertical-align: top; border-bottom: 1px solid #e5e7eb;">${escapeHtml(
-                  value
+                  value,
                 )}</td>
               </tr>
-            `
+            `,
           )
           .join("")}
       </table>
       <div style="margin-top: 20px;">
         <div style="font-weight: 700; margin-bottom: 8px;">Message</div>
         <div style="white-space: pre-wrap; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px;">${escapeHtml(
-          form.message
+          form.message,
         )}</div>
       </div>
     </div>
@@ -79,12 +79,13 @@ function getMailerConfig() {
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
   const fromAddress = process.env.CONTACT_FROM_EMAIL || user;
-  const recipient = process.env.CONTACT_RECIPIENT_EMAIL || "info@policedogcentreindia.com";
+  const recipient =
+    process.env.CONTACT_RECIPIENT_EMAIL || "policedogcentreindia@gmail.com";
   const fromName = process.env.CONTACT_FROM_NAME || "Police Dog Centre India";
 
   if (!host || !portValue || !user || !pass || !fromAddress) {
     throw new Error(
-      "Mail is not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, and CONTACT_RECIPIENT_EMAIL in .env.local."
+      "Mail is not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, and CONTACT_RECIPIENT_EMAIL in .env.local.",
     );
   }
 
@@ -116,7 +117,13 @@ function validatePayload(payload: unknown): ContactFormPayload | null {
   }
 
   const candidate = payload as Partial<ContactFormPayload>;
-  const requiredFields = ["name", "email", "phone", "service", "message"] as const;
+  const requiredFields = [
+    "name",
+    "email",
+    "phone",
+    "service",
+    "message",
+  ] as const;
 
   if (requiredFields.some((field) => !candidate[field]?.toString().trim())) {
     return null;
@@ -139,7 +146,7 @@ export async function POST(request: Request) {
     if (!payload) {
       return NextResponse.json(
         { message: "Please complete all required fields before sending." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -165,7 +172,7 @@ export async function POST(request: Request) {
             ? error.message
             : "Unable to send message right now. Please try again later.",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,19 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/accreditations", label: "Accreditations" },
   { href: "/k9-security-services", label: "K9 Security Services" },
+  { href: "/forensic-k9-education", label: "Forensic K9 Education" },
+  { href: "/k9-seminars-workshops", label: "Seminars & Workshops" },
+  { href: "/store", label: "Store" },
   { href: "/contact", label: "Contact Us" },
 ];
 
 const services = [
-  "Narcotics Detection",
-  "Explosive Detection",
-  "Patrol & Guard Dogs",
-  "Event Security",
+  { href: "/k9-security-services#narcotics-detection", label: "Narcotics Detection & Sweeps" },
+  { href: "/k9-security-services#explosive-detection", label: "Explosive Detection" },
+  { href: "/forensic-k9-education#handler-training", label: "Handler & K9 Training" },
+  { href: "/k9-security-services#event-security", label: "VIP, Event & Venue Security" },
+  { href: "/k9-security-services#patrol-deployments", label: "Patrol & Guard Dog Deployments" },
+  { href: "/k9-security-services#consultancy-assessments", label: "Canine Consultancy & Assessments" },
 ];
 
 export default function Footer() {
@@ -33,27 +39,20 @@ export default function Footer() {
                 className="shrink-0 object-contain"
                 style={{ width: "auto", height: "auto" }}
               />
-              <div className="leading-tight">
-                <div className="text-white font-bold text-sm tracking-wide">
-                  Police Dog Centre
-                </div>
-                <div className="text-[#f7dfb0] text-xs font-semibold tracking-widest uppercase">
-                  India
-                </div>
-              </div>
             </div>
             <p className="text-sm leading-relaxed text-slate-300 mt-4">
               India&apos;s premier K9 security solutions provider. Delivering
-              world-class trained security dogs and professional handlers since
-              2005.
+              world-class trained security dogs and professional handlers
             </p>
             <div className="mt-5 flex gap-3">
               <a
-                href="#"
+                href="https://www.instagram.com/pdcindia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white/6 border border-white/10 hover:bg-[#c9a45a] hover:text-[#0f1f33] text-slate-300 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
-                aria-label="Facebook"
+                aria-label="Instagram"
               >
-                f
+                IG
               </a>
               <a
                 href="#"
@@ -99,9 +98,15 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               {services.map((s) => (
-                <li key={s} className="text-sm flex items-center gap-2">
+                <li key={s.href} className="text-sm flex items-center gap-2">
                   <span className="text-[#c9a45a] text-xs">›</span>
-                  {s}
+                  <Link
+                    href={s.href}
+                    className="hover:text-[#f7dfb0] transition-colors"
+                    aria-label={s.label}
+                  >
+                    {s.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -115,25 +120,23 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
                 <MapPin className="w-4 h-4 text-[#c9a45a] mt-0.5 shrink-0" />
-                <span>
-                  Police Dog Centre India, New Delhi - 110001, India
-                </span>
+                <span>Training Facilities: Sainik Farma, GXMH+3FQ, Badusarai, New Delhi, Delhi, 110071</span>
+              </li>
+              <li className="flex gap-3">
+                <MapPin className="w-4 h-4 text-[#c9a45a] mt-0.5 shrink-0" />
+                <span>Head Office: E-601, Jagran CGHS, Plot-17, Dwarka Sector-22, New Delhi, 110077</span>
               </li>
               <li className="flex gap-3">
                 <Phone className="w-4 h-4 text-[#c9a45a] shrink-0" />
-                <a href="tel:+911234567890" className="hover:text-[#f7dfb0] transition-colors">
-                  +91 12345 67890
+                <a href="tel:+918287793696" className="hover:text-[#f7dfb0] transition-colors">
+                  +91 8287793696
                 </a>
               </li>
               <li className="flex gap-3">
                 <Mail className="w-4 h-4 text-[#c9a45a] shrink-0" />
-                <a href="mailto:info@policedogcentreindia.com" className="hover:text-[#f7dfb0] transition-colors">
-                  info@policedogcentreindia.com
+                <a href="mailto:policedogcentreindia@gmail.com" className="hover:text-[#f7dfb0] transition-colors">
+                  policedogcentreindia@gmail.com
                 </a>
-              </li>
-              <li className="flex gap-3">
-                <Clock className="w-4 h-4 text-[#c9a45a] shrink-0" />
-                <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
               </li>
             </ul>
           </div>

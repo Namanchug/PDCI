@@ -792,10 +792,9 @@ export default function ForensicK9EducationPage() {
                     <Users className="w-4 h-4 text-gold-400" />
                   </div>
                   <div>
-                    <p className="text-navy-900 font-bold text-sm">Ms Vernika Mehta</p>
+                    <p className="text-navy-900 font-bold text-sm">Police Dog Centre India</p>
                     <p className="text-gray-500 text-xs">
-                      Course Coordinator – Canine Forensics<br />
-                      School of Forensic Science, NFSU – Delhi Campus
+                      National Centre for K9 Security, Detection, and Training
                     </p>
                   </div>
                 </div>
@@ -803,25 +802,26 @@ export default function ForensicK9EducationPage() {
                   <div className="bg-navy-900 rounded-lg p-2 shrink-0">
                     <Phone className="w-4 h-4 text-gold-400" />
                   </div>
-                  <a href="tel:+917015634085" className="text-navy-900 text-sm font-semibold hover:text-gold-600 transition-colors">
-                    +91 70156 34085
+                  <a href="tel:+918287793696" className="text-navy-900 text-sm font-semibold hover:text-gold-600 transition-colors">
+                    +91 8287793696
                   </a>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="bg-navy-900 rounded-lg p-2 shrink-0">
                     <Mail className="w-4 h-4 text-gold-400" />
                   </div>
-                  <a href="mailto:canineforensics_dc@nfsu.ac.in" className="text-navy-900 text-sm font-semibold hover:text-gold-600 transition-colors">
-                    canineforensics_dc@nfsu.ac.in
+                  <a href="mailto:policedogcentreindia@gmail.com" className="text-navy-900 text-sm font-semibold hover:text-gold-600 transition-colors">
+                    policedogcentreindia@gmail.com
                   </a>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="bg-navy-900 rounded-lg p-2 shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4 text-gold-400" />
                   </div>
-                  <p className="text-gray-600 text-sm">
-                    NFSU Delhi Campus, Rohini, New Delhi – 110082
-                  </p>
+                  <div className="text-gray-600 text-sm">
+                    <p>Training Facilities: Sainik Farma, GXMH+3FQ, Badusarai, New Delhi, Delhi, 110071</p>
+                    <p className="mt-1">Head Office: E-601, Jagran CGHS, Plot-17, Dwarka Sector-22, New Delhi, 110077</p>
+                  </div>
                 </div>
               </div>
             </div>

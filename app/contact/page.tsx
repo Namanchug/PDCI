@@ -123,17 +123,10 @@ export default function ContactPage() {
                         Phone
                       </div>
                       <a
-                        href="tel:+919818562642"
-                        className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
-                      >
-                        +91 98185 62642
-                      </a>
-                      <br />
-                      <a
                         href="tel:+918287793696"
                         className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
                       >
-                        +91 82877 93696
+                        +91 8287793696
                       </a>
                     </div>
                   </div>
@@ -161,12 +154,26 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Headquarters
+                        Training Facilities
                       </div>
                       <p className="text-gray-600 text-sm">
-                        Block A, Security Complex,
-                        <br />
-                        Karol Bagh, New Delhi – 110005
+                        Sainik Farma, GXMH+3FQ, Badusarai, New Delhi, Delhi,
+                        110071
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
+                      <MapPin className="w-5 h-5 text-gold-500" />
+                    </div>
+                    <div>
+                      <div className="text-navy-900 font-semibold text-sm mb-1">
+                        Head Office
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        E-601, Jagran CGHS, Plot-17, Dwarka Sector-22, New
+                        Delhi, 110077
                       </p>
                     </div>
                   </div>

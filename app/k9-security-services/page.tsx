@@ -400,11 +400,11 @@ export default function K9ServicesPage() {
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a
-              href="tel:+911234567890"
+              href="tel:+918287793696"
               className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-navy-900 font-bold px-8 py-4 rounded transition-colors border-2 border-navy-900/20"
             >
               <Phone className="w-5 h-5" />
-              Call: +91 12345 67890
+              Call: +91 8287793696
             </a>
           </div>
         </div>

@@ -154,9 +154,9 @@ export async function POST(req: NextRequest) {
         <td style="background:#0f1f33;padding:28px 40px;text-align:center;">
           <p style="margin:0 0 8px;font-size:12px;color:#d0d8e3;font-family:Arial,sans-serif;">
             Questions? Reach us at
-            <a href="mailto:info@policedogcentreindia.com"
+            <a href="mailto:policedogcentreindia@gmail.com"
                style="color:#c9a45a;text-decoration:none;">
-              info@policedogcentreindia.com
+              policedogcentreindia@gmail.com
             </a>
           </p>
           <p style="margin:0;font-size:11px;color:#4a5f78;font-family:Arial,sans-serif;">
