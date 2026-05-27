@@ -478,6 +478,30 @@ export default function ProductDetailPage() {
                             style={{ background: "linear-gradient(to right, rgba(201,164,90,0.4), transparent)" }}
                         />
 
+                        {/* Video */}
+                        {(product.video_urls?.length || product.video_url) && (
+                            <div className="flex flex-col gap-3">
+                                <h2
+                                    className="text-lg font-bold text-[#f8f2e7]"
+                                    style={{ fontFamily: "'Times New Roman', serif" }}
+                                >
+                                    Product Videos
+                                </h2>
+                                {(product.video_urls?.length
+                                    ? product.video_urls
+                                    : [product.video_url!]
+                                ).map((url, i) => (
+                                    <video
+                                        key={i}
+                                        src={url}
+                                        controls
+                                        className="w-full rounded-xl"
+                                        style={{ border: "1px solid rgba(201,164,90,0.25)" }}
+                                    />
+                                ))}
+                            </div>
+                        )}
+
                         {/* Description */}
                         <div className="flex flex-col gap-3">
                             <h2

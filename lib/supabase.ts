@@ -22,6 +22,8 @@ export type Product = {
   has_sizes: boolean;
   has_colors: boolean;
   stock: number;
+  video_url?: string;
+  video_urls?: string[];
   color_stock: Record<string, number>;
   variant_stock: Record<string, number>;
   created_at: string;
