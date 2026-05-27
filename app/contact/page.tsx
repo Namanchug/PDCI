@@ -5,11 +5,14 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, Send, CheckCircle } from "lucide-react";
 
 const serviceOptions = [
-  "Narcotics Detection",
+  "Tracking & Trailing Dogs",
   "Explosive Detection",
-  "Patrol & Guard Dogs",
-  "Event Security",
-  "K9 Training & Certification",
+  "Narcotics Detection",
+  "Patrol Dogs",
+  "Event Security Dogs",
+  "Behaviour Assessment & Selection",
+  "Proficiency Evaluation & Certification",
+  "Pet Dog Training / Boarding & Behaviour Modification",
   "Other",
 ];
 

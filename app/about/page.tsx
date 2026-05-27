@@ -266,7 +266,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
               <div className="relative h-80 w-full">
                 <Image
-                  src="/picture2.jpg"
+                  src="/Picture2.jpg"
                   alt="Col PK Chug (Retd) – MD & Chief Trainer, Police Dog Centre India"
                   fill
                   className="object-cover object-top"

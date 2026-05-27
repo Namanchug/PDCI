@@ -27,7 +27,7 @@ import {
 export const metadata: Metadata = {
   title: "Forensic K9 & Education | Police Dog Centre India",
   description:
-    "India's pioneering Professional Diploma in Canine Forensics (PDCF) — a 6-month hybrid university program by NFSU in collaboration with PDC India, bridging K9 training with forensic science and judicial admissibility.",
+    "India's pioneering Professional Diploma in Canine Forensics (PDCF) — a 6-month hybrid university program by NFSU in collaboration with Police Dog Centre India, bridging K9 training with forensic science and judicial admissibility.",
 };
 
 const subjects = [
@@ -711,7 +711,7 @@ export default function ForensicK9EducationPage() {
         </div>
       </section>
 
-      {/* ── PDC India Partnership ────────────────────────────────── */}
+      {/* ── Police Dog Centre India Partnership ────────────────────────────────── */}
       <section className="bg-white py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -871,14 +871,14 @@ export default function ForensicK9EducationPage() {
                 <p className="text-gray-700 text-sm leading-relaxed">
                   CAPFs and State Police organisations are encouraged to nominate{" "}
                   <strong>4–5 K9 personnel</strong> per batch as directed by the Ministry of Home
-                  Affairs (March 2026). Contact PDC India for bulk nominations and
+                  Affairs (March 2026). Contact Police Dog Centre India for bulk nominations and
                   organisational coordination.
                 </p>
                 <Link
                   href="/contact"
                   className="mt-4 inline-flex items-center gap-2 text-navy-900 text-sm font-bold hover:text-gold-600 transition-colors"
                 >
-                  Contact PDC India
+                  Contact Police Dog Centre India
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -911,7 +911,7 @@ export default function ForensicK9EducationPage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-navy-900 font-bold px-8 py-4 rounded transition-colors border-2 border-navy-900/20"
             >
-              Contact PDC India
+              Contact Police Dog Centre India
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

@@ -14,12 +14,14 @@ const quickLinks = [
 ];
 
 const services = [
-  { href: "/k9-security-services#narcotics-detection", label: "Narcotics Detection & Sweeps" },
+  { href: "/k9-security-services#tracking-trailing", label: "Tracking & Trailing Dogs" },
   { href: "/k9-security-services#explosive-detection", label: "Explosive Detection" },
-  { href: "/forensic-k9-education#handler-training", label: "Handler & K9 Training" },
-  { href: "/k9-security-services#event-security", label: "VIP, Event & Venue Security" },
-  { href: "/k9-security-services#patrol-deployments", label: "Patrol & Guard Dog Deployments" },
-  { href: "/k9-security-services#consultancy-assessments", label: "Canine Consultancy & Assessments" },
+  { href: "/k9-security-services#narcotics-detection", label: "Narcotics Detection" },
+  { href: "/k9-security-services#patrol-dogs", label: "Patrol Dogs" },
+  { href: "/k9-security-services#event-security", label: "Event Security Dogs" },
+  { href: "/k9-security-services#behaviour-assessment", label: "Behaviour Assessment & Selection" },
+  { href: "/k9-security-services#proficiency-evaluation", label: "Proficiency Evaluation & Certification" },
+  { href: "/k9-security-services#pet-dog-training", label: "Pet Dog Training / Boarding & Behaviour Modification" },
 ];
 
 export default function Footer() {
@@ -42,7 +44,8 @@ export default function Footer() {
             </div>
             <p className="text-sm leading-relaxed text-slate-300 mt-4">
               India&apos;s premier K9 security solutions provider. Delivering
-              world-class trained security dogs and professional handlers
+              world-class trained security dogs and professional handlers since
+              2005.
             </p>
             <div className="mt-5 flex gap-3">
               <a
@@ -53,20 +56,6 @@ export default function Footer() {
                 aria-label="Instagram"
               >
                 IG
-              </a>
-              <a
-                href="#"
-                className="bg-white/6 border border-white/10 hover:bg-[#c9a45a] hover:text-[#0f1f33] text-slate-300 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
-                aria-label="Twitter"
-              >
-                X
-              </a>
-              <a
-                href="#"
-                className="bg-white/6 border border-white/10 hover:bg-[#c9a45a] hover:text-[#0f1f33] text-slate-300 w-9 h-9 rounded-full flex items-center justify-center transition-colors text-xs font-bold"
-                aria-label="LinkedIn"
-              >
-                in
               </a>
             </div>
           </div>
