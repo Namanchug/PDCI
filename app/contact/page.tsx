@@ -87,7 +87,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Page Header ── */}
-      <section className="py-14" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
+      <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm mb-8">
