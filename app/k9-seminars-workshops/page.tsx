@@ -290,19 +290,19 @@ export default function SeminarsWorkshopsPage() {
   return (
     <>
       {/* ── Page Header ─────────────────────────────────────────────────────── */}
-      <section className="bg-navy-900 py-6">
+      <section className="py-12" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-gold-400 transition-colors">
+          <div className="flex items-center gap-2 text-sm mb-4">
+            <Link href="/" className="transition-colors hover:text-[#c9a45a]" style={{ color: "#64748b" }}>
               Home
             </Link>
-            <span>/</span>
-            <span className="text-gold-400">K9 Seminars &amp; Workshops</span>
+            <span style={{ color: "#c9a45a" }}>/</span>
+            <span style={{ color: "#c9a45a" }}>K9 Seminars &amp; Workshops</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4" style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}>
             K9 Seminars &amp; Workshops
           </h1>
-          <p className="text-gray-300 text-base max-w-2xl">
+          <p className="text-base max-w-2xl" style={{ color: "#64748b" }}>
             From elite CAPF establishments to international K9 summits — PDCI's
             hands-on workshops and knowledge-sharing seminars span India's entire
             law enforcement and defence ecosystem and the global working dog
