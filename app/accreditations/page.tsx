@@ -86,9 +86,22 @@ function AccreditationCard({
   item: (typeof nationalAccreditations)[0];
 }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden">
+    <div
+      className="flex flex-col overflow-hidden hover:shadow-xl transition-shadow duration-300"
+      style={{
+        background: "#ffffff",
+        border: "1px solid rgba(201,164,90,0.18)",
+        borderRadius: "2px",
+      }}
+    >
       {/* Logo area */}
-      <div className="bg-navy-900 h-44 flex flex-col items-center justify-center gap-3 px-6">
+      <div
+        className="h-44 flex flex-col items-center justify-center gap-3 px-6"
+        style={{
+          background: "linear-gradient(135deg, #0a1628 0%, #112240 100%)",
+          borderBottom: "3px solid #c9a45a",
+        }}
+      >
         <div className="relative h-24 w-40">
           <Image
             src={item.logo}
@@ -98,36 +111,54 @@ function AccreditationCard({
             sizes="160px"
           />
         </div>
-        <span className="text-gold-400 text-xs font-semibold tracking-widest uppercase text-center">
+        <span
+          className="font-semibold uppercase text-center"
+          style={{ color: "#c9a45a", fontSize: "0.65rem", letterSpacing: "0.18em" }}
+        >
           {item.category}
         </span>
       </div>
 
       {/* Card body */}
       <div className="p-7 flex flex-col flex-1">
-        {/* Badge */}
+        {/* Highlight badge */}
         <span
-          className="inline-block w-fit text-xs font-bold px-3 py-1 rounded-full mb-4"
+          className="inline-block w-fit font-bold uppercase mb-4"
           style={{
-            background: "rgba(201,164,90,0.12)",
+            background: "rgba(201,164,90,0.1)",
             color: "#9f7b35",
             border: "1px solid rgba(201,164,90,0.3)",
+            borderRadius: "2px",
+            fontSize: "0.65rem",
+            letterSpacing: "0.12em",
+            padding: "0.25rem 0.75rem",
           }}
         >
           {item.highlight}
         </span>
 
-        <h3 className="text-navy-900 font-bold text-lg leading-snug mb-1">
+        <h3
+          className="font-bold text-lg mb-1"
+          style={{ fontFamily: "Georgia, serif", color: "#0a1628", lineHeight: 1.3 }}
+        >
           {item.title}
         </h3>
-        <p className="text-gold-600 font-semibold text-sm mb-1">
+        <p className="font-semibold text-sm mb-1" style={{ color: "#c9a45a" }}>
           {item.issuedBy}
         </p>
         {item.subtext && (
-          <p className="text-gray-400 text-xs mb-2">{item.subtext}</p>
+          <p className="text-xs mb-2" style={{ color: "#94a3b8" }}>
+            {item.subtext}
+          </p>
         )}
 
-        <div className="mt-3 pt-4 border-t border-gray-100 text-gray-600 text-sm leading-relaxed flex-1">
+        <div
+          className="mt-3 pt-4 text-sm leading-relaxed flex-1"
+          style={{
+            borderTop: "1px solid rgba(201,164,90,0.15)",
+            color: "#4b5563",
+          }}
+        >
           {item.description}
         </div>
       </div>
@@ -138,20 +169,64 @@ function AccreditationCard({
 export default function AccreditationsPage() {
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-navy-900 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-gold-400 transition-colors">
+      {/* ── Page Header ── */}
+      <section
+        className="relative py-20 overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #0a1628 0%, #091525 50%, #0a1628 100%)",
+        }}
+      >
+        {/* Grid texture */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(201,164,90,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,164,90,0.04) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        {/* Bottom fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-24"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, rgba(249,246,241,0.06))",
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm mb-8">
+            <Link
+              href="/"
+              className="transition-colors hover:text-[#c9a45a]"
+              style={{ color: "#64748b" }}
+            >
               Home
             </Link>
-            <span>/</span>
-            <span className="text-gold-400">Accreditations</span>
+            <span style={{ color: "#c9a45a" }}>/</span>
+            <span style={{ color: "#c9a45a" }}>Accreditations</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Accreditations
+
+          {/* Eyebrow */}
+          <p
+            className="font-semibold uppercase mb-4"
+            style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
+          >
+            Our Credentials
+          </p>
+
+          {/* Title */}
+          <h1
+            className="text-4xl sm:text-5xl font-bold mb-6 max-w-3xl"
+            style={{ fontFamily: "Georgia, serif", color: "#ffffff", lineHeight: 1.15 }}
+          >
+            Accreditations &amp;{" "}
+            <span style={{ color: "#c9a45a" }}>Recognition</span>
           </h1>
-          <p className="text-gray-300 text-base max-w-2xl">
+
+          {/* Description */}
+          <p className="text-base leading-relaxed max-w-2xl" style={{ color: "#94a3b8" }}>
             Police Dog Centre India is formally recognised and accredited by
             leading national and international bodies — validating our standards
             in K9 training, breeding, canine forensics education, and global
@@ -160,41 +235,74 @@ export default function AccreditationsPage() {
         </div>
       </section>
 
-
-
-      {/* Accreditations — Two-Column Layout */}
-      <section className="bg-gray-50 py-28">
+      {/* ── Accreditations Grid ── */}
+      <section className="py-24" style={{ background: "#f9f6f1" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Section intro */}
-          <div className="text-center mb-8">
-            <span className="text-gold-500 font-semibold text-sm tracking-widest uppercase">
+          {/* Section heading */}
+          <div className="text-center mb-16">
+            <p
+              className="font-semibold uppercase mb-3"
+              style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
+            >
               Accreditations &amp; Collaborations
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2">
+            </p>
+            <div
+              className="mx-auto mb-5"
+              style={{
+                width: "40px",
+                height: "1px",
+                background: "linear-gradient(90deg, transparent, #c9a45a, transparent)",
+              }}
+            />
+            <h2
+              className="text-3xl sm:text-4xl font-bold mb-4"
+              style={{ fontFamily: "Georgia, serif", color: "#0a1628", lineHeight: 1.2 }}
+            >
               Recognised Nationally &amp; Internationally
             </h2>
-            <p className="text-gray-500 mt-3 max-w-2xl mx-auto text-sm leading-relaxed">
+            <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={{ color: "#64748b" }}>
               Formally evaluated and recognised by India&apos;s premier governing bodies
               and global K9 institutions — validating every dimension of PDCI&apos;s work.
             </p>
           </div>
 
           {/* Two-column split */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-0 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 relative">
 
             {/* Vertical divider (desktop only) */}
-            <div className="hidden lg:block absolute inset-y-0 left-1/2 w-px bg-gray-200 -translate-x-1/2" />
+            <div
+              className="hidden lg:block absolute inset-y-0 left-1/2 -translate-x-1/2"
+              style={{
+                width: "1px",
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(201,164,90,0.4) 20%, rgba(201,164,90,0.4) 80%, transparent)",
+              }}
+            />
 
             {/* ── National Column ── */}
-            <div className="lg:pr-12">
-              <div className="flex items-center gap-3 mb-8">
-                <span className="flex-shrink-0 w-8 h-px bg-gold-500" />
+            <div className="lg:pr-14">
+              <div className="flex items-center gap-4 mb-10">
+                <div
+                  style={{
+                    width: "3px",
+                    height: "44px",
+                    background: "linear-gradient(to bottom, #c9a45a, rgba(201,164,90,0.25))",
+                    borderRadius: "2px",
+                    flexShrink: 0,
+                  }}
+                />
                 <div>
-                  <p className="text-gold-500 font-semibold text-xs tracking-widest uppercase">
+                  <p
+                    className="font-semibold uppercase mb-0.5"
+                    style={{ color: "#c9a45a", fontSize: "0.65rem", letterSpacing: "0.2em" }}
+                  >
                     National
                   </p>
-                  <h3 className="text-xl font-bold text-navy-900 mt-0.5">
+                  <h3
+                    className="text-xl font-bold"
+                    style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
+                  >
                     National Accreditations
                   </h3>
                 </div>
@@ -207,14 +315,31 @@ export default function AccreditationsPage() {
             </div>
 
             {/* ── International Column ── */}
-            <div className="lg:pl-12 pt-10 lg:pt-0 border-t border-gray-200 lg:border-t-0">
-              <div className="flex items-center gap-3 mb-8">
-                <span className="flex-shrink-0 w-8 h-px bg-gold-500" />
+            <div
+              className="lg:pl-14 pt-10 lg:pt-0 border-t lg:border-t-0"
+              style={{ borderColor: "rgba(201,164,90,0.2)" }}
+            >
+              <div className="flex items-center gap-4 mb-10">
+                <div
+                  style={{
+                    width: "3px",
+                    height: "44px",
+                    background: "linear-gradient(to bottom, #c9a45a, rgba(201,164,90,0.25))",
+                    borderRadius: "2px",
+                    flexShrink: 0,
+                  }}
+                />
                 <div>
-                  <p className="text-gold-500 font-semibold text-xs tracking-widest uppercase">
+                  <p
+                    className="font-semibold uppercase mb-0.5"
+                    style={{ color: "#c9a45a", fontSize: "0.65rem", letterSpacing: "0.2em" }}
+                  >
                     International
                   </p>
-                  <h3 className="text-xl font-bold text-navy-900 mt-0.5">
+                  <h3
+                    className="text-xl font-bold"
+                    style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
+                  >
                     International Accreditations &amp; Collaborations
                   </h3>
                 </div>
@@ -230,26 +355,49 @@ export default function AccreditationsPage() {
         </div>
       </section>
 
-      {/* Why It Matters */}
-      <section className="bg-navy-900 py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-gold-400 font-semibold text-sm tracking-widest uppercase">
-            Why It Matters
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-2 mb-6">
-            The Mark of Verified Excellence
-          </h2>
-          <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
-            These accreditations are not self-declared — they are the result of
-            formal evaluations by independent, nationally and internationally
-            recognised governing bodies. For police forces, law enforcement
-            agencies, and government procurement offices, they serve as
-            verifiable proof that Police Dog Centre India meets the highest
-            standards of quality, ethics, and professional competence in every
-            aspect of K9 training, breeding, and education.
-          </p>
+      {/* ── Why It Matters ── */}
+      <section
+        className="py-24"
+        style={{ background: "linear-gradient(135deg, #0a1628 0%, #091525 100%)" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p
+              className="font-semibold uppercase mb-3"
+              style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
+            >
+              Why It Matters
+            </p>
+            <div
+              className="mx-auto mb-5"
+              style={{
+                width: "40px",
+                height: "1px",
+                background: "linear-gradient(90deg, transparent, #c9a45a, transparent)",
+              }}
+            />
+            <h2
+              className="text-3xl sm:text-4xl font-bold mb-6"
+              style={{ fontFamily: "Georgia, serif", color: "#ffffff", lineHeight: 1.2 }}
+            >
+              The Mark of{" "}
+              <span style={{ color: "#c9a45a" }}>Verified Excellence</span>
+            </h2>
+            <p
+              className="max-w-3xl mx-auto text-base leading-relaxed"
+              style={{ color: "#94a3b8" }}
+            >
+              These accreditations are not self-declared — they are the result of
+              formal evaluations by independent, nationally and internationally
+              recognised governing bodies. For police forces, law enforcement
+              agencies, and government procurement offices, they serve as
+              verifiable proof that Police Dog Centre India meets the highest
+              standards of quality, ethics, and professional competence in every
+              aspect of K9 training, breeding, and education.
+            </p>
+          </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
               {
                 label: "Govt. Procurement",
@@ -274,15 +422,21 @@ export default function AccreditationsPage() {
             ].map((point) => (
               <div
                 key={point.label}
-                className="bg-navy-800 rounded-xl p-6 border border-navy-700"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(201,164,90,0.18)",
+                  borderTop: "3px solid #c9a45a",
+                  borderRadius: "2px",
+                  padding: "1.5rem",
+                }}
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2 h-2 rounded-full bg-gold-500 shrink-0" />
-                  <span className="text-gold-400 font-semibold text-xs">
-                    {point.label}
-                  </span>
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
+                <span
+                  className="font-bold uppercase block mb-3"
+                  style={{ color: "#c9a45a", fontSize: "0.65rem", letterSpacing: "0.15em" }}
+                >
+                  {point.label}
+                </span>
+                <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>
                   {point.text}
                 </p>
               </div>
@@ -291,19 +445,41 @@ export default function AccreditationsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-gray-50 py-16">
+      {/* ── CTA ── */}
+      <section
+        className="py-20"
+        style={{
+          background: "linear-gradient(135deg, #091525 0%, #0a1628 50%, #112240 100%)",
+        }}
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl font-bold text-navy-900 mb-3">
+          <p
+            className="font-semibold uppercase mb-4"
+            style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
+          >
+            Get In Touch
+          </p>
+          <h3
+            className="text-2xl sm:text-3xl font-bold mb-4"
+            style={{ fontFamily: "Georgia, serif", color: "#ffffff" }}
+          >
             Want to verify our credentials?
           </h3>
-          <p className="text-gray-500 text-sm mb-7">
+          <p className="text-sm mb-8" style={{ color: "#94a3b8" }}>
             Reach out to us directly and we will share the relevant accreditation
             certificates and documentation.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-navy-900 text-white font-semibold px-8 py-3 rounded-full hover:bg-navy-800 transition-colors"
+            className="inline-block uppercase font-bold hover:opacity-90 transition-opacity"
+            style={{
+              background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+              color: "#0a1628",
+              padding: "0.875rem 2.5rem",
+              letterSpacing: "0.08em",
+              fontSize: "0.8rem",
+              borderRadius: "2px",
+            }}
           >
             Contact Us
           </Link>

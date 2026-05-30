@@ -42,62 +42,79 @@ export default function StorePage() {
     }, [activeCategory, products]);
 
     return (
-        <div
-            className="min-h-screen"
-            style={{ background: "linear-gradient(180deg,#0f1f33 0%,#13253b 100%)" }}
-        >
-            {/* Hero Banner */}
+        <div className="min-h-screen" style={{ background: "#f9f6f1" }}>
+            {/* ── Hero Banner ── */}
             <div
-                className="relative px-4 py-16 text-center"
+                className="relative px-4 py-20 text-center overflow-hidden"
                 style={{
-                    background:
-                        "linear-gradient(135deg,#0a1628 0%,#0f1f33 50%,#1a2f4a 100%)",
-                    borderBottom: "1px solid rgba(201,164,90,0.25)",
+                    background: "linear-gradient(135deg, #0a1628 0%, #091525 50%, #0a1628 100%)",
+                    borderBottom: "1px solid rgba(201,164,90,0.2)",
                 }}
             >
-                <p
-                    className="mb-2 text-xs font-semibold tracking-[0.3em] uppercase"
-                    style={{ color: "#c9a45a" }}
-                >
-                    Police Dog Centre India
-                </p>
-                <h1
-                    className="text-4xl font-bold md:text-5xl"
-                    style={{ fontFamily: "'Times New Roman', serif", color: "#f8f2e7" }}
-                >
-                    Official Store
-                </h1>
-                <p className="mt-3 text-sm text-[#d0d8e3] max-w-xl mx-auto">
-                    Premium K9 gear, training equipment, apparel and accessories — trusted
-                    by handlers and professionals across India.
-                </p>
+                {/* Grid texture */}
                 <div
-                    className="mx-auto mt-6 h-px w-24"
+                    className="absolute inset-0"
                     style={{
-                        background:
-                            "linear-gradient(to right, transparent, #c9a45a, transparent)",
+                        backgroundImage:
+                            "linear-gradient(rgba(201,164,90,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,164,90,0.04) 1px, transparent 1px)",
+                        backgroundSize: "60px 60px",
                     }}
                 />
+                <div className="relative">
+                    <p
+                        className="mb-3 text-xs font-semibold uppercase"
+                        style={{ color: "#c9a45a", letterSpacing: "0.3em" }}
+                    >
+                        Police Dog Centre India
+                    </p>
+                    <h1
+                        className="text-4xl font-bold md:text-5xl"
+                        style={{ fontFamily: "Georgia, serif", color: "#f8f2e7", lineHeight: 1.15 }}
+                    >
+                        Official <span style={{ color: "#c9a45a" }}>Store</span>
+                    </h1>
+                    <p className="mt-4 text-sm max-w-xl mx-auto" style={{ color: "#94a3b8" }}>
+                        Premium K9 gear, training equipment, apparel and accessories — trusted
+                        by handlers and professionals across India.
+                    </p>
+                    <div
+                        className="mx-auto mt-6 h-px w-24"
+                        style={{
+                            background: "linear-gradient(to right, transparent, #c9a45a, transparent)",
+                        }}
+                    />
+                </div>
             </div>
 
-            {/* Category Filters */}
-            <div className="sticky top-0 z-10 border-b border-[#d8c08a]/15 bg-[#0f1f33]/95 backdrop-blur-md px-4 py-3">
+            {/* ── Category Filters ── */}
+            <div
+                className="sticky top-0 z-10 px-4 py-3 backdrop-blur-md"
+                style={{
+                    background: "rgba(10,22,40,0.97)",
+                    borderBottom: "1px solid rgba(201,164,90,0.15)",
+                }}
+            >
                 <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-2">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className="rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200"
+                            className="px-4 py-1.5 text-xs font-semibold uppercase transition-all duration-200"
                             style={
                                 activeCategory === cat
                                     ? {
-                                        background: "linear-gradient(135deg,#c9a45a,#f7dfb0)",
-                                        color: "#0f1f33",
+                                        background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                                        color: "#0a1628",
+                                        letterSpacing: "0.08em",
+                                        borderRadius: "2px",
+                                        border: "1px solid transparent",
                                     }
                                     : {
-                                        background: "rgba(255,255,255,0.05)",
-                                        color: "#d0d8e3",
+                                        background: "transparent",
+                                        color: "#94a3b8",
                                         border: "1px solid rgba(201,164,90,0.2)",
+                                        letterSpacing: "0.08em",
+                                        borderRadius: "2px",
                                     }
                             }
                         >
@@ -107,14 +124,22 @@ export default function StorePage() {
                 </div>
             </div>
 
-            {/* Products Grid */}
-            <div className="mx-auto max-w-6xl px-4 py-10">
+            {/* ── Products Grid ── */}
+            <div
+                className="mx-auto max-w-6xl px-4 py-12"
+                style={{ minHeight: "60vh" }}
+            >
                 {loading ? (
                     <div className="flex items-center justify-center py-24">
-                        <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#c9a45a] border-t-transparent" />
+                        <div
+                            className="h-10 w-10 animate-spin rounded-full border-4 border-t-transparent"
+                            style={{ borderColor: "rgba(201,164,90,0.3)", borderTopColor: "transparent" }}
+                        />
                     </div>
                 ) : filtered.length === 0 ? (
-                    <p className="text-center text-[#d0d8e3] py-24">No products found.</p>
+                    <p className="text-center py-24 text-sm" style={{ color: "#94a3b8" }}>
+                        No products found in this category.
+                    </p>
                 ) : (
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                         {filtered.map((product) => (
@@ -133,37 +158,46 @@ function ProductCard({ product }: { product: Product }) {
     return (
         <Link href={`/store/${product.id}`}>
             <div
-                className="group flex flex-col rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
+                className="group flex flex-col overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 style={{
-                    background: "rgba(255,255,255,0.04)",
+                    background: "#ffffff",
                     border: "1px solid rgba(201,164,90,0.15)",
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                    borderRadius: "2px",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                 }}
             >
                 {/* Image */}
-                <div className="relative aspect-square overflow-hidden bg-[#0a1628]">
+                <div
+                    className="relative aspect-square overflow-hidden"
+                    style={{ background: "#f5f1eb" }}
+                >
                     <img
                         src={displayImg}
                         alt={product.name}
-                        className="h-full w-full object-contain transition-all duration-500"
+                        className="h-full w-full object-contain transition-all duration-500 group-hover:scale-105"
                     />
 
                     {product.has_colors && (
-                        <div className="absolute bottom-6 left-2 flex gap-1">
+                        <div className="absolute bottom-2 left-2 flex gap-1">
                             {product.colors.slice(0, 4).map((c) => (
                                 <div
                                     key={c}
-                                    className="h-3 w-3 rounded-full border border-white/40"
+                                    className="h-3 w-3 border border-white/60 shadow-sm"
+                                    style={{ background: colorToHex(c), borderRadius: "2px" }}
                                     title={c}
-                                    style={{ background: colorToHex(c) }}
                                 />
                             ))}
                         </div>
                     )}
 
                     <div
-                        className="absolute top-2 right-2 rounded-full px-2 py-0.5 text-[0.6rem] font-bold text-[#0f1f33]"
-                        style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
+                        className="absolute top-2 right-2 px-2 py-0.5 text-[0.55rem] font-bold uppercase"
+                        style={{
+                            background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                            color: "#0a1628",
+                            letterSpacing: "0.08em",
+                            borderRadius: "2px",
+                        }}
                     >
                         {product.category}
                     </div>
@@ -171,21 +205,31 @@ function ProductCard({ product }: { product: Product }) {
 
                 {/* Info */}
                 <div className="flex flex-1 flex-col p-3 gap-1">
-                    <h3 className="text-sm font-semibold leading-tight text-[#f8f2e7] line-clamp-2">
+                    <h3
+                        className="text-sm font-semibold leading-tight line-clamp-2"
+                        style={{ color: "#0a1628" }}
+                    >
                         {product.name}
                     </h3>
                     {product.has_sizes && (
-                        <p className="text-[0.65rem] text-[#d0d8e3]">
+                        <p className="text-[0.65rem]" style={{ color: "#94a3b8" }}>
                             {product.size_label ?? "Sizes"}: {product.sizes.join(", ")}
                         </p>
                     )}
-                    <div className="mt-auto pt-2 flex items-center justify-between">
-                        <span className="text-base font-bold text-[#c9a45a]">
+                    <div className="mt-auto pt-2 flex items-center justify-between"
+                        style={{ borderTop: "1px solid rgba(201,164,90,0.12)" }}
+                    >
+                        <span className="text-base font-bold" style={{ color: "#c9a45a" }}>
                             ₹{product.base_price.toLocaleString("en-IN")}
                         </span>
                         <span
-                            className="rounded-full px-3 py-1 text-[0.65rem] font-bold text-[#0f1f33]"
-                            style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
+                            className="px-3 py-1 text-[0.6rem] font-bold uppercase transition-colors"
+                            style={{
+                                background: "#0a1628",
+                                color: "#ffffff",
+                                letterSpacing: "0.08em",
+                                borderRadius: "2px",
+                            }}
                         >
                             View
                         </span>
