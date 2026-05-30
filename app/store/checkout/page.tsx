@@ -56,23 +56,28 @@ function Field({
 }) {
     return (
         <div className={half ? "col-span-1" : "col-span-2"}>
-            <label className="mb-1 block text-xs font-semibold text-[#d0d8e3] uppercase tracking-wide">
-                {label} <span className="text-[#c9a45a]">*</span>
+            <label
+                className="mb-1.5 block text-xs font-semibold uppercase"
+                style={{ color: "#0a1628", letterSpacing: "0.12em" }}
+            >
+                {label} <span style={{ color: "#dc2626" }}>*</span>
             </label>
             <input
                 type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={(e) => onChange(name, e.target.value)}
-                className="w-full rounded-xl px-4 py-3 text-sm text-[#f8f2e7] outline-none transition placeholder:text-[#6b7c95]"
+                className="w-full px-4 py-3 text-sm outline-none transition placeholder:text-gray-400"
                 style={{
-                    background: "rgba(255,255,255,0.06)",
+                    background: "#ffffff",
+                    color: "#0a1628",
                     border: error
-                        ? "1px solid #f87171"
-                        : "1px solid rgba(201,164,90,0.2)",
+                        ? "1px solid #dc2626"
+                        : "1px solid rgba(201,164,90,0.25)",
+                    borderRadius: "2px",
                 }}
             />
-            {error && <p className="mt-1 text-xs text-red-400">{error}</p>}
+            {error && <p className="mt-1 text-xs" style={{ color: "#dc2626" }}>{error}</p>}
         </div>
     );
 }
@@ -220,45 +225,60 @@ export default function CheckoutPage() {
         return (
             <div
                 className="min-h-screen flex items-center justify-center px-4"
-                style={{ background: "linear-gradient(180deg,#0f1f33 0%,#13253b 100%)" }}
+                style={{ background: "#f9f6f1" }}
             >
                 <div
-                    className="w-full max-w-md rounded-2xl p-8 text-center"
+                    className="w-full max-w-md p-8 text-center"
                     style={{
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(201,164,90,0.25)",
+                        background: "#ffffff",
+                        border: "1px solid rgba(201,164,90,0.18)",
+                        borderTop: "3px solid #c9a45a",
+                        borderRadius: "2px",
                     }}
                 >
-                    <CheckCircle size={56} className="mx-auto mb-4" style={{ color: "#c9a45a" }} />
+                    <div
+                        className="mx-auto mb-6 flex items-center justify-center"
+                        style={{
+                            width: "72px",
+                            height: "72px",
+                            background: "rgba(201,164,90,0.1)",
+                            border: "1px solid rgba(201,164,90,0.3)",
+                            borderRadius: "2px",
+                        }}
+                    >
+                        <CheckCircle size={36} style={{ color: "#c9a45a" }} />
+                    </div>
                     <h2
-                        className="text-2xl font-bold text-[#f8f2e7] mb-2"
-                        style={{ fontFamily: "'Times New Roman', serif" }}
+                        className="text-2xl font-bold mb-2"
+                        style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
                     >
                         Order Confirmed!
                     </h2>
-                    <p className="text-sm text-[#d0d8e3] mb-2">
+                    <p className="text-sm mb-2" style={{ color: "#4b5563" }}>
                         Thank you,{" "}
-                        <span className="text-[#f8f2e7] font-semibold">{form.name}</span>!
+                        <span className="font-semibold" style={{ color: "#0a1628" }}>{form.name}</span>!
                     </p>
-                    <p className="text-sm text-[#d0d8e3] mb-1">
+                    <p className="text-sm mb-1" style={{ color: "#4b5563" }}>
                         A confirmation has been sent to{" "}
-                        <span className="text-[#c9a45a]">{form.email}</span>
+                        <span style={{ color: "#c9a45a" }}>{form.email}</span>
                     </p>
-                    <p className="text-xs text-[#d0d8e3] mt-2 mb-6">
+                    <p className="text-xs mt-2 mb-6" style={{ color: "#94a3b8" }}>
                         Payment ID:{" "}
-                        <span className="font-mono text-[#f8f2e7]">{orderId}</span>
+                        <span className="font-mono" style={{ color: "#0a1628" }}>{orderId}</span>
                     </p>
                     <div
                         className="h-px w-full mb-6"
-                        style={{
-                            background:
-                                "linear-gradient(to right, transparent, rgba(201,164,90,0.4), transparent)",
-                        }}
+                        style={{ background: "linear-gradient(to right, transparent, rgba(201,164,90,0.4), transparent)" }}
                     />
                     <button
                         onClick={() => router.push("/store")}
-                        className="w-full rounded-full py-3 text-sm font-bold text-[#0f1f33] transition hover:opacity-90"
-                        style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
+                        className="w-full py-3 text-sm font-bold uppercase transition hover:opacity-90"
+                        style={{
+                            background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                            color: "#0a1628",
+                            letterSpacing: "0.08em",
+                            borderRadius: "2px",
+                        }}
                     >
                         Continue Shopping
                     </button>
@@ -271,15 +291,31 @@ export default function CheckoutPage() {
     if (items.length === 0) {
         return (
             <div
-                className="min-h-screen flex flex-col items-center justify-center gap-4 px-4"
-                style={{ background: "linear-gradient(180deg,#0f1f33 0%,#13253b 100%)" }}
+                className="min-h-screen flex flex-col items-center justify-center gap-5 px-4"
+                style={{ background: "#f9f6f1" }}
             >
-                <ShoppingBag size={48} className="text-[#c9a45a] opacity-50" />
-                <p className="text-[#d0d8e3]">Your cart is empty.</p>
+                <div
+                    className="flex items-center justify-center"
+                    style={{
+                        width: "80px",
+                        height: "80px",
+                        background: "rgba(201,164,90,0.1)",
+                        border: "1px solid rgba(201,164,90,0.25)",
+                        borderRadius: "2px",
+                    }}
+                >
+                    <ShoppingBag size={36} style={{ color: "#c9a45a", opacity: 0.7 }} />
+                </div>
+                <p className="text-sm" style={{ color: "#64748b" }}>Your cart is empty.</p>
                 <button
                     onClick={() => router.push("/store")}
-                    className="rounded-full px-6 py-2.5 text-sm font-bold text-[#0f1f33]"
-                    style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
+                    className="px-6 py-2.5 text-sm font-bold uppercase transition hover:opacity-90"
+                    style={{
+                        background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                        color: "#0a1628",
+                        letterSpacing: "0.08em",
+                        borderRadius: "2px",
+                    }}
                 >
                     Go to Store
                 </button>
@@ -288,38 +324,52 @@ export default function CheckoutPage() {
     }
 
     return (
-        <div
-            className="min-h-screen"
-            style={{ background: "linear-gradient(180deg,#0f1f33 0%,#13253b 100%)" }}
-        >
-            <div className="mx-auto max-w-5xl px-4 py-8">
+        <div className="min-h-screen" style={{ background: "#f9f6f1" }}>
+            <div className="mx-auto max-w-5xl px-4 py-10">
+                {/* Back */}
                 <button
                     onClick={() => router.back()}
-                    className="mb-6 flex items-center gap-1 text-sm text-[#d0d8e3] hover:text-[#c9a45a] transition"
+                    className="mb-8 flex items-center gap-1 text-sm font-medium transition hover:text-[#c9a45a]"
+                    style={{ color: "#64748b" }}
                 >
                     <ChevronLeft size={16} />
                     Back to Cart
                 </button>
 
-                <h1
-                    className="mb-8 text-3xl font-bold text-[#f8f2e7]"
-                    style={{ fontFamily: "'Times New Roman', serif" }}
+                {/* Page title */}
+                <p
+                    className="font-semibold uppercase mb-3"
+                    style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
                 >
-                    Checkout
+                    Secure Checkout
+                </p>
+                <h1
+                    className="mb-10 text-3xl font-bold"
+                    style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
+                >
+                    Complete Your Order
                 </h1>
 
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_380px]">
-                    {/* ── LEFT: Form ── */}
+                    {/* ── LEFT: Delivery Form ── */}
                     <div
-                        className="rounded-2xl p-6"
+                        className="p-6"
                         style={{
-                            background: "rgba(255,255,255,0.03)",
-                            border: "1px solid rgba(201,164,90,0.15)",
+                            background: "#ffffff",
+                            border: "1px solid rgba(201,164,90,0.18)",
+                            borderTop: "3px solid #c9a45a",
+                            borderRadius: "2px",
                         }}
                     >
+                        <p
+                            className="font-semibold uppercase mb-1"
+                            style={{ color: "#c9a45a", fontSize: "0.65rem", letterSpacing: "0.2em" }}
+                        >
+                            Step 1
+                        </p>
                         <h2
-                            className="mb-5 text-lg font-bold text-[#f8f2e7]"
-                            style={{ fontFamily: "'Times New Roman', serif" }}
+                            className="mb-6 text-lg font-bold"
+                            style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
                         >
                             Delivery Details
                         </h2>
@@ -340,28 +390,35 @@ export default function CheckoutPage() {
                             <Field label="City" name="city" placeholder="New Delhi" half
                                 value={form.city} error={errors.city} onChange={handleFieldChange} />
                             <div className="col-span-1">
-                                <label className="mb-1 block text-xs font-semibold text-[#d0d8e3] uppercase tracking-wide">
-                                    State <span className="text-[#c9a45a]">*</span>
+                                <label
+                                    className="mb-1.5 block text-xs font-semibold uppercase"
+                                    style={{ color: "#0a1628", letterSpacing: "0.12em" }}
+                                >
+                                    State <span style={{ color: "#dc2626" }}>*</span>
                                 </label>
                                 <select
                                     value={form.state}
                                     onChange={(e) => handleFieldChange("state", e.target.value)}
-                                    className="w-full rounded-xl px-4 py-3 text-sm text-[#f8f2e7] outline-none transition"
+                                    className="w-full px-4 py-3 text-sm outline-none transition"
                                     style={{
-                                        background: "rgba(255,255,255,0.06)",
-                                        border: errors.state ? "1px solid #f87171" : "1px solid rgba(201,164,90,0.2)",
+                                        background: "#ffffff",
+                                        color: form.state ? "#0a1628" : "#9ca3af",
+                                        border: errors.state
+                                            ? "1px solid #dc2626"
+                                            : "1px solid rgba(201,164,90,0.25)",
+                                        borderRadius: "2px",
                                         appearance: "none",
                                         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9a45a' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
                                         backgroundRepeat: "no-repeat",
                                         backgroundPosition: "right 16px center",
                                     }}
                                 >
-                                    <option value="" disabled style={{ background: "#0f1f33" }}>Select State</option>
+                                    <option value="" disabled style={{ background: "#ffffff", color: "#9ca3af" }}>Select State</option>
                                     {["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"].map((s) => (
-                                        <option key={s} value={s} style={{ background: "#0f1f33", color: "#f8f2e7" }}>{s}</option>
+                                        <option key={s} value={s} style={{ background: "#ffffff", color: "#0a1628" }}>{s}</option>
                                     ))}
                                 </select>
-                                {errors.state && <p className="mt-1 text-xs text-red-400">{errors.state}</p>}
+                                {errors.state && <p className="mt-1 text-xs" style={{ color: "#dc2626" }}>{errors.state}</p>}
                             </div>
                             <Field label="Pincode" name="pincode" placeholder="110001" half
                                 value={form.pincode} error={errors.pincode} onChange={handleFieldChange} />
@@ -371,15 +428,23 @@ export default function CheckoutPage() {
                     {/* ── RIGHT: Order Summary ── */}
                     <div className="flex flex-col gap-4">
                         <div
-                            className="rounded-2xl p-5"
+                            className="p-5"
                             style={{
-                                background: "rgba(255,255,255,0.03)",
-                                border: "1px solid rgba(201,164,90,0.15)",
+                                background: "#ffffff",
+                                border: "1px solid rgba(201,164,90,0.18)",
+                                borderTop: "3px solid #c9a45a",
+                                borderRadius: "2px",
                             }}
                         >
+                            <p
+                                className="font-semibold uppercase mb-1"
+                                style={{ color: "#c9a45a", fontSize: "0.65rem", letterSpacing: "0.2em" }}
+                            >
+                                Step 2
+                            </p>
                             <h2
-                                className="mb-4 text-lg font-bold text-[#f8f2e7]"
-                                style={{ fontFamily: "'Times New Roman', serif" }}
+                                className="mb-5 text-lg font-bold"
+                                style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
                             >
                                 Order Summary
                             </h2>
@@ -393,56 +458,76 @@ export default function CheckoutPage() {
                                         <img
                                             src={item.image}
                                             alt={item.name}
-                                            className="h-12 w-12 rounded-lg object-cover flex-shrink-0"
+                                            className="h-12 w-12 flex-shrink-0 object-cover"
+                                            style={{
+                                                border: "1px solid rgba(201,164,90,0.15)",
+                                                borderRadius: "2px",
+                                                background: "#f5f1eb",
+                                            }}
                                         />
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-semibold text-[#f8f2e7] truncate">
+                                            <p className="text-sm font-semibold truncate" style={{ color: "#0a1628" }}>
                                                 {item.name}
                                             </p>
-                                            <p className="text-xs text-[#d0d8e3]">
+                                            <p className="text-xs" style={{ color: "#94a3b8" }}>
                                                 {[item.color, item.size && `Size: ${item.size}`]
                                                     .filter(Boolean)
                                                     .join(" · ")}
                                             </p>
-                                            <p className="text-xs text-[#d0d8e3]">Qty: {item.quantity}</p>
+                                            <p className="text-xs" style={{ color: "#94a3b8" }}>Qty: {item.quantity}</p>
                                         </div>
-                                        <p className="text-sm font-bold text-[#c9a45a] flex-shrink-0">
+                                        <p className="text-sm font-bold flex-shrink-0" style={{ color: "#c9a45a" }}>
                                             ₹{(item.price * item.quantity).toLocaleString("en-IN")}
                                         </p>
                                     </div>
                                 ))}
                             </div>
 
-                            <div className="h-px w-full mb-4" style={{ background: "rgba(201,164,90,0.2)" }} />
+                            <div
+                                className="h-px w-full mb-4"
+                                style={{ background: "rgba(201,164,90,0.2)" }}
+                            />
 
                             <div className="flex flex-col gap-2 text-sm">
-                                <div className="flex justify-between text-[#d0d8e3]">
+                                <div className="flex justify-between" style={{ color: "#64748b" }}>
                                     <span>Subtotal</span>
                                     <span>₹{totalPrice.toLocaleString("en-IN")}</span>
                                 </div>
-                                <div className="flex justify-between text-[#d0d8e3]">
+                                <div className="flex justify-between" style={{ color: "#64748b" }}>
                                     <span>Shipping</span>
-                                    <span className={shipping === 0 ? "text-green-400" : "text-[#f8f2e7]"}>
+                                    <span style={{ color: shipping === 0 ? "#16a34a" : "#0a1628", fontWeight: shipping === 0 ? 600 : 400 }}>
                                         {shipping === 0 ? "Free" : `₹${shipping}`}
                                     </span>
                                 </div>
-                                <div className="h-px w-full my-1" style={{ background: "rgba(201,164,90,0.2)" }} />
+                                <div
+                                    className="h-px w-full my-1"
+                                    style={{ background: "rgba(201,164,90,0.2)" }}
+                                />
                                 <div className="flex justify-between text-base font-bold">
-                                    <span className="text-[#f8f2e7]">Total</span>
-                                    <span className="text-[#c9a45a]">₹{total.toLocaleString("en-IN")}</span>
+                                    <span style={{ color: "#0a1628" }}>Total</span>
+                                    <span style={{ color: "#c9a45a" }}>₹{total.toLocaleString("en-IN")}</span>
                                 </div>
                             </div>
                         </div>
 
+                        {/* Pay button */}
                         <button
                             onClick={handlePayment}
                             disabled={loading}
-                            className="w-full rounded-full py-4 text-base font-bold text-[#0f1f33] transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
-                            style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
+                            className="w-full py-4 text-sm font-bold uppercase transition-opacity hover:opacity-90 active:opacity-75 disabled:opacity-60 disabled:cursor-not-allowed"
+                            style={{
+                                background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                                color: "#0a1628",
+                                letterSpacing: "0.08em",
+                                borderRadius: "2px",
+                            }}
                         >
                             {loading ? (
                                 <span className="flex items-center justify-center gap-2">
-                                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0f1f33] border-t-transparent" />
+                                    <span
+                                        className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"
+                                        style={{ borderColor: "rgba(10,22,40,0.4)", borderTopColor: "transparent" }}
+                                    />
                                     Processing...
                                 </span>
                             ) : (
@@ -450,7 +535,7 @@ export default function CheckoutPage() {
                             )}
                         </button>
 
-                        <p className="text-center text-xs text-[#6b7c95]">
+                        <p className="text-center text-xs" style={{ color: "#94a3b8" }}>
                             🔒 Secured by Razorpay · UPI · Cards · Net Banking
                         </p>
                     </div>
