@@ -123,7 +123,7 @@ export default function ForensicK9EducationPage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="py-14" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
+      <section className="py-8" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm mb-6">
@@ -182,7 +182,7 @@ export default function ForensicK9EducationPage() {
       </section>
 
       {/* ── Program Overview ─────────────────────────────────────── */}
-      <section className="bg-white py-28">
+      <section className="bg-white pt-14 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section header */}

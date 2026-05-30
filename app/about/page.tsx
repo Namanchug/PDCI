@@ -68,7 +68,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="py-12" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
+      <section className="py-8" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm mb-4">
             <Link href="/" className="transition-colors hover:text-[#c9a45a]" style={{ color: "#64748b" }}>
@@ -89,7 +89,7 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Are */}
-      <section className="bg-white py-28">
+      <section className="bg-white pt-14 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
