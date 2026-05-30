@@ -86,115 +86,253 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Page Header */}
-      <section className="bg-navy-900 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-gold-400 transition-colors">
+      {/* ── Page Header ── */}
+      <section
+        className="relative py-20 overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #0a1628 0%, #091525 50%, #0a1628 100%)",
+        }}
+      >
+        {/* Grid texture */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(201,164,90,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,164,90,0.04) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm mb-8">
+            <Link
+              href="/"
+              className="transition-colors hover:text-[#c9a45a]"
+              style={{ color: "#64748b" }}
+            >
               Home
             </Link>
-            <span>/</span>
-            <span className="text-gold-400">Contact Us</span>
+            <span style={{ color: "#c9a45a" }}>/</span>
+            <span style={{ color: "#c9a45a" }}>Contact Us</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Contact Us
+
+          {/* Eyebrow */}
+          <p
+            className="font-semibold uppercase mb-4"
+            style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
+          >
+            Get In Touch
+          </p>
+
+          {/* Title */}
+          <h1
+            className="text-4xl sm:text-5xl font-bold mb-6 max-w-2xl"
+            style={{ fontFamily: "Georgia, serif", color: "#ffffff", lineHeight: 1.15 }}
+          >
+            Contact <span style={{ color: "#c9a45a" }}>Our Team</span>
           </h1>
-          <p className="text-gray-300 text-base max-w-2xl">
+
+          {/* Description */}
+          <p className="text-base leading-relaxed max-w-2xl" style={{ color: "#94a3b8" }}>
             Reach out to our team for a free consultation, service enquiry, or
             to discuss your K9 security requirements.
           </p>
         </div>
       </section>
 
-      {/* Contact Info + Form */}
-      <section className="bg-gray-50 py-28">
+      {/* ── Contact Info + Form ── */}
+      <section className="py-24" style={{ background: "#ffffff" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-            {/* Contact Details */}
-            <div className="lg:col-span-2 space-y-5">
-              <div>
-                <h2 className="text-2xl font-bold text-navy-900 mb-6">
-                  Get in Touch
-                </h2>
-                <div className="space-y-5">
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <Phone className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Phone
-                      </div>
-                      <a
-                        href="tel:+918287793696"
-                        className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
-                      >
-                        +91 8287793696
-                      </a>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8">
 
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <Mail className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Email
-                      </div>
-                      <a
-                        href="mailto:policedogcentreindia@gmail.com"
-                        className="text-gray-600 text-sm hover:text-gold-500 transition-colors"
-                      >
-                        policedogcentreindia@gmail.com
-                      </a>
-                    </div>
-                  </div>
+            {/* ── Contact Details ── */}
+            <div className="lg:col-span-2">
+              {/* Section heading */}
+              <p
+                className="font-semibold uppercase mb-3"
+                style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
+              >
+                Reach Us
+              </p>
+              <div
+                className="mb-7"
+                style={{
+                  width: "40px",
+                  height: "1px",
+                  background: "linear-gradient(90deg, #c9a45a, transparent)",
+                }}
+              />
+              <h2
+                className="text-2xl sm:text-3xl font-bold mb-8"
+                style={{ fontFamily: "Georgia, serif", color: "#0a1628", lineHeight: 1.2 }}
+              >
+                Get in Touch
+              </h2>
 
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <MapPin className="w-5 h-5 text-gold-500" />
-                    </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Training Facilities
-                      </div>
-                      <p className="text-gray-600 text-sm">
-                        Sainik Farma, GXMH+3FQ, Badusarai, New Delhi, Delhi,
-                        110071
-                      </p>
-                    </div>
+              <div className="space-y-6">
+                {/* Phone */}
+                <div className="flex gap-4">
+                  <div
+                    className="shrink-0 h-fit flex items-center justify-center"
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      background: "rgba(201,164,90,0.1)",
+                      border: "1px solid rgba(201,164,90,0.25)",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    <Phone className="w-5 h-5" style={{ color: "#c9a45a" }} />
                   </div>
+                  <div>
+                    <div
+                      className="font-semibold text-xs uppercase mb-1"
+                      style={{ color: "#0a1628", letterSpacing: "0.12em" }}
+                    >
+                      Phone
+                    </div>
+                    <a
+                      href="tel:+918287793696"
+                      className="text-sm transition-colors hover:text-[#c9a45a]"
+                      style={{ color: "#4b5563" }}
+                    >
+                      +91 8287793696
+                    </a>
+                  </div>
+                </div>
 
-                  <div className="flex gap-4">
-                    <div className="bg-gold-500/10 rounded-full p-3 shrink-0 h-fit">
-                      <MapPin className="w-5 h-5 text-gold-500" />
+                {/* Email */}
+                <div className="flex gap-4">
+                  <div
+                    className="shrink-0 h-fit flex items-center justify-center"
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      background: "rgba(201,164,90,0.1)",
+                      border: "1px solid rgba(201,164,90,0.25)",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    <Mail className="w-5 h-5" style={{ color: "#c9a45a" }} />
+                  </div>
+                  <div>
+                    <div
+                      className="font-semibold text-xs uppercase mb-1"
+                      style={{ color: "#0a1628", letterSpacing: "0.12em" }}
+                    >
+                      Email
                     </div>
-                    <div>
-                      <div className="text-navy-900 font-semibold text-sm mb-1">
-                        Head Office
-                      </div>
-                      <p className="text-gray-600 text-sm">
-                        E-601, Jagran CGHS, Plot-17, Dwarka Sector-22, New
-                        Delhi, 110077
-                      </p>
+                    <a
+                      href="mailto:policedogcentreindia@gmail.com"
+                      className="text-sm transition-colors hover:text-[#c9a45a] break-all"
+                      style={{ color: "#4b5563" }}
+                    >
+                      policedogcentreindia@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Training Facilities */}
+                <div className="flex gap-4">
+                  <div
+                    className="shrink-0 h-fit flex items-center justify-center"
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      background: "rgba(201,164,90,0.1)",
+                      border: "1px solid rgba(201,164,90,0.25)",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    <MapPin className="w-5 h-5" style={{ color: "#c9a45a" }} />
+                  </div>
+                  <div>
+                    <div
+                      className="font-semibold text-xs uppercase mb-1"
+                      style={{ color: "#0a1628", letterSpacing: "0.12em" }}
+                    >
+                      Training Facilities
                     </div>
+                    <p className="text-sm" style={{ color: "#4b5563" }}>
+                      Sainik Farma, GXMH+3FQ, Badusarai, New Delhi, Delhi,
+                      110071
+                    </p>
+                  </div>
+                </div>
+
+                {/* Head Office */}
+                <div className="flex gap-4">
+                  <div
+                    className="shrink-0 h-fit flex items-center justify-center"
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      background: "rgba(201,164,90,0.1)",
+                      border: "1px solid rgba(201,164,90,0.25)",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    <MapPin className="w-5 h-5" style={{ color: "#c9a45a" }} />
+                  </div>
+                  <div>
+                    <div
+                      className="font-semibold text-xs uppercase mb-1"
+                      style={{ color: "#0a1628", letterSpacing: "0.12em" }}
+                    >
+                      Head Office
+                    </div>
+                    <p className="text-sm" style={{ color: "#4b5563" }}>
+                      E-601, Jagran CGHS, Plot-17, Dwarka Sector-22, New
+                      Delhi, 110077
+                    </p>
                   </div>
                 </div>
               </div>
+
+              {/* Divider + note */}
+              <div
+                className="mt-10 pt-8"
+                style={{ borderTop: "1px solid rgba(201,164,90,0.15)" }}
+              >
+                <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>
+                  Our team typically responds within 24 hours. For urgent security
+                  requirements, please call us directly.
+                </p>
+              </div>
             </div>
 
-            {/* Contact Form */}
+            {/* ── Contact Form ── */}
             <div className="lg:col-span-3">
               {submitted ? (
-                <div className="bg-white rounded-2xl p-12 border border-gray-100 shadow-sm text-center h-full flex flex-col items-center justify-center">
-                  <div className="bg-green-50 rounded-full p-5 mb-5">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
+                <div
+                  className="p-12 text-center h-full flex flex-col items-center justify-center"
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid rgba(201,164,90,0.18)",
+                    borderTop: "3px solid #c9a45a",
+                    borderRadius: "2px",
+                  }}
+                >
+                  <div
+                    className="flex items-center justify-center mb-6"
+                    style={{
+                      width: "72px",
+                      height: "72px",
+                      background: "rgba(201,164,90,0.1)",
+                      border: "1px solid rgba(201,164,90,0.3)",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    <CheckCircle className="w-9 h-9" style={{ color: "#c9a45a" }} />
                   </div>
-                  <h3 className="text-navy-900 font-bold text-2xl mb-3">
+                  <h3
+                    className="font-bold text-2xl mb-3"
+                    style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
+                  >
                     Message Received!
                   </h3>
-                  <p className="text-gray-500 mb-6 max-w-sm text-sm leading-relaxed">
+                  <p className="mb-8 max-w-sm text-sm leading-relaxed" style={{ color: "#64748b" }}>
                     Thank you for contacting Police Dog Centre India. Our team
                     will get back to you within 24 hours.
                   </p>
@@ -202,7 +340,8 @@ export default function ContactPage() {
                     onClick={() => {
                       resetForm();
                     }}
-                    className="text-gold-500 font-semibold text-sm hover:text-gold-600 transition-colors"
+                    className="font-semibold text-sm transition-colors hover:opacity-70"
+                    style={{ color: "#c9a45a", letterSpacing: "0.08em" }}
                   >
                     Send Another Message
                   </button>
@@ -210,9 +349,24 @@ export default function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm"
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid rgba(201,164,90,0.18)",
+                    borderTop: "3px solid #c9a45a",
+                    borderRadius: "2px",
+                    padding: "2.5rem",
+                  }}
                 >
-                  <h2 className="text-2xl font-bold text-navy-900 mb-6">
+                  <p
+                    className="font-semibold uppercase mb-3"
+                    style={{ color: "#c9a45a", fontSize: "0.7rem", letterSpacing: "0.25em" }}
+                  >
+                    Enquiry Form
+                  </p>
+                  <h2
+                    className="text-2xl font-bold mb-8"
+                    style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
+                  >
                     Send Us a Message
                   </h2>
 
@@ -220,9 +374,10 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
+                        className="block font-semibold text-xs uppercase tracking-wider mb-2"
+                        style={{ color: "#0a1628", letterSpacing: "0.12em" }}
                       >
-                        Full Name <span className="text-red-500">*</span>
+                        Full Name <span style={{ color: "#dc2626" }}>*</span>
                       </label>
                       <input
                         id="name"
@@ -232,15 +387,17 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your full name"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        className="w-full border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        style={{ borderRadius: "2px" }}
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
+                        className="block font-semibold text-xs uppercase tracking-wider mb-2"
+                        style={{ color: "#0a1628", letterSpacing: "0.12em" }}
                       >
-                        Email Address <span className="text-red-500">*</span>
+                        Email Address <span style={{ color: "#dc2626" }}>*</span>
                       </label>
                       <input
                         id="email"
@@ -250,15 +407,17 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="your@email.com"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        className="w-full border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        style={{ borderRadius: "2px" }}
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
+                        className="block font-semibold text-xs uppercase tracking-wider mb-2"
+                        style={{ color: "#0a1628", letterSpacing: "0.12em" }}
                       >
-                        Phone Number <span className="text-red-500">*</span>
+                        Phone Number <span style={{ color: "#dc2626" }}>*</span>
                       </label>
                       <input
                         id="phone"
@@ -268,13 +427,15 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+91 98765 43210"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        className="w-full border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        style={{ borderRadius: "2px" }}
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="organization"
-                        className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
+                        className="block font-semibold text-xs uppercase tracking-wider mb-2"
+                        style={{ color: "#0a1628", letterSpacing: "0.12em" }}
                       >
                         Organization
                       </label>
@@ -285,7 +446,8 @@ export default function ContactPage() {
                         value={formData.organization}
                         onChange={handleChange}
                         placeholder="Company / Agency name"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        className="w-full border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+                        style={{ borderRadius: "2px" }}
                       />
                     </div>
                   </div>
@@ -293,9 +455,10 @@ export default function ContactPage() {
                   <div className="mb-5">
                     <label
                       htmlFor="service"
-                      className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
+                      className="block font-semibold text-xs uppercase tracking-wider mb-2"
+                      style={{ color: "#0a1628", letterSpacing: "0.12em" }}
                     >
-                      Service Required <span className="text-red-500">*</span>
+                      Service Required <span style={{ color: "#dc2626" }}>*</span>
                     </label>
                     <select
                       id="service"
@@ -303,7 +466,8 @@ export default function ContactPage() {
                       required
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors bg-white"
+                      className="w-full border border-gray-200 px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors bg-white"
+                      style={{ borderRadius: "2px" }}
                     >
                       <option value="">Select a service...</option>
                       {serviceOptions.map((s) => (
@@ -314,12 +478,13 @@ export default function ContactPage() {
                     </select>
                   </div>
 
-                  <div className="mb-6">
+                  <div className="mb-7">
                     <label
                       htmlFor="message"
-                      className="block text-navy-900 font-semibold text-xs uppercase tracking-wider mb-2"
+                      className="block font-semibold text-xs uppercase tracking-wider mb-2"
+                      style={{ color: "#0a1628", letterSpacing: "0.12em" }}
                     >
-                      Message <span className="text-red-500">*</span>
+                      Message <span style={{ color: "#dc2626" }}>*</span>
                     </label>
                     <textarea
                       id="message"
@@ -329,12 +494,22 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Describe your security requirements, location, duration, and any specific needs..."
-                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors resize-none"
+                      className="w-full border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors resize-none"
+                      style={{ borderRadius: "2px" }}
                     />
                   </div>
 
                   {error ? (
-                    <div className="mb-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    <div
+                      className="mb-5 px-4 py-3 text-sm"
+                      style={{
+                        border: "1px solid rgba(220,38,38,0.3)",
+                        borderLeft: "3px solid #dc2626",
+                        background: "rgba(220,38,38,0.04)",
+                        color: "#dc2626",
+                        borderRadius: "2px",
+                      }}
+                    >
                       {error}
                     </div>
                   ) : null}
@@ -342,7 +517,15 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-navy-900 hover:bg-navy-800 disabled:opacity-70 text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                    className="w-full font-bold py-4 transition-opacity flex items-center justify-center gap-2 disabled:opacity-60 hover:opacity-90"
+                    style={{
+                      background: "linear-gradient(135deg, #0a1628 0%, #112240 100%)",
+                      color: "#ffffff",
+                      letterSpacing: "0.08em",
+                      fontSize: "0.8rem",
+                      textTransform: "uppercase",
+                      borderRadius: "2px",
+                    }}
                   >
                     {loading ? (
                       <>
@@ -362,7 +545,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
     </>
   );
 }
