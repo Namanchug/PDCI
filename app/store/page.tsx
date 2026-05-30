@@ -169,7 +169,7 @@ function ProductCard({ product }: { product: Product }) {
                 {/* Image */}
                 <div
                     className="relative aspect-square overflow-hidden"
-                    style={{ background: "#f5f1eb" }}
+                    style={{ background: "#ffffff" }}
                 >
                     <img
                         src={displayImg}
