@@ -42,7 +42,7 @@ export default function StorePage() {
     }, [activeCategory, products]);
 
     return (
-        <div className="min-h-screen" style={{ background: "#f9f6f1" }}>
+        <div className="min-h-screen" style={{ background: "#ffffff" }}>
             {/* ── Hero Banner ── */}
             <div
                 className="relative px-4 py-20 text-center overflow-hidden"
