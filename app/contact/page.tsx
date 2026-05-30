@@ -87,23 +87,8 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Page Header ── */}
-      <section
-        className="relative py-20 overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #0a1628 0%, #091525 50%, #0a1628 100%)",
-        }}
-      >
-        {/* Grid texture */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(201,164,90,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,164,90,0.04) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm mb-8">
             <Link
@@ -128,13 +113,13 @@ export default function ContactPage() {
           {/* Title */}
           <h1
             className="text-4xl sm:text-5xl font-bold mb-6 max-w-2xl"
-            style={{ fontFamily: "Georgia, serif", color: "#ffffff", lineHeight: 1.15 }}
+            style={{ fontFamily: "Georgia, serif", color: "#0a1628", lineHeight: 1.15 }}
           >
             Contact <span style={{ color: "#c9a45a" }}>Our Team</span>
           </h1>
 
           {/* Description */}
-          <p className="text-base leading-relaxed max-w-2xl" style={{ color: "#94a3b8" }}>
+          <p className="text-base leading-relaxed max-w-2xl" style={{ color: "#64748b" }}>
             Reach out to our team for a free consultation, service enquiry, or
             to discuss your K9 security requirements.
           </p>

@@ -123,43 +123,40 @@ export default function ForensicK9EducationPage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="bg-navy-900 py-6 relative overflow-hidden">
-        {/* subtle grid texture */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(201,164,90,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(201,164,90,0.4) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="py-14" style={{ background: "#ffffff", borderBottom: "1px solid rgba(201,164,90,0.15)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-gold-400 transition-colors">
+          <div className="flex items-center gap-2 text-sm mb-6">
+            <Link href="/" className="transition-colors hover:text-[#c9a45a]" style={{ color: "#64748b" }}>
               Home
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-gold-400">Forensic K9 &amp; Education</span>
+            <ChevronRight className="w-4 h-4" style={{ color: "#c9a45a" }} />
+            <span style={{ color: "#c9a45a" }}>Forensic K9 &amp; Education</span>
           </div>
 
           {/* Badge row */}
           <div className="flex flex-wrap gap-3 mb-6">
-            <span className="inline-flex items-center gap-1.5 bg-gold-500/20 text-gold-400 text-xs font-semibold px-3 py-1.5 rounded-full border border-gold-500/30">
+            <span
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5"
+              style={{ background: "rgba(201,164,90,0.1)", color: "#9f7b35", border: "1px solid rgba(201,164,90,0.3)", borderRadius: "2px" }}
+            >
               <GraduationCap className="w-3.5 h-3.5" />
               World&apos;s First — University-Level Canine Forensics Program
             </span>
-            <span className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">
+            <span
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5"
+              style={{ background: "rgba(10,22,40,0.05)", color: "#0a1628", border: "1px solid rgba(10,22,40,0.12)", borderRadius: "2px" }}
+            >
               <Award className="w-3.5 h-3.5" />
               Institution of National Importance — National Forensic Sciences University
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4" style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}>
             Professional Diploma in
-            <span className="text-gold-400 block sm:inline"> Canine Forensics</span>
+            <span style={{ color: "#c9a45a" }} className="block sm:inline"> Canine Forensics</span>
           </h1>
-          <p className="text-gray-300 text-base max-w-3xl leading-relaxed mb-8">
+          <p className="text-base max-w-3xl leading-relaxed mb-8" style={{ color: "#64748b" }}>
             A first-of-its-kind academic program by the National Forensic Sciences University
             (NFSU) in collaboration with Police Dog Centre India — bridging forensic science,
             canine behaviour, and the operational deployment of working dogs under a structured
@@ -167,7 +164,7 @@ export default function ForensicK9EducationPage() {
           </p>
 
           {/* Quick-stat strip */}
-          <div className="flex flex-wrap gap-8 mt-4">
+          <div className="flex flex-wrap gap-8 pt-6" style={{ borderTop: "1px solid rgba(201,164,90,0.15)" }}>
             {[
               { label: "Duration", value: "6 Months" },
               { label: "Format", value: "Hybrid (Online + Hands-On)" },
@@ -176,8 +173,8 @@ export default function ForensicK9EducationPage() {
               { label: "Experts Trained", value: "150+" },
             ].map((s) => (
               <div key={s.label}>
-                <div className="text-gold-400 font-extrabold text-2xl">{s.value}</div>
-                <div className="text-gray-400 text-xs mt-0.5">{s.label}</div>
+                <div className="font-extrabold text-2xl" style={{ color: "#c9a45a" }}>{s.value}</div>
+                <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>{s.label}</div>
               </div>
             ))}
           </div>
