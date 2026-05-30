@@ -35,8 +35,6 @@ const emptyForm: FormData = {
     pincode: "",
 };
 
-const [verifiedTotal, setVerifiedTotal] = useState<number | null>(null);
-
 function Field({
     label,
     name,
