@@ -41,9 +41,12 @@ export default function ProductDetailPage() {
         return (
             <div
                 className="flex min-h-screen items-center justify-center"
-                style={{ background: "linear-gradient(180deg,#0f1f33 0%,#13253b 100%)" }}
+                style={{ background: "#f9f6f1" }}
             >
-                <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#c9a45a] border-t-transparent" />
+                <div
+                    className="h-12 w-12 animate-spin rounded-full border-4 border-t-transparent"
+                    style={{ borderColor: "rgba(201,164,90,0.3)", borderTopColor: "transparent" }}
+                />
             </div>
         );
     }
@@ -51,8 +54,8 @@ export default function ProductDetailPage() {
     if (!product) {
         return (
             <div
-                className="flex min-h-screen items-center justify-center text-[#f8f2e7]"
-                style={{ background: "linear-gradient(180deg,#0f1f33 0%,#13253b 100%)" }}
+                className="flex min-h-screen items-center justify-center text-sm"
+                style={{ background: "#f9f6f1", color: "#64748b" }}
             >
                 Product not found.
             </div>
@@ -125,29 +128,28 @@ export default function ProductDetailPage() {
     const specs = descParts.slice(1).map((s) => s.trim()).filter(Boolean);
 
     return (
-        <div
-            className="min-h-screen"
-            style={{ background: "linear-gradient(180deg,#0f1f33 0%,#13253b 100%)" }}
-        >
-            {/* Size Chart Modal */}
+        <div className="min-h-screen" style={{ background: "#f9f6f1" }}>
+            {/* ── Size Chart Modal ── */}
             {showSizeChart && product.size_chart?.headers && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
                     <div
-                        className="w-full max-w-lg rounded-2xl p-6 relative"
+                        className="w-full max-w-lg p-6 relative"
                         style={{
-                            background: "linear-gradient(135deg,#0f1f33,#1a2f4a)",
+                            background: "linear-gradient(135deg, #0a1628, #112240)",
                             border: "1px solid rgba(201,164,90,0.3)",
+                            borderRadius: "2px",
                         }}
                     >
                         <button
                             onClick={() => setShowSizeChart(false)}
-                            className="absolute top-4 right-4 text-[#d0d8e3] hover:text-[#f8f2e7] transition"
+                            className="absolute top-4 right-4 transition"
+                            style={{ color: "#94a3b8" }}
                         >
                             <X size={20} />
                         </button>
                         <h3
-                            className="text-xl font-bold text-[#f8f2e7] mb-4"
-                            style={{ fontFamily: "'Times New Roman', serif" }}
+                            className="text-xl font-bold mb-4"
+                            style={{ fontFamily: "Georgia, serif", color: "#f8f2e7" }}
                         >
                             Size Chart
                         </h3>
@@ -175,8 +177,8 @@ export default function ProductDetailPage() {
                                             {row.map((cell, j) => (
                                                 <td
                                                     key={j}
-                                                    className="py-2 pr-4 text-[#f8f2e7]"
-                                                    style={{ fontWeight: j === 0 ? 700 : 400 }}
+                                                    className="py-2 pr-4"
+                                                    style={{ color: "#f8f2e7", fontWeight: j === 0 ? 700 : 400 }}
                                                 >
                                                     {cell}
                                                 </td>
@@ -187,7 +189,7 @@ export default function ProductDetailPage() {
                             </table>
                         </div>
                         {product.size_chart.note && (
-                            <p className="mt-4 text-xs text-[#d0d8e3] italic">
+                            <p className="mt-4 text-xs italic" style={{ color: "#94a3b8" }}>
                                 * {product.size_chart.note}
                             </p>
                         )}
@@ -195,7 +197,7 @@ export default function ProductDetailPage() {
                 </div>
             )}
 
-            {/* Lightbox */}
+            {/* ── Lightbox ── */}
             {lightbox && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
@@ -205,26 +207,29 @@ export default function ProductDetailPage() {
                         <video
                             src={currentMedia}
                             controls
-                            className="max-h-[90vh] max-w-[90vw] rounded-xl"
+                            className="max-h-[90vh] max-w-[90vw]"
+                            style={{ borderRadius: "2px" }}
                         />
                     ) : (
                         <img
                             src={currentMedia}
                             alt={product.name}
-                            className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl"
+                            className="max-h-[90vh] max-w-[90vw] object-contain"
+                            style={{ borderRadius: "2px" }}
                         />
                     )}
-                    <button className="absolute top-4 right-4 text-white hover:text-[#c9a45a]">
+                    <button className="absolute top-4 right-4 text-white hover:text-[#c9a45a] transition">
                         <X size={28} />
                     </button>
                 </div>
             )}
 
-            <div className="mx-auto max-w-6xl px-4 py-8">
+            <div className="mx-auto max-w-6xl px-4 py-10">
                 {/* Back */}
                 <button
                     onClick={() => router.back()}
-                    className="mb-6 flex items-center gap-1 text-sm text-[#d0d8e3] hover:text-[#c9a45a] transition"
+                    className="mb-8 flex items-center gap-1 text-sm font-medium transition hover:text-[#c9a45a]"
+                    style={{ color: "#64748b" }}
                 >
                     <ChevronLeft size={16} />
                     Back to Store
@@ -232,13 +237,14 @@ export default function ProductDetailPage() {
 
                 <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
                     {/* ── LEFT: Media ── */}
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-3">
                         {/* Main media */}
                         <div
-                            className="relative aspect-square w-full overflow-hidden rounded-2xl cursor-zoom-in"
+                            className="relative aspect-square w-full overflow-hidden cursor-zoom-in"
                             style={{
-                                background: "#0a1628",
-                                border: "1px solid rgba(201,164,90,0.2)",
+                                background: "#ffffff",
+                                border: "1px solid rgba(201,164,90,0.18)",
+                                borderRadius: "2px",
                             }}
                             onClick={() => !isVideo(currentMedia) && setLightbox(true)}
                         >
@@ -257,7 +263,14 @@ export default function ProductDetailPage() {
                                 />
                             )}
                             {!isVideo(currentMedia) && (
-                                <button className="absolute top-3 right-3 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition">
+                                <button
+                                    className="absolute top-3 right-3 p-2 transition"
+                                    style={{
+                                        background: "rgba(10,22,40,0.6)",
+                                        color: "#ffffff",
+                                        borderRadius: "2px",
+                                    }}
+                                >
                                     <ZoomIn size={16} />
                                 </button>
                             )}
@@ -269,7 +282,12 @@ export default function ProductDetailPage() {
                                             e.stopPropagation();
                                             setActiveImg((prev) => (prev - 1 + mediaItems.length) % mediaItems.length);
                                         }}
-                                        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition"
+                                        className="absolute left-2 top-1/2 -translate-y-1/2 p-2 transition hover:opacity-80"
+                                        style={{
+                                            background: "rgba(10,22,40,0.6)",
+                                            color: "#ffffff",
+                                            borderRadius: "2px",
+                                        }}
                                     >
                                         <Prev size={16} />
                                     </button>
@@ -278,7 +296,12 @@ export default function ProductDetailPage() {
                                             e.stopPropagation();
                                             setActiveImg((prev) => (prev + 1) % mediaItems.length);
                                         }}
-                                        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-[#c9a45a]/80 transition"
+                                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 transition hover:opacity-80"
+                                        style={{
+                                            background: "rgba(10,22,40,0.6)",
+                                            color: "#ffffff",
+                                            borderRadius: "2px",
+                                        }}
                                     >
                                         <Next size={16} />
                                     </button>
@@ -291,10 +314,11 @@ export default function ProductDetailPage() {
                                         <button
                                             key={i}
                                             onClick={(e) => { e.stopPropagation(); setActiveImg(i); }}
-                                            className="h-1.5 rounded-full transition-all"
+                                            className="h-1.5 transition-all"
                                             style={{
                                                 width: i === activeImg ? "20px" : "6px",
-                                                background: i === activeImg ? "#c9a45a" : "rgba(255,255,255,0.4)",
+                                                borderRadius: "1px",
+                                                background: i === activeImg ? "#c9a45a" : "rgba(10,22,40,0.35)",
                                             }}
                                         />
                                     ))}
@@ -309,12 +333,14 @@ export default function ProductDetailPage() {
                                     <button
                                         key={i}
                                         onClick={() => setActiveImg(i)}
-                                        className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg transition-all"
+                                        className="h-16 w-16 flex-shrink-0 overflow-hidden transition-all"
                                         style={{
                                             border: i === activeImg
                                                 ? "2px solid #c9a45a"
-                                                : "2px solid rgba(255,255,255,0.1)",
-                                            opacity: i === activeImg ? 1 : 0.6,
+                                                : "2px solid rgba(201,164,90,0.15)",
+                                            opacity: i === activeImg ? 1 : 0.55,
+                                            borderRadius: "2px",
+                                            background: "#ffffff",
                                         }}
                                     >
                                         {isVideo(url) ? (
@@ -332,26 +358,32 @@ export default function ProductDetailPage() {
                     <div className="flex flex-col gap-5">
                         {/* Category badge */}
                         <span
-                            className="w-fit rounded-full px-3 py-1 text-xs font-semibold text-[#0f1f33]"
-                            style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
+                            className="w-fit text-xs font-bold uppercase"
+                            style={{
+                                background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                                color: "#0a1628",
+                                letterSpacing: "0.1em",
+                                padding: "0.25rem 0.75rem",
+                                borderRadius: "2px",
+                            }}
                         >
                             {product.category}
                         </span>
 
                         {/* Name */}
                         <h1
-                            className="text-3xl font-bold leading-tight text-[#f8f2e7]"
-                            style={{ fontFamily: "'Times New Roman', serif" }}
+                            className="text-3xl font-bold leading-tight"
+                            style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
                         >
                             {product.name}
                         </h1>
 
                         {/* Price */}
                         <div className="flex items-baseline gap-2">
-                            <span className="text-3xl font-bold text-[#c9a45a]">
+                            <span className="text-3xl font-bold" style={{ color: "#c9a45a" }}>
                                 ₹{product.base_price.toLocaleString("en-IN")}
                             </span>
-                            <span className="text-sm text-[#d0d8e3]">incl. all taxes</span>
+                            <span className="text-sm" style={{ color: "#94a3b8" }}>incl. all taxes</span>
                         </div>
 
                         <div
@@ -362,9 +394,9 @@ export default function ProductDetailPage() {
                         {/* Color picker */}
                         {product.has_colors && product.colors.length > 0 && (
                             <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold text-[#f8f2e7]">
+                                <p className="text-sm font-semibold" style={{ color: "#0a1628" }}>
                                     Colour:{" "}
-                                    <span className="font-normal text-[#c9a45a]">{selectedColor}</span>
+                                    <span className="font-normal" style={{ color: "#c9a45a" }}>{selectedColor}</span>
                                 </p>
                                 <div className="flex flex-wrap gap-2">
                                     {product.colors.map((color) => {
@@ -378,26 +410,30 @@ export default function ProductDetailPage() {
                                                 key={color}
                                                 onClick={() => !colorOutOfStock && handleColorChange(color)}
                                                 disabled={colorOutOfStock}
-                                                className="rounded-full px-4 py-1.5 text-sm font-medium transition-all relative"
+                                                className="px-4 py-1.5 text-sm font-medium transition-all relative"
                                                 style={
                                                     colorOutOfStock
                                                         ? {
-                                                            background: "rgba(255,255,255,0.03)",
-                                                            color: "#4a5f75",
-                                                            border: "1px solid rgba(255,255,255,0.06)",
+                                                            background: "rgba(0,0,0,0.04)",
+                                                            color: "#94a3b8",
+                                                            border: "1px solid rgba(0,0,0,0.08)",
                                                             cursor: "not-allowed",
                                                             textDecoration: "line-through",
+                                                            borderRadius: "2px",
                                                         }
                                                         : selectedColor === color
                                                             ? {
-                                                                background: "linear-gradient(135deg,#c9a45a,#f7dfb0)",
-                                                                color: "#0f1f33",
+                                                                background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                                                                color: "#0a1628",
                                                                 fontWeight: 700,
+                                                                borderRadius: "2px",
+                                                                border: "1px solid transparent",
                                                             }
                                                             : {
-                                                                background: "rgba(255,255,255,0.05)",
-                                                                color: "#d0d8e3",
-                                                                border: "1px solid rgba(201,164,90,0.25)",
+                                                                background: "#ffffff",
+                                                                color: "#0a1628",
+                                                                border: "1px solid rgba(201,164,90,0.3)",
+                                                                borderRadius: "2px",
                                                             }
                                                 }
                                             >
@@ -416,14 +452,15 @@ export default function ProductDetailPage() {
                         {product.has_sizes && product.sizes.length > 0 && (
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center justify-between">
-                                    <p className="text-sm font-semibold text-[#f8f2e7]">
+                                    <p className="text-sm font-semibold" style={{ color: "#0a1628" }}>
                                         Size:{" "}
-                                        <span className="font-normal text-[#c9a45a]">{selectedSize}</span>
+                                        <span className="font-normal" style={{ color: "#c9a45a" }}>{selectedSize}</span>
                                     </p>
                                     {product.size_chart?.headers && (
                                         <button
                                             onClick={() => setShowSizeChart(true)}
-                                            className="text-xs text-[#c9a45a] underline hover:text-[#f7dfb0] transition"
+                                            className="text-xs underline transition hover:opacity-70"
+                                            style={{ color: "#c9a45a" }}
                                         >
                                             Size Chart
                                         </button>
@@ -438,25 +475,29 @@ export default function ProductDetailPage() {
                                                 key={size}
                                                 onClick={() => !sizeOutOfStock && setSelectedSize(size)}
                                                 disabled={sizeOutOfStock}
-                                                className="rounded-full px-4 py-1.5 text-sm font-medium transition-all"
+                                                className="px-4 py-1.5 text-sm font-medium transition-all"
                                                 style={
                                                     sizeOutOfStock
                                                         ? {
-                                                            background: "rgba(255,255,255,0.03)",
-                                                            color: "#4a5f75",
-                                                            border: "1px solid rgba(255,255,255,0.06)",
+                                                            background: "rgba(0,0,0,0.04)",
+                                                            color: "#94a3b8",
+                                                            border: "1px solid rgba(0,0,0,0.08)",
                                                             cursor: "not-allowed",
                                                             textDecoration: "line-through",
+                                                            borderRadius: "2px",
                                                         }
                                                         : selectedSize === size
                                                             ? {
-                                                                background: "linear-gradient(135deg,#c9a45a,#f7dfb0)",
-                                                                color: "#0f1f33",
+                                                                background: "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                                                                color: "#0a1628",
+                                                                borderRadius: "2px",
+                                                                border: "1px solid transparent",
                                                             }
                                                             : {
-                                                                background: "rgba(255,255,255,0.05)",
-                                                                color: "#d0d8e3",
-                                                                border: "1px solid rgba(201,164,90,0.25)",
+                                                                background: "#ffffff",
+                                                                color: "#0a1628",
+                                                                border: "1px solid rgba(201,164,90,0.3)",
+                                                                borderRadius: "2px",
                                                             }
                                                 }
                                             >
@@ -470,20 +511,32 @@ export default function ProductDetailPage() {
 
                         {/* Quantity */}
                         <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold text-[#f8f2e7]">Quantity</p>
+                            <p className="text-sm font-semibold" style={{ color: "#0a1628" }}>Quantity</p>
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                                    className="h-10 w-10 rounded-full border border-[#d8c08a]/30 text-[#f8f2e7] hover:bg-white/10 transition text-lg flex items-center justify-center"
+                                    className="h-10 w-10 flex items-center justify-center text-lg font-bold transition hover:opacity-70"
+                                    style={{
+                                        border: "1px solid rgba(201,164,90,0.3)",
+                                        background: "#ffffff",
+                                        color: "#0a1628",
+                                        borderRadius: "2px",
+                                    }}
                                 >
                                     −
                                 </button>
-                                <span className="w-8 text-center text-lg font-bold text-[#f8f2e7]">
+                                <span className="w-8 text-center text-lg font-bold" style={{ color: "#0a1628" }}>
                                     {quantity}
                                 </span>
                                 <button
                                     onClick={() => setQuantity((q) => Math.min(q + 1, currentStock))}
-                                    className="h-10 w-10 rounded-full border border-[#d8c08a]/30 text-[#f8f2e7] hover:bg-white/10 transition text-lg flex items-center justify-center"
+                                    className="h-10 w-10 flex items-center justify-center text-lg font-bold transition hover:opacity-70"
+                                    style={{
+                                        border: "1px solid rgba(201,164,90,0.3)",
+                                        background: "#ffffff",
+                                        color: "#0a1628",
+                                        borderRadius: "2px",
+                                    }}
                                 >
                                     +
                                 </button>
@@ -494,11 +547,18 @@ export default function ProductDetailPage() {
                         <button
                             onClick={handleAddToCart}
                             disabled={currentStock === 0}
-                            className="flex items-center justify-center gap-2 rounded-full py-4 text-base font-bold text-[#0f1f33] transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:scale-100"
-                            style={{ background: "linear-gradient(135deg,#c9a45a,#f7dfb0)" }}
+                            className="flex items-center justify-center gap-2 py-4 text-sm font-bold uppercase transition-opacity hover:opacity-90 active:opacity-75 disabled:opacity-40 disabled:cursor-not-allowed"
+                            style={{
+                                background: currentStock === 0
+                                    ? "rgba(201,164,90,0.3)"
+                                    : "linear-gradient(135deg, #c9a45a, #d4b06a)",
+                                color: "#0a1628",
+                                letterSpacing: "0.1em",
+                                borderRadius: "2px",
+                            }}
                         >
                             <ShoppingCart size={18} />
-                            {currentStock === 0 ? "Out of Stock" : added ? "Added to Cart! ✓" : "Add to Cart"}
+                            {currentStock === 0 ? "Out of Stock" : added ? "Added to Cart ✓" : "Add to Cart"}
                         </button>
 
                         <div
@@ -509,22 +569,27 @@ export default function ProductDetailPage() {
                         {/* Description */}
                         <div className="flex flex-col gap-3">
                             <h2
-                                className="text-lg font-bold text-[#f8f2e7]"
-                                style={{ fontFamily: "'Times New Roman', serif" }}
+                                className="text-lg font-bold"
+                                style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}
                             >
                                 Product Details
                             </h2>
-                            <p className="text-sm leading-relaxed text-[#d0d8e3]">{mainDesc}</p>
+                            <p className="text-sm leading-relaxed" style={{ color: "#4b5563" }}>{mainDesc}</p>
 
                             {specs.length > 0 && (
                                 <div
-                                    className="rounded-xl p-4 mt-2"
+                                    className="p-4 mt-2"
                                     style={{
-                                        background: "rgba(255,255,255,0.04)",
-                                        border: "1px solid rgba(201,164,90,0.15)",
+                                        background: "#ffffff",
+                                        border: "1px solid rgba(201,164,90,0.18)",
+                                        borderLeft: "3px solid #c9a45a",
+                                        borderRadius: "2px",
                                     }}
                                 >
-                                    <p className="text-xs font-semibold uppercase tracking-widest text-[#c9a45a] mb-3">
+                                    <p
+                                        className="text-xs font-bold uppercase mb-3"
+                                        style={{ color: "#c9a45a", letterSpacing: "0.15em" }}
+                                    >
                                         Specifications
                                     </p>
                                     <div className="flex flex-col gap-2">
@@ -533,10 +598,13 @@ export default function ProductDetailPage() {
                                             const value = rest.join(":").trim();
                                             return (
                                                 <div key={i} className="flex gap-2 text-sm">
-                                                    <span className="font-semibold text-[#f8f2e7] min-w-[90px]">
+                                                    <span
+                                                        className="font-semibold min-w-[90px]"
+                                                        style={{ color: "#0a1628" }}
+                                                    >
                                                         {label.trim()}
                                                     </span>
-                                                    <span className="text-[#d0d8e3]">{value || label}</span>
+                                                    <span style={{ color: "#4b5563" }}>{value || label}</span>
                                                 </div>
                                             );
                                         })}
