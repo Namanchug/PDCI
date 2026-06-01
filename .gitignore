@@ -1,62 +1,317 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
-.vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-file
-*.flf
-#Test results file
-TestResults.xml# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPENDENCIES
+# ═══════════════════════════════════════════════════════════════════════════════
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# testing
-/coverage
-
-# next.js
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEXT.JS
+# ═══════════════════════════════════════════════════════════════════════════════
 /.next/
 /out/
-
-# production
 /build
+/dist
+next-env.d.ts
 
-# misc
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENVIRONMENT VARIABLES -- NEVER commit actual secrets
+# ═══════════════════════════════════════════════════════════════════════════════
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# But DO allow an example file
+!.env.example
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AI / LLM / COPILOT / AGENT FILES -- Never upload AI-generated configs
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Cursor
+.cursor/
+.cursorrules
+.cursorignore
+
+# GitHub Copilot
+.copilot/
+copilot-instructions.md
+.github/copilot-instructions.md
+.github/chat/
+.github/copilot/
+
+# Claude / Claude Code
+.claude/
+CLAUDE.md
+.claudeignore
+
+# Continue IDE
+.continue/
+.continuerc.json
+.continuerc.yaml
+
+# Windsurf / Codeium
+.windsurf/
+.windsurfrules
+.codeiumignore
+
+# Aider
+.aiderignore
+.aider.chat.history.md
+.aider.input.history
+
+# OpenHands
+.openhands/
+
+# Cline / RooCode
+.clinerules/
+.roo/
+.roorules
+
+# Augment
+.augmentignore
+.augmentrules
+
+# Sourcegraph Cody
+.cody/
+
+# Amazon Q
+.amazonq/
+.qdeveloper/
+
+# Gemini Code Assist
+.gemini/
+
+# JetBrains AI
+.idea/ai_assistant/
+
+# General AI / agent instruction files
+AGENTS.md
+AGENT.md
+.ai/
+.aiignore
+.ai-rules/
+instructions.md
+prompt.md
+prompts/
+skills-lock.json
+
+# AI-generated content markers
+*.ai-generated.*
+*.aigen.*
+.ai-output/
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# IDE / EDITOR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains / IntelliJ / WebStorm / PyCharm / etc.
+.idea/
+*.iml
+*.iws
+*.ipr
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.settings/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+*.swp
+*.swo
+.netrwhist
+tags
+.tags
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+
+# Nova / Panic
+.nova/
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OS FILES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# macOS
 .DS_Store
-*.pem
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-# debug
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TESTING
+# ═══════════════════════════════════════════════════════════════════════════════
+/coverage/
+/lcov-report/
+*.lcov
+.nyc_output/
+junit.xml
+test-results/
+__snapshots__/
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUILD / COMPILE OUTPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+*.tsbuildinfo
+*.map
+*.chunk.*
+.cache/
+.parcel-cache/
+.rpt2_cache/
+.fusebox/
+.dynamodb/
+.webpack/
+.svelte-kit/
+.turbo/
+.vercel/
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LOGS & DEBUG
+# ═══════════════════════════════════════════════════════════════════════════════
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
+debug.log
+logs/
 
-# env files (can opt-in for committing if needed)
-.env*
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECRETS & CREDENTIALS
+# ═══════════════════════════════════════════════════════════════════════════════
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+*.crt
+*.der
+*.jks
+*.keystore
+*.truststore
+*.pgp
+*.gpg
+*.asc
+*.env.backup
+*.env.bak
+secrets.*
+credentials.*
+service-account*.json
+*service-account*.json
+firebase-*.json
+google-services.json
+GoogleService-Info.plist
 
-# vercel
-.vercel
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATABASE
+# ═══════════════════════════════════════════════════════════════════════════════
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.dump
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPORARY / BACKUP FILES
+# ═══════════════════════════════════════════════════════════════════════════════
+*.tmp
+*.temp
+*.bak
+*.orig
+*.old
+*.save
+*.rej
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MISCELLANEOUS
+# ═══════════════════════════════════════════════════════════════════════════════
+*.pid
+*.seed
+*.pid.lock
+.yarn-integrity
+.node_repl_history
+*.tgz
+*.tar.gz
+.eslintcache
+.stylelintcache
+.rts2_cache_*
+.pnp.js
+.pnp.cjs
+.pnp.loader.mjs
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROJECT-SPECIFIC
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Large media / asset dump folders
+Site Files/
+Publications/
+
+# Local media / uploads
+uploads/
+media/
