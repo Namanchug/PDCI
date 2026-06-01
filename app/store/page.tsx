@@ -42,7 +42,7 @@ export default function StorePage() {
     }, [activeCategory, products]);
 
     return (
-        <div className="min-h-screen" style={{ background: "#ffffff" }}>
+        <div className="min-h-screen" style={{ background: "#0a1628" }}>
             {/* ── Page Header ── */}
             <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,9 +64,9 @@ export default function StorePage() {
             <div
                 className="sticky top-0 z-10 px-4 py-3"
                 style={{
-                    background: "#ffffff",
-                    borderBottom: "1px solid rgba(201,164,90,0.25)",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                    background: "#0a1628",
+                    borderBottom: "1px solid rgba(201,164,90,0.2)",
+                    boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
                 }}
             >
                 <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-2">
@@ -85,9 +85,9 @@ export default function StorePage() {
                                         border: "1px solid transparent",
                                     }
                                     : {
-                                        background: "#ffffff",
-                                        color: "#0a1628",
-                                        border: "1px solid rgba(201,164,90,0.35)",
+                                        background: "transparent",
+                                        color: "#94a3b8",
+                                        border: "1px solid rgba(255,255,255,0.12)",
                                         letterSpacing: "0.08em",
                                         borderRadius: "2px",
                                     }
@@ -112,7 +112,7 @@ export default function StorePage() {
                         />
                     </div>
                 ) : filtered.length === 0 ? (
-                    <p className="text-center py-24 text-sm" style={{ color: "#94a3b8" }}>
+                    <p className="text-center py-24 text-sm" style={{ color: "#64748b" }}>
                         No products found in this category.
                     </p>
                 ) : (
@@ -133,12 +133,12 @@ function ProductCard({ product }: { product: Product }) {
     return (
         <Link href={`/store/${product.id}`}>
             <div
-                className="group flex flex-col overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group flex flex-col overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
                 style={{
                     background: "#ffffff",
-                    border: "1px solid rgba(201,164,90,0.15)",
+                    border: "1px solid rgba(201,164,90,0.2)",
                     borderRadius: "2px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
                 }}
             >
                 {/* Image */}
