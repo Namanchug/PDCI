@@ -43,48 +43,22 @@ export default function StorePage() {
 
     return (
         <div className="min-h-screen" style={{ background: "#ffffff" }}>
-            {/* ── Hero Banner ── */}
-            <div
-                className="relative px-4 py-20 text-center overflow-hidden"
-                style={{
-                    background: "linear-gradient(135deg, #0a1628 0%, #091525 50%, #0a1628 100%)",
-                    borderBottom: "1px solid rgba(201,164,90,0.2)",
-                }}
-            >
-                {/* Grid texture */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(rgba(201,164,90,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,164,90,0.04) 1px, transparent 1px)",
-                        backgroundSize: "60px 60px",
-                    }}
-                />
-                <div className="relative">
-                    <p
-                        className="mb-3 text-xs font-semibold uppercase"
-                        style={{ color: "#c9a45a", letterSpacing: "0.3em" }}
-                    >
-                        Police Dog Centre India
-                    </p>
-                    <h1
-                        className="text-4xl font-bold md:text-5xl"
-                        style={{ fontFamily: "Georgia, serif", color: "#f8f2e7", lineHeight: 1.15 }}
-                    >
-                        Official <span style={{ color: "#c9a45a" }}>Store</span>
+            {/* ── Page Header ── */}
+            <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center gap-2 text-sm mb-4">
+                        <Link href="/" className="transition-colors hover:text-[#c9a45a]" style={{ color: "#64748b" }}>Home</Link>
+                        <span style={{ color: "#c9a45a" }}>/</span>
+                        <span style={{ color: "#c9a45a" }}>Store</span>
+                    </div>
+                    <h1 className="text-2xl sm:text-3xl font-bold mb-3" style={{ fontFamily: "Georgia, serif", color: "#0a1628" }}>
+                        Official Store
                     </h1>
-                    <p className="mt-4 text-sm max-w-xl mx-auto" style={{ color: "#94a3b8" }}>
-                        Premium K9 gear, training equipment, apparel and accessories — trusted
-                        by handlers and professionals across India.
+                    <p className="text-base max-w-2xl" style={{ color: "#64748b" }}>
+                        Premium K9 gear, training equipment, apparel and accessories — trusted by handlers and professionals across India.
                     </p>
-                    <div
-                        className="mx-auto mt-6 h-px w-24"
-                        style={{
-                            background: "linear-gradient(to right, transparent, #c9a45a, transparent)",
-                        }}
-                    />
                 </div>
-            </div>
+            </section>
 
             {/* ── Category Filters ── */}
             <div
