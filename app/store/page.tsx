@@ -62,10 +62,11 @@ export default function StorePage() {
 
             {/* ── Category Filters ── */}
             <div
-                className="sticky top-0 z-10 px-4 py-3 backdrop-blur-md"
+                className="sticky top-0 z-10 px-4 py-3"
                 style={{
-                    background: "rgba(10,22,40,0.97)",
-                    borderBottom: "1px solid rgba(201,164,90,0.15)",
+                    background: "#ffffff",
+                    borderBottom: "1px solid rgba(201,164,90,0.25)",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                 }}
             >
                 <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-2">
@@ -84,9 +85,9 @@ export default function StorePage() {
                                         border: "1px solid transparent",
                                     }
                                     : {
-                                        background: "transparent",
-                                        color: "#94a3b8",
-                                        border: "1px solid rgba(201,164,90,0.2)",
+                                        background: "#ffffff",
+                                        color: "#0a1628",
+                                        border: "1px solid rgba(201,164,90,0.35)",
                                         letterSpacing: "0.08em",
                                         borderRadius: "2px",
                                     }
