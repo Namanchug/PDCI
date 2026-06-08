@@ -14,7 +14,7 @@ interface ImageCarouselProps {
 export default function ImageCarousel({
   images,
   alt,
-  heightClass = "h-48",
+  heightClass,
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
 }: ImageCarouselProps) {
   const [current, setCurrent] = useState(0);
@@ -24,18 +24,33 @@ export default function ImageCarousel({
   const next = () => setCurrent((c) => (c + 1) % total);
 
   return (
-    <div className={`relative ${heightClass} w-full overflow-hidden`}>
+    <div className={`relative w-full overflow-hidden ${heightClass ?? "h-56"}`}>
       {images.map((src, i) => (
-        <Image
+        <div
           key={src}
-          src={src}
-          alt={`${alt} — photo ${i + 1}`}
-          fill
-          loading={i === 0 ? "eager" : "lazy"}
-          className={`object-cover transition-opacity duration-300 ${i === current ? "opacity-100" : "opacity-0"
-            }`}
-          sizes={sizes}
-        />
+          className={`absolute inset-0 transition-opacity duration-300 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {/* Blurred backdrop — fills letterbox bars */}
+          <Image
+            src={src}
+            alt=""
+            fill
+            aria-hidden
+            className="object-cover scale-110 blur-2xl opacity-80"
+            sizes={sizes}
+          />
+          {/* Sharp foreground — fully visible, no cropping */}
+          <Image
+            src={src}
+            alt={`${alt} — photo ${i + 1}`}
+            fill
+            loading={i === 0 ? "eager" : "lazy"}
+            className="object-contain relative z-10"
+            sizes={sizes}
+          />
+        </div>
       ))}
 
       {total > 1 && (

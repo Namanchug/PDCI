@@ -37,10 +37,8 @@ const workshops = [
     badge: "CAPF",
     location: "NSG Centre, Manesar, Haryana",
     images: [
-      "/home-page-banner/banner-5.jpg",
-      "/home-page-banner/banner-6.jpg",
-      "/home-page-banner/banner-7.jpg",
-      "/home-page-banner/banner-8.jpg",
+      "/seminars-workshops/workshops/nsg/IMG_9873.jpg",
+      "/seminars-workshops/workshops/nsg/IMG_E9922.jpg",
     ],
     description:
       "Elite K9 workshop for the NSG Black Cats — India's premier counter-terrorism force. Showcased the path-breaking K9 Vision System (KVS): training Assault Dogs on a Wireless Command System using a Remote Radio Controlled Device, enabling the dog to operate off-leash and away from the handler based solely on audio-video inputs monitored on a real-time basis — a revolutionary capability for building intervention operations.",
@@ -123,7 +121,13 @@ const workshops = [
     fullName: "Assam Rifles",
     badge: "CAPF",
     location: "Assam Rifles Dog Training Centre, Jorhat, Assam",
-    images: ["/home-page-banner/banner-7.jpg"],
+    images: [
+      "/seminars-workshops/workshops/assam-rifles/IMG_0257.jpg",
+      "/seminars-workshops/workshops/assam-rifles/IMG_0669.jpg",
+      "/seminars-workshops/workshops/assam-rifles/IMG_5189.jpg",
+      "/seminars-workshops/workshops/assam-rifles/IMG_5190.jpg",
+      "/seminars-workshops/workshops/assam-rifles/IMG_9872.jpg",
+    ],
     description:
       "The 10th Police K9 Workshop conducted at the Assam Rifles Dog Training Centre in Jorhat — a milestone event under the theme 'Bridging Gaps in Augmentation of K9 Performance.' Addressed K9 operations in dense jungle terrain, counter-insurgency tracking, and patrol dog employment along the challenging Indo-Myanmar border.",
   },
@@ -202,6 +206,18 @@ const nationalSeminars = [
   },
   // ── Academic ──────────────────────────────────────────────────────────────
   {
+    title: "Disaster Response K9 Seminar — NDRF",
+    org: "National Disaster Response Force (NDRF)",
+    location: "NDRF Establishment, India",
+    images: [
+      "/seminars-workshops/national/ndrf/IMG_5145.jpg",
+      "/seminars-workshops/national/ndrf/IMG_5148.jpg",
+      "/seminars-workshops/national/ndrf/IMG_5165.jpg",
+    ],
+    description:
+      "A K9 seminar conducted for the National Disaster Response Force — India's premier disaster management force under MHA, comprising 16 battalions drawn from across the CAPFs. Each NDRF battalion deploys dedicated K9 squads of trained Labradors and Belgian Malinois for urban search-and-rescue operations under collapsed structures. The seminar introduced NDRF K9 handlers to the MHA K9 Cell's Mission & Role, modern operant conditioning principles, and evidence-based detection and tracking protocols tailored to disaster response environments.",
+  },
+  {
     title: "K9 Science Seminar — JECRC University",
     org: "JECRC University, Jaipur",
     location: "JECRC University, Jaipur, Rajasthan",
@@ -213,9 +229,22 @@ const nationalSeminars = [
     title: "K9 Science Seminar — Jamia Hamdard",
     org: "Jamia Hamdard University, New Delhi",
     location: "Jamia Hamdard, New Delhi",
-    images: ["/home-page-banner/banner-7.jpg"],
+    images: [
+      "/seminars-workshops/national/jamia-hamdard/Col Chug Receiving Bouquet.jpeg",
+      "/seminars-workshops/national/jamia-hamdard/Group Photo 1.jpeg",
+    ],
     description:
       "A university seminar with Jamia Hamdard's veterinary and life sciences faculty. Covered K9 Behavioural Assessment (K9 BAT), K9 welfare standards, and evidence-based training protocols advancing India's police K9 academic and operational capacity.",
+  },
+  {
+    title: "K9 Welfare Seminar — Canis Welfare Pet Club",
+    org: "Canis Welfare Pet Club, New Delhi",
+    location: "New Delhi",
+    images: [
+      "/seminars-workshops/national/canis-welfare/Canis Welfare Presentation.jpg",
+    ],
+    description:
+      "An invited talk at the Canis Welfare Pet Club — a New Delhi-based canine welfare organisation dedicated to responsible dog ownership and the well-being of working and companion dogs. Col Chug addressed the audience on the science of canine behaviour, ethical training methods, and the standards being set by MHA's National Police K9 programme — bridging the world of professional working dogs with India's growing civilian canine community.",
   },
 ];
 
@@ -224,9 +253,9 @@ const internationalSeminars = [
     title: "World Police K9 Summit",
     location: "Dubai, United Arab Emirates",
     images: [
-      "/home-page-banner/banner-8.jpg",
-      "/home-page-banner/banner-11.jpg",
-      "/home-page-banner/banner-14.jpg",
+      "/seminars-workshops/international/world-police-summit/IMG_7774.jpg",
+      "/seminars-workshops/international/world-police-summit/IMG_7818.jpg",
+      "/seminars-workshops/international/world-police-summit/IMG_7916.jpg",
     ],
     description:
       "PDCI's representation at the prestigious World Police K9 Summit in Dubai — a premier global gathering for law enforcement K9 professionals from over 50 countries. Col Chug presented India's police K9 modernization achievements and the MHA K9 Cell initiative to an elite international audience.",
@@ -435,7 +464,7 @@ export default function SeminarsWorkshopsPage() {
                     <ImageCarousel
                       images={s.images}
                       alt={`${s.org} K9 Seminar`}
-                      heightClass="h-40"
+                      heightClass="h-52"
                     />
                     {/* Content */}
                     <div className="p-5">
@@ -493,7 +522,7 @@ export default function SeminarsWorkshopsPage() {
                       <ImageCarousel
                         images={s.images}
                         alt={`${s.title} — International K9 Conference`}
-                        heightClass="h-40"
+                        heightClass="h-52"
                       />
                       <div
                         className="absolute inset-0 pointer-events-none"

@@ -126,13 +126,14 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden shadow-lg h-[480px]">
+            <div className="rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src="/about-who-we-are.jpg"
                 alt="PDCI handler training a Belgian Malinois on the field"
-                fill
-                className="object-cover object-center"
+                width={0}
+                height={0}
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                className="w-full h-auto"
                 priority
               />
             </div>
@@ -264,12 +265,22 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             {/* Photo & credentials card */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
-              <div className="relative h-80 w-full">
+              <div className="relative h-80 w-full overflow-hidden">
+                {/* Blurred backdrop */}
+                <Image
+                  src="/Picture2.jpg"
+                  alt=""
+                  fill
+                  aria-hidden
+                  className="object-cover scale-110 blur-2xl opacity-80"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+                {/* Sharp foreground — fully visible */}
                 <Image
                   src="/Picture2.jpg"
                   alt="Col PK Chug (Retd) – MD & Chief Trainer, Police Dog Centre India"
                   fill
-                  className="object-cover object-top"
+                  className="object-contain relative z-10"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
               </div>
