@@ -19,14 +19,6 @@
 }
 
 body {
-  background:
-    radial-gradient(circle at top, rgba(201, 164, 90, 0.1), transparent 24%),
-    radial-gradient(
-      circle at bottom right,
-      rgba(15, 23, 42, 0.08),
-      transparent 28%
-    ),
-    linear-gradient(180deg, #fbf7f0 0%, #f1eadf 100%);
   color: var(--foreground);
   font-family: "Inter", system-ui, sans-serif;
   zoom: 0.93;

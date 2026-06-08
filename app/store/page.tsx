@@ -240,7 +240,7 @@ export default function StorePage() {
                 className="sticky z-10 px-6 py-3"
                 style={{
                     top: 0,
-                    background: "rgba(251,247,240,0.93)",
+                    background: "rgba(255,255,255,0.93)",
                     backdropFilter: "blur(14px)",
                     WebkitBackdropFilter: "blur(14px)",
                     borderBottom: "1px solid rgba(201,164,90,0.22)",
@@ -277,7 +277,7 @@ export default function StorePage() {
             {/* ══════════════════════════════════════════
           PRODUCTS GRID
       ══════════════════════════════════════════ */}
-            <div style={{ background: "#fbf7f0" }}>
+            <div>
                 <div className="max-w-7xl mx-auto px-6 py-10 pb-20" style={{ minHeight: "60vh" }}>
 
                     {/* Section heading + count */}
@@ -323,13 +323,6 @@ export default function StorePage() {
                 </div>
             </div>
 
-            {/* Cream → Navy footer fade */}
-            <div
-                style={{
-                    height: "80px",
-                    background: "linear-gradient(to bottom, #fbf7f0 0%, #0d1b2a 100%)",
-                }}
-            />
         </div>
     );
 }
