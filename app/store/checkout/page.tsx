@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
-import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { ShoppingBag, ChevronLeft, CheckCircle } from "lucide-react";
 
@@ -166,42 +165,24 @@ export default function CheckoutPage() {
                 },
                 theme: { color: "#c9a45a" },
                 handler: async function (response: any) {
-                    await supabase.from("orders").insert({
-                        customer_name: form.name,
-                        customer_email: form.email,
-                        customer_phone: form.phone,
-                        items: items,
-                        total: verifiedAmount,
-                        razorpay_order_id: rzpOrderId,
-                        razorpay_payment_id: response.razorpay_payment_id,
-                        status: "paid",
-                        address: `${form.address}, ${form.address2}, ${form.city}, ${form.state} - ${form.pincode}${form.landmark ? ` (Near: ${form.landmark})` : ""}`,
-                    });
-
-                    // ── Send confirmation email ──
-                    const stockRes = await fetch("/api/deduct-stock", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ items }),
-                    });
-
-                    if (!stockRes.ok) {
-                        console.error("Stock deduction failed:", await stockRes.text());
-                    }
-
-                    await fetch("/api/send-order-email", {
+                    // Verify signature server-side; this also handles order insert,
+                    // stock deduction, and confirmation email in one atomic step.
+                    const verifyRes = await fetch("/api/verify-payment", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
-                            name: form.name,
-                            email: form.email,
-                            phone: form.phone,
+                            razorpay_order_id: response.razorpay_order_id,
+                            razorpay_payment_id: response.razorpay_payment_id,
+                            razorpay_signature: response.razorpay_signature,
                             items,
-                            total: verifiedAmount,
-                            address: `${form.address}, ${form.address2}, ${form.city}, ${form.state} - ${form.pincode}${form.landmark ? ` (Near: ${form.landmark})` : ""}`,
-                            paymentId: response.razorpay_payment_id,
+                            form,
                         }),
                     });
+
+                    if (!verifyRes.ok) {
+                        const data = await verifyRes.json().catch(() => ({}));
+                        throw new Error(data.error ?? "Payment verification failed");
+                    }
 
                     clearCart();
                     setOrderId(response.razorpay_payment_id);

@@ -30,8 +30,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const saved = localStorage.getItem("pdci_cart");
-        if (saved) setItems(JSON.parse(saved));
+        try {
+            const saved = localStorage.getItem("pdci_cart");
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                if (Array.isArray(parsed)) setItems(parsed);
+            }
+        } catch {
+            // Corrupted storage — start with empty cart
+            localStorage.removeItem("pdci_cart");
+        }
     }, []);
 
     useEffect(() => {
