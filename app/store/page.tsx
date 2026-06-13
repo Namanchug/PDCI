@@ -225,7 +225,7 @@ export default function StorePage() {
 
                     {/* Description */}
                     <p className="text-base max-w-2xl" style={{ color: "#64748b" }}>
-                        Tactical equipment, training aids, apparel and accessories — trusted by
+                        Tactical equipment, training aids, apparel and accessories  -  trusted by
                         handlers and professionals across India.
                     </p>
 

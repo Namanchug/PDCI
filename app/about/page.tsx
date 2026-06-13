@@ -17,24 +17,24 @@ const achievements = [
   "Introduced the 'Quadrants of Operant Conditioning' to Transform Police K9 Training in India based on Contemporary Dog Training Techniques.",
   "Conducted Large Number of 'Police K9 Workshops' with Various Central Armed Police Forces for \"Bridging Gaps in Augmentation of K9 Performance\" for Over 1000 Police K9 Handlers, Trainers and Supervisors.",
   "Conducted Multiple 'Training of Trainer' (ToT) Courses for Indian Police and Law Enforcement Organizations.",
-  "Introduced the Concept of 'Assault K9' in Intervention Operations in NSG and for the First Time in the World, Trained & Demonstrated the path-breaking 'K9 Vision System' (KVS) — Training Assault Dogs on Wireless Command System using Remote Radio Controlled Device while the Dog is Off-leash.",
+  "Introduced the Concept of 'Assault K9' in Intervention Operations in NSG and for the First Time in the World, Trained & Demonstrated the path-breaking 'K9 Vision System' (KVS)  -  Training Assault Dogs on Wireless Command System using Remote Radio Controlled Device while the Dog is Off-leash.",
   "Pioneered the revolutionary 'Canine Remote Delivery System' (CRDS), 'Laser Guided Detection' & 'Patrol K9s' and Successfully Integrated 'Dogs with Drones' for Tactical Advantages during Highly Sensitive Special Missions.",
   "Founding and Former Head of the 'Police K9 Cell' with Police Modernization Division/Ministry of Home Affairs, Government of India for 03 Years.",
   "Drafted the 'Roadmap & Action Plan' of the MHA/Government of India to bring in Transformational Changes in the Training and Deployment of Police Service K9s (PSKs) among various CAPFs, State Police and Other Law Enforcement Organizations.",
   "Started Conducting 'MHA's National Police K9 Seminar' annually in India.",
   "Publication of MHA's 'National Police K9 Journal' as its Founding Editor twice every year.",
   "An International Speaker and Master K9 Trainer, Authored a Large Number of Professional and Technical Articles for Leading Publications on Technical Subjects.",
-  "Sole 'Change Agent' in the Country Leading to Draft Various Technical Standards/SOPs for Police K9s — including Police Dog Breeding Guidelines, 'K9 Behavioural Assessment' (K9 BAT), 'K9 Proficiency Evaluation Test' (K9 PET), and the Ground-breaking 'National Register for Working Dogs' (NRWD).",
+  "Sole 'Change Agent' in the Country Leading to Draft Various Technical Standards/SOPs for Police K9s  -  including Police Dog Breeding Guidelines, 'K9 Behavioural Assessment' (K9 BAT), 'K9 Proficiency Evaluation Test' (K9 PET), and the Ground-breaking 'National Register for Working Dogs' (NRWD).",
 ];
 
 const honours = [
-  "'Chief of Army Staff Commendation' (COAS CC**) — on three occasions",
+  "'Chief of Army Staff Commendation' (COAS CC**)  -  on three occasions",
   "Army Commander's (EC) Commendation",
   "United Nation's Force Commander Commendation",
   "Citation by US Department of Defense (DoD) for USNS (Mercy) Mission",
   "'Best Administrator's Award' for the year 2020 by Pearl Foundation",
-  "Fellow of National Academy of Veterinary Sciences (NAVS) India — 2021",
-  "Fellow of Indian Association for Advancement of Veterinary Research (IAAVR) — 2022",
+  "Fellow of National Academy of Veterinary Sciences (NAVS) India  -  2021",
+  "Fellow of Indian Association for Advancement of Veterinary Research (IAAVR)  -  2022",
 ];
 
 const values = [
@@ -60,7 +60,7 @@ const values = [
     icon: Eye,
     title: "Innovation",
     description:
-      "We continuously pioneer new methods — from operant conditioning protocols to integrating dogs with drones.",
+      "We continuously pioneer new methods  -  from operant conditioning protocols to integrating dogs with drones.",
   },
 ];
 
@@ -81,7 +81,7 @@ export default function AboutPage() {
             About PDCI
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "#64748b" }}>
-            Modernizing K9 training across India — replacing coercive methods
+            Modernizing K9 training across India  -  replacing coercive methods
             with science-based operant conditioning for police, law enforcement,
             and pet parents.
           </p>
@@ -167,7 +167,7 @@ export default function AboutPage() {
               <p className="text-gray-300 leading-relaxed text-base">
                 To replace the old-school coercive dog training with quadrants
                 of modern operant conditioning protocols and develop dog training
-                based on scientific knowledge and practical experience — by
+                based on scientific knowledge and practical experience  -  by
                 collecting &amp; recording data to teach dog training better
                 among diverse security organizations in India.
               </p>
@@ -195,7 +195,7 @@ export default function AboutPage() {
               <p className="text-navy-800 leading-relaxed text-base">
                 To ensure sustainable modernization of K9 training across India,
                 sharing vast experience and in-depth knowledge with Police K9
-                Practitioners — making India the global benchmark for
+                Practitioners  -  making India the global benchmark for
                 science-driven K9 security professionalism.
               </p>
               <div className="mt-8 space-y-3">
@@ -250,7 +250,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership — Col PK Chug */}
+      {/* Leadership  -  Col PK Chug */}
       <section className="bg-gray-50 py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -275,7 +275,7 @@ export default function AboutPage() {
                   className="object-cover scale-110 blur-2xl opacity-80"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
-                {/* Sharp foreground — fully visible */}
+                {/* Sharp foreground  -  fully visible */}
                 <Image
                   src="/Picture2.jpg"
                   alt="Col PK Chug (Retd) – MD & Chief Trainer, Police Dog Centre India"
@@ -300,7 +300,7 @@ export default function AboutPage() {
                   <p>Former and Founding Head of Police K9 Cell</p>
                   <p>Ministry of Home Affairs, Government of India</p>
                   <br />
-                  <p>Founder Editor — MHA's National Police K9 Journal</p>
+                  <p>Founder Editor  -  MHA's National Police K9 Journal</p>
                 </div>
                 <div className="mt-4 pt-4 border-t border-gray-100 text-gray-400 text-xs">
                   BVSc &amp; AH &nbsp;|&nbsp; MVSc &nbsp;|&nbsp; MBA &nbsp;|&nbsp; PhD
@@ -322,7 +322,7 @@ export default function AboutPage() {
               </p>
               <p>
                 He is a former Colonel of the Indian Army (Remount Veterinary
-                Corps — RVC) with an enriching experience of nearly 25 years of
+                Corps  -  RVC) with an enriching experience of nearly 25 years of
                 chequered military service who has never accepted the status quo.
                 He had commanded the &lsquo;Specialized Army Dog Units&rsquo; on
                 6 occasions with the Army and Special Forces including his last
@@ -337,7 +337,7 @@ export default function AboutPage() {
               <p>
                 He has established &lsquo;Police Dog Centre INDIA&rsquo; at New
                 Delhi to continue the mission of modernizing Police Dog Training
-                in India — sharing his vast experience and in-depth knowledge
+                in India  -  sharing his vast experience and in-depth knowledge
                 with Police K9 Practitioners, providing specialized consultancy
                 and training services to a large number of Police and Law
                 Enforcement Organizations, and also offering training and
@@ -406,3 +406,4 @@ export default function AboutPage() {
     </>
   );
 }
+

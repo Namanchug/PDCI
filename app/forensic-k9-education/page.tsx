@@ -27,7 +27,7 @@ import {
 export const metadata: Metadata = {
   title: "Forensic K9 & Education | Police Dog Centre India",
   description:
-    "India's pioneering Professional Diploma in Canine Forensics (PDCF) — a 6-month hybrid university program by NFSU in collaboration with Police Dog Centre India, bridging K9 training with forensic science and judicial admissibility.",
+    "India's pioneering Professional Diploma in Canine Forensics (PDCF)  -  a 6-month hybrid university program by NFSU in collaboration with Police Dog Centre India, bridging K9 training with forensic science and judicial admissibility.",
 };
 
 const subjects = [
@@ -59,13 +59,13 @@ const specialForceModules = [
     icon: Shield,
     title: "Patrol & Assault Dog Preparation",
     description:
-      "Modern, science-based methodologies producing dogs with superior initiative, courage, controlled aggression, and reliable off-leash obedience — essential for building clearance, area denial, and suspect apprehension.",
+      "Modern, science-based methodologies producing dogs with superior initiative, courage, controlled aggression, and reliable off-leash obedience  -  essential for building clearance, area denial, and suspect apprehension.",
   },
   {
     icon: Target,
     title: "Dual Purpose K9s (Patrol + Detection)",
     description:
-      "Training protocols for dogs that combine patrol and apprehension with detection capability — IED clearance, narcotics, and personnel tracking in a single asset without requiring two dogs.",
+      "Training protocols for dogs that combine patrol and apprehension with detection capability  -  IED clearance, narcotics, and personnel tracking in a single asset without requiring two dogs.",
   },
   {
     icon: Microscope,
@@ -139,14 +139,14 @@ export default function ForensicK9EducationPage() {
               style={{ background: "rgba(201,164,90,0.1)", color: "#9f7b35", border: "1px solid rgba(201,164,90,0.3)", borderRadius: "2px" }}
             >
               <GraduationCap className="w-3.5 h-3.5" />
-              World&apos;s First — University-Level Canine Forensics Program
+              World&apos;s First  -  University-Level Canine Forensics Program
             </span>
             <span
               className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5"
               style={{ background: "rgba(10,22,40,0.05)", color: "#0a1628", border: "1px solid rgba(10,22,40,0.12)", borderRadius: "2px" }}
             >
               <Award className="w-3.5 h-3.5" />
-              Institution of National Importance — National Forensic Sciences University
+              Institution of National Importance  -  National Forensic Sciences University
             </span>
           </div>
 
@@ -159,7 +159,7 @@ export default function ForensicK9EducationPage() {
           </h1>
           <p className="text-base max-w-3xl leading-relaxed" style={{ color: "#64748b" }}>
             A first-of-its-kind academic program by the National Forensic Sciences University
-            (NFSU) in collaboration with Police Dog Centre India — bridging forensic science,
+            (NFSU) in collaboration with Police Dog Centre India  -  bridging forensic science,
             canine behaviour, and the operational deployment of working dogs under a structured
             university education framework.
           </p>
@@ -216,13 +216,13 @@ export default function ForensicK9EducationPage() {
                 <h3 className="font-bold text-base" style={{ color: "#ffffff" }}>Outdated Training Practices</h3>
               </div>
               <p className="text-sm leading-relaxed mb-4" style={{ color: "#94a3b8" }}>
-                Many forces in India still rely on punishment-and-pressure methods — producing
+                Many forces in India still rely on punishment-and-pressure methods  -  producing
                 dogs that respond to <em>handlers</em> rather than <em>scents</em>.
               </p>
               <div className="px-4 py-3" style={{ background: "#112240", borderRadius: "12px", border: "1px solid #1e3a5f" }}>
                 <p className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "#c9a45a" }}>PDCF Solution</p>
                 <p className="text-sm" style={{ color: "#cbd5e1" }}>
-                  Modern operant conditioning — producing <strong style={{ color: "#ffffff" }}>self-driven,
+                  Modern operant conditioning  -  producing <strong style={{ color: "#ffffff" }}>self-driven,
                     odour-obedient</strong> dogs free from handler influence, aligned with international K9 standards.
                 </p>
               </div>
@@ -236,7 +236,7 @@ export default function ForensicK9EducationPage() {
                 <h3 className="font-bold text-base" style={{ color: "#ffffff" }}>No Certification or Judicial Admissibility</h3>
               </div>
               <p className="text-sm leading-relaxed mb-4" style={{ color: "#94a3b8" }}>
-                The MHA&apos;s AKLAN SOP mandates annual third-party certification — yet periodic
+                The MHA&apos;s AKLAN SOP mandates annual third-party certification  -  yet periodic
                 proficiency assessment is rarely implemented across forces.
               </p>
               <div className="px-4 py-3" style={{ background: "#0a1628", borderRadius: "12px", border: "1px solid #1e3a5f" }}>
@@ -257,7 +257,7 @@ export default function ForensicK9EducationPage() {
                 launched at NFSU Delhi Campus, was developed by internationally acclaimed
                 military and police K9 expert <strong style={{ color: "#0a1628" }}>Col. (Dr.) P.K. Chug</strong>{" "}
                 in collaboration with Police Dog Centre India. The 6-month hybrid program allows working
-                professionals to upgrade their skills without career interruption — four months
+                professionals to upgrade their skills without career interruption  -  four months
                 of online instruction followed by two months of intensive hands-on training,
                 including escorted visits to restricted facilities unavailable to the general public.
               </p>
@@ -286,7 +286,7 @@ export default function ForensicK9EducationPage() {
                 <p className="text-sm leading-relaxed" style={{ color: "#cbd5e1" }}>
                   Established by an Act of Parliament under the Ministry of Home Affairs, NFSU
                   is the <strong style={{ color: "#ffffff" }}>world&apos;s first and only forensic sciences
-                    university</strong> — an Institution of National Importance, conceptualised by
+                    university</strong>  -  an Institution of National Importance, conceptualised by
                   Prime Minister Narendra Modi in 2009, with campuses across India and internationally.
                 </p>
 
@@ -309,7 +309,7 @@ export default function ForensicK9EducationPage() {
                 <p className="text-sm leading-relaxed" style={{ color: "#374151" }}>
                   NFSU is partnered with{" "}
                   <strong style={{ color: "#0a1628" }}>Florida International University (FIU), USA</strong>{" "}
-                  — Global Forensic and Justice Center. Top PDCF graduates may pursue{" "}
+                   -  Global Forensic and Justice Center. Top PDCF graduates may pursue{" "}
                   <strong style={{ color: "#0a1628" }}>Master&apos;s and Ph.D. programs</strong> with
                   semesters at FIU, Miami.
                 </p>
@@ -338,7 +338,7 @@ export default function ForensicK9EducationPage() {
                   <BookOpen className="w-5 h-5" style={{ color: "#c9a45a" }} />
                 </div>
                 <div>
-                  <h3 className="font-bold" style={{ color: "#0a1628" }}>Phase 1 — Online Learning</h3>
+                  <h3 className="font-bold" style={{ color: "#0a1628" }}>Phase 1  -  Online Learning</h3>
                   <p className="text-xs" style={{ color: "#94a3b8" }}>Months 1–4</p>
                 </div>
               </div>
@@ -355,14 +355,14 @@ export default function ForensicK9EducationPage() {
                   <Target className="w-5 h-5" style={{ color: "#c9a45a" }} />
                 </div>
                 <div>
-                  <h3 className="font-bold" style={{ color: "#ffffff" }}>Phase 2 — Intensive Hands-On Training</h3>
+                  <h3 className="font-bold" style={{ color: "#ffffff" }}>Phase 2  -  Intensive Hands-On Training</h3>
                   <p className="text-xs" style={{ color: "#94a3b8" }}>Months 5–6 · NFSU Delhi Campus</p>
                 </div>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: "#cbd5e1" }}>
                 Residential practical training at NFSU Delhi Campus. Includes live dog handling,
                 scent imprinting, simulated detection scenarios, patrol dog preparation, and
-                escorted visits to premier K9 facilities — a rare exposure unavailable to the
+                escorted visits to premier K9 facilities  -  a rare exposure unavailable to the
                 general public. Assessed via rigorous formal procedures as per UGC norms.
               </p>
             </div>
@@ -449,7 +449,7 @@ export default function ForensicK9EducationPage() {
 
           <div className="mt-12 p-6" style={{ background: "#112240", borderRadius: "16px", border: "1px solid #1e3a5f" }}>
             <p className="font-bold text-xs uppercase tracking-wider mb-4 text-center" style={{ color: "#c9a45a" }}>
-              Special Forces K9 Capability Matrix — PDCF Program Coverage
+              Special Forces K9 Capability Matrix  -  PDCF Program Coverage
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {[
@@ -652,7 +652,7 @@ export default function ForensicK9EducationPage() {
             {/* Col. Chug */}
             <div className="p-8" style={{ background: "#0a1628", borderRadius: "16px" }}>
               <p className="font-bold text-xs uppercase tracking-wider mb-5" style={{ color: "#c9a45a" }}>
-                Chief Mentor — Canine Forensics, NFSU
+                Chief Mentor  -  Canine Forensics, NFSU
               </p>
               <h3 className="font-extrabold text-xl mb-1" style={{ color: "#ffffff" }}>
                 Col. (Dr.) P.K. Chug (Retd)
@@ -663,7 +663,7 @@ export default function ForensicK9EducationPage() {
               </p>
               <div className="space-y-3 text-sm leading-relaxed" style={{ color: "#cbd5e1" }}>
                 <p>
-                  India's foremost military and police K9 trainer — an Army Veteran with over{" "}
+                  India's foremost military and police K9 trainer  -  an Army Veteran with over{" "}
                   <strong style={{ color: "#ffffff" }}>30 years of operational experience</strong>,
                   having commanded Specialised Dog Units across six terms, including with the
                   Indian Special Forces and twice with the Elite NSG Black Cats.
@@ -711,7 +711,7 @@ export default function ForensicK9EducationPage() {
             {[
               { icon: GraduationCap, title: "Academic Collaboration", desc: "Collaborating partner with NFSU and Florida International University (FIU) Miami, USA, for the Professional Diploma in Canine Forensics." },
               { icon: Award, title: "ISO 9001:2015 Certified", desc: "An ISO-certified, Indian Startup and MSME company accredited by QCI and GeM. Professional K9 security solutions to police and law enforcement." },
-              { icon: Shield, title: "The 4D Doctrine", desc: "All training is designed to prepare 4D K9s — Deter, Detect, Defend, and Dominate — replacing coercive methods with modern operant conditioning." },
+              { icon: Shield, title: "The 4D Doctrine", desc: "All training is designed to prepare 4D K9s  -  Deter, Detect, Defend, and Dominate  -  replacing coercive methods with modern operant conditioning." },
               { icon: BookOpen, title: "Training of Trainers", desc: "Conducts large-scale Police K9 Workshops and Training of Trainer (ToT) courses for CAPFs and State Police organisations across India." },
               { icon: Star, title: "National Register for Working Dogs", desc: "Pioneered the ground-breaking National Register for Working Dogs (NRWD) and K9 Behavioural Assessment (K9 BAT) model for police dog selection." },
               { icon: Globe, title: "International Speaker", desc: "Col. (Dr.) P.K. Chug is an internationally recognised speaker and author, representing India's K9 capabilities on the global stage." },
@@ -858,7 +858,7 @@ export default function ForensicK9EducationPage() {
             Advance India&apos;s Forensic K9 Capabilities
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: "rgba(10,22,40,0.75)" }}>
-            Join India&apos;s pioneering forensic K9 education program — and help transform
+            Join India&apos;s pioneering forensic K9 education program  -  and help transform
             police dog training from coercion to science-based excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

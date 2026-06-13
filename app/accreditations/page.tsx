@@ -6,7 +6,7 @@ import { ShieldCheck, Award, BookOpen, Globe, Users } from "lucide-react";
 export const metadata: Metadata = {
   title: "Accreditations | Police Dog Centre India",
   description:
-    "Police Dog Centre India holds accreditations from QCI (GeM), KCI, NFSU, ICODD (USA), and Florida International University (FIU), Miami — nationally and internationally recognised.",
+    "Police Dog Centre India holds accreditations from QCI (GeM), KCI, NFSU, ICODD (USA), and Florida International University (FIU), Miami  -  nationally and internationally recognised.",
 };
 
 const nationalAccreditations = [
@@ -18,7 +18,7 @@ const nationalAccreditations = [
     issuedBy: "National Forensic Sciences University (NFSU)",
     subtext: "Ministry of Home Affairs, Government of India",
     description:
-      "NFSU, in collaboration with Police Dog Centre India, has launched the Professional Diploma in Canine Forensics (DCF) — India's first-of-its-kind academic programme in K9 science and forensic deployment. Col. (Dr.) P.K. Chug serves as Chief Mentor, Canine Forensics at NFSU. With six successful batches since July 2023 and nearly 150 forensic/police K9 experts trained, this initiative is backed by both BPR&D and the Ministry of Home Affairs. NFSU is the world's first and only forensic sciences university, established by an Act of Parliament and recognised as an Institution of National Importance.",
+      "NFSU, in collaboration with Police Dog Centre India, has launched the Professional Diploma in Canine Forensics (DCF)  -  India's first-of-its-kind academic programme in K9 science and forensic deployment. Col. (Dr.) P.K. Chug serves as Chief Mentor, Canine Forensics at NFSU. With six successful batches since July 2023 and nearly 150 forensic/police K9 experts trained, this initiative is backed by both BPR&D and the Ministry of Home Affairs. NFSU is the world's first and only forensic sciences university, established by an Act of Parliament and recognised as an Institution of National Importance.",
     icon: BookOpen,
     highlight: "NFSU Affiliated",
     logo: "/accreditations/nfsu.jpg",
@@ -31,7 +31,7 @@ const nationalAccreditations = [
     issuedBy: "Quality Council of India (QCI)",
     subtext: "for Government e-Marketplace (GeM)",
     description:
-      "Police Dog Centre India is an ISO 9001:2015 Company and an Indian Startup and MSME, accredited by the Quality Council of India (QCI) for the Government e-Marketplace (GeM) — a Government of India initiative that certifies organisations meeting the highest standards of quality and credibility for procurement by central and state government agencies.",
+      "Police Dog Centre India is an ISO 9001:2015 Company and an Indian Startup and MSME, accredited by the Quality Council of India (QCI) for the Government e-Marketplace (GeM)  -  a Government of India initiative that certifies organisations meeting the highest standards of quality and credibility for procurement by central and state government agencies.",
     icon: ShieldCheck,
     highlight: "GeM Certified",
     logo: "/accreditations/qci.jpg",
@@ -44,7 +44,7 @@ const nationalAccreditations = [
     issuedBy: "Kennel Club of India (KCI)",
     subtext: "",
     description:
-      "Police Dog Centre India is a registered dog breeding institution with the Kennel Club of India (KCI) — the apex body governing purebred dog registration, breeding standards, and canine sports in India. This registration affirms PDCI's commitment to ethical, standards-compliant breeding practices for working and service K9s.",
+      "Police Dog Centre India is a registered dog breeding institution with the Kennel Club of India (KCI)  -  the apex body governing purebred dog registration, breeding standards, and canine sports in India. This registration affirms PDCI's commitment to ethical, standards-compliant breeding practices for working and service K9s.",
     icon: Award,
     highlight: "KCI Registered",
     logo: "/accreditations/kci.jpg",
@@ -60,7 +60,7 @@ const internationalAccreditations = [
     issuedBy: "International Commission on Detector Dogs (ICODD)",
     subtext: "USA",
     description:
-      "Col. (Dr.) P.K. Chug, CMD of Police Dog Centre India, serves as an Advisory Board Member and Assessor of the International Commission on Detector Dogs (ICODD), USA — the globally recognised body for evaluation, standardisation, and certification of detector dog teams. This distinction positions PDCI's leadership and training standards at the highest level of international K9 credentialing.",
+      "Col. (Dr.) P.K. Chug, CMD of Police Dog Centre India, serves as an Advisory Board Member and Assessor of the International Commission on Detector Dogs (ICODD), USA  -  the globally recognised body for evaluation, standardisation, and certification of detector dog teams. This distinction positions PDCI's leadership and training standards at the highest level of international K9 credentialing.",
     icon: Globe,
     highlight: "ICODD Advisory Board",
     logo: "/accreditations/icodd.jpg",
@@ -73,7 +73,7 @@ const internationalAccreditations = [
     issuedBy: "Florida International University (FIU)",
     subtext: "Global Forensic and Justice Centre (GFJC), Miami, USA",
     description:
-      "Police Dog Centre India, through its collaboration with NFSU, is a collaborating partner with the Global Forensic and Justice Centre (GFJC) at Florida International University (FIU), Miami, USA — for international benchmarking and academic exchange in the field of Canine Forensics. Outstanding students from the DCF programme and qualified professionals from police and law enforcement organisations may pursue Master's and Ph.D. programmes including semesters at FIU's GFJC campus in the USA.",
+      "Police Dog Centre India, through its collaboration with NFSU, is a collaborating partner with the Global Forensic and Justice Centre (GFJC) at Florida International University (FIU), Miami, USA  -  for international benchmarking and academic exchange in the field of Canine Forensics. Outstanding students from the DCF programme and qualified professionals from police and law enforcement organisations may pursue Master's and Ph.D. programmes including semesters at FIU's GFJC campus in the USA.",
     icon: Users,
     highlight: "FIU Collaborating Partner",
     logo: "/accreditations/fiu.jpg",
@@ -205,7 +205,7 @@ export default function AccreditationsPage() {
           {/* Description */}
           <p className="text-base leading-relaxed max-w-2xl" style={{ color: "#64748b" }}>
             Police Dog Centre India is formally recognised and accredited by
-            leading national and international bodies — validating our standards
+            leading national and international bodies  -  validating our standards
             in K9 training, breeding, canine forensics education, and global
             detector dog evaluation.
           </p>
@@ -240,7 +240,7 @@ export default function AccreditationsPage() {
             </h2>
             <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={{ color: "#64748b" }}>
               Formally evaluated and recognised by India&apos;s premier governing bodies
-              and global K9 institutions — validating every dimension of PDCI&apos;s work.
+              and global K9 institutions  -  validating every dimension of PDCI&apos;s work.
             </p>
           </div>
 
@@ -364,7 +364,7 @@ export default function AccreditationsPage() {
               className="max-w-3xl mx-auto text-base leading-relaxed"
               style={{ color: "#94a3b8" }}
             >
-              These accreditations are not self-declared — they are the result of
+              These accreditations are not self-declared  -  they are the result of
               formal evaluations by independent, nationally and internationally
               recognised governing bodies. For police forces, law enforcement
               agencies, and government procurement offices, they serve as
@@ -465,3 +465,4 @@ export default function AccreditationsPage() {
     </>
   );
 }
+

@@ -32,7 +32,7 @@ export default function ImageCarousel({
             i === current ? "opacity-100" : "opacity-0"
           }`}
         >
-          {/* Blurred backdrop — fills letterbox bars */}
+          {/* Blurred backdrop  -  fills letterbox bars */}
           <Image
             src={src}
             alt=""
@@ -41,10 +41,10 @@ export default function ImageCarousel({
             className="object-cover scale-110 blur-2xl opacity-80"
             sizes={sizes}
           />
-          {/* Sharp foreground — fully visible, no cropping */}
+          {/* Sharp foreground  -  fully visible, no cropping */}
           <Image
             src={src}
-            alt={`${alt} — photo ${i + 1}`}
+            alt={`${alt}  -  photo ${i + 1}`}
             fill
             loading={i === 0 ? "eager" : "lazy"}
             className="object-contain relative z-10"
@@ -91,3 +91,4 @@ export default function ImageCarousel({
     </div>
   );
 }
+

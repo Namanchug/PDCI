@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 // ─── PHOTO REPLACEMENT GUIDE ─────────────────────────────────────────────────
-// Each card uses an `images` array — add as many paths as you like.
+// Each card uses an `images` array  -  add as many paths as you like.
 // Photos must be placed inside /public/ and paths start with "/".
 //
 // Suggested folder structure:
@@ -41,7 +41,7 @@ const workshops = [
       "/seminars-workshops/workshops/nsg/IMG_E9922.jpg",
     ],
     description:
-      "Elite K9 workshop for the NSG Black Cats — India's premier counter-terrorism force. Showcased the path-breaking K9 Vision System (KVS): training Assault Dogs on a Wireless Command System using a Remote Radio Controlled Device, enabling the dog to operate off-leash and away from the handler based solely on audio-video inputs monitored on a real-time basis — a revolutionary capability for building intervention operations.",
+      "Elite K9 workshop for the NSG Black Cats  -  India's premier counter-terrorism force. Showcased the path-breaking K9 Vision System (KVS): training Assault Dogs on a Wireless Command System using a Remote Radio Controlled Device, enabling the dog to operate off-leash and away from the handler based solely on audio-video inputs monitored on a real-time basis  -  a revolutionary capability for building intervention operations.",
   },
   // ── Defence ───────────────────────────────────────────────────────────────
   {
@@ -55,7 +55,7 @@ const workshops = [
       "/home-page-banner/banner-12.jpg",
     ],
     description:
-      "Advanced K9 workshop for Indian Army handlers and Remount Veterinary Corps (RVC) personnel. Covered Military Working Dog (MWD) doctrines, drone integration with K9 units, and the pioneering Canine Remote Delivery System (CRDS) — a revolutionary system developed by Col Chug.",
+      "Advanced K9 workshop for Indian Army handlers and Remount Veterinary Corps (RVC) personnel. Covered Military Working Dog (MWD) doctrines, drone integration with K9 units, and the pioneering Canine Remote Delivery System (CRDS)  -  a revolutionary system developed by Col Chug.",
   },
   {
     org: "Indian Air Force",
@@ -114,7 +114,7 @@ const workshops = [
     location: "SSB Establishments, Indo-Nepal & Indo-Bhutan Border",
     images: ["/home-page-banner/banner-3.jpg"],
     description:
-      "A comprehensive K9 workshop for SSB — guardian of India's borders with Nepal and Bhutan. Addressed tracker dog deployment, handler refresher training, and best practices in K9 welfare and operational maintenance in challenging border conditions.",
+      "A comprehensive K9 workshop for SSB  -  guardian of India's borders with Nepal and Bhutan. Addressed tracker dog deployment, handler refresher training, and best practices in K9 welfare and operational maintenance in challenging border conditions.",
   },
   {
     org: "Assam Rifles",
@@ -129,7 +129,7 @@ const workshops = [
       "/seminars-workshops/workshops/assam-rifles/IMG_9872.jpg",
     ],
     description:
-      "The 10th Police K9 Workshop conducted at the Assam Rifles Dog Training Centre in Jorhat — a milestone event under the theme 'Bridging Gaps in Augmentation of K9 Performance.' Addressed K9 operations in dense jungle terrain, counter-insurgency tracking, and patrol dog employment along the challenging Indo-Myanmar border.",
+      "The 10th Police K9 Workshop conducted at the Assam Rifles Dog Training Centre in Jorhat  -  a milestone event under the theme 'Bridging Gaps in Augmentation of K9 Performance.' Addressed K9 operations in dense jungle terrain, counter-insurgency tracking, and patrol dog employment along the challenging Indo-Myanmar border.",
   },
   // ── State Police ──────────────────────────────────────────────────────────
   {
@@ -139,7 +139,7 @@ const workshops = [
     location: "Delhi Police Establishments, New Delhi",
     images: ["/home-page-banner/banner-8.jpg"],
     description:
-      "A high-impact K9 workshop for Delhi Police — one of India's largest urban police K9 forces. Covered advanced detection techniques, crowd-environment operations, and the practical application of operant conditioning in the high-pressure urban policing context of India's capital.",
+      "A high-impact K9 workshop for Delhi Police  -  one of India's largest urban police K9 forces. Covered advanced detection techniques, crowd-environment operations, and the practical application of operant conditioning in the high-pressure urban policing context of India's capital.",
   },
   {
     org: "Telangana Police",
@@ -164,7 +164,7 @@ const nationalSeminars = [
       "/home-page-banner/banner-9.jpg",
     ],
     description:
-      "Hosted by the NSG Black Cats as part of MHA's Annual National Police K9 Seminar series. Covered counter-terrorism K9 operations, Assault Dog employment, and the K9 Vision System (KVS) — bringing together K9 practitioners across CAPFs to strengthen national standards.",
+      "Hosted by the NSG Black Cats as part of MHA's Annual National Police K9 Seminar series. Covered counter-terrorism K9 operations, Assault Dog employment, and the K9 Vision System (KVS)  -  bringing together K9 practitioners across CAPFs to strengthen national standards.",
   },
   // ── Defence ───────────────────────────────────────────────────────────────
   {
@@ -177,7 +177,7 @@ const nationalSeminars = [
       "/home-page-banner/banner-14.jpg",
     ],
     description:
-      "A joint seminar with the Indian Army's Remount Veterinary Corps at Meerut Cantonment. Covered Military Working Dog (MWD) doctrines, the Canine Remote Delivery System (CRDS), and drone-K9 integration — bridging defence and police K9 capabilities.",
+      "A joint seminar with the Indian Army's Remount Veterinary Corps at Meerut Cantonment. Covered Military Working Dog (MWD) doctrines, the Canine Remote Delivery System (CRDS), and drone-K9 integration  -  bridging defence and police K9 capabilities.",
   },
   // ── Central Armed Police Forces ───────────────────────────────────────────
   {
@@ -186,7 +186,7 @@ const nationalSeminars = [
     location: "BSF Establishments",
     images: ["/home-page-banner/banner-4.jpg"],
     description:
-      "Organized with BSF as part of MHA's Annual National Police K9 Seminar series. Covered tracker dog standards, K9 Behavioural Assessment (K9 BAT) protocols, and best-practice dissemination through the National Police K9 Journal — published twice yearly across all CAPFs.",
+      "Organized with BSF as part of MHA's Annual National Police K9 Seminar series. Covered tracker dog standards, K9 Behavioural Assessment (K9 BAT) protocols, and best-practice dissemination through the National Police K9 Journal  -  published twice yearly across all CAPFs.",
   },
   {
     title: "Border K9 Operations Seminar",
@@ -206,7 +206,7 @@ const nationalSeminars = [
   },
   // ── Academic ──────────────────────────────────────────────────────────────
   {
-    title: "Disaster Response K9 Seminar — NDRF",
+    title: "Disaster Response K9 Seminar  -  NDRF",
     org: "National Disaster Response Force (NDRF)",
     location: "NDRF Establishment, India",
     images: [
@@ -215,10 +215,10 @@ const nationalSeminars = [
       "/seminars-workshops/national/ndrf/IMG_5165.jpg",
     ],
     description:
-      "A K9 seminar conducted for the National Disaster Response Force — India's premier disaster management force under MHA, comprising 16 battalions drawn from across the CAPFs. Each NDRF battalion deploys dedicated K9 squads of trained Labradors and Belgian Malinois for urban search-and-rescue operations under collapsed structures. The seminar introduced NDRF K9 handlers to the MHA K9 Cell's Mission & Role, modern operant conditioning principles, and evidence-based detection and tracking protocols tailored to disaster response environments.",
+      "A K9 seminar conducted for the National Disaster Response Force  -  India's premier disaster management force under MHA, comprising 16 battalions drawn from across the CAPFs. Each NDRF battalion deploys dedicated K9 squads of trained Labradors and Belgian Malinois for urban search-and-rescue operations under collapsed structures. The seminar introduced NDRF K9 handlers to the MHA K9 Cell's Mission & Role, modern operant conditioning principles, and evidence-based detection and tracking protocols tailored to disaster response environments.",
   },
   {
-    title: "K9 Science Seminar — JECRC University",
+    title: "K9 Science Seminar  -  JECRC University",
     org: "JECRC University, Jaipur",
     location: "JECRC University, Jaipur, Rajasthan",
     images: ["/home-page-banner/banner-6.jpg"],
@@ -226,7 +226,7 @@ const nationalSeminars = [
       "An academic seminar at JECRC University engaging veterinary science and security management students. Presented operant conditioning fundamentals, K9 behaviour research, and career pathways in India's growing police and security K9 sector.",
   },
   {
-    title: "K9 Science Seminar — Jamia Hamdard",
+    title: "K9 Science Seminar  -  Jamia Hamdard",
     org: "Jamia Hamdard University, New Delhi",
     location: "Jamia Hamdard, New Delhi",
     images: [
@@ -237,14 +237,14 @@ const nationalSeminars = [
       "A university seminar with Jamia Hamdard's veterinary and life sciences faculty. Covered K9 Behavioural Assessment (K9 BAT), K9 welfare standards, and evidence-based training protocols advancing India's police K9 academic and operational capacity.",
   },
   {
-    title: "K9 Welfare Seminar — Canis Welfare Pet Club",
+    title: "K9 Welfare Seminar  -  Canis Welfare Pet Club",
     org: "Canis Welfare Pet Club, New Delhi",
     location: "New Delhi",
     images: [
       "/seminars-workshops/national/canis-welfare/Canis Welfare Presentation.jpg",
     ],
     description:
-      "An invited talk at the Canis Welfare Pet Club — a New Delhi-based canine welfare organisation dedicated to responsible dog ownership and the well-being of working and companion dogs. Col Chug addressed the audience on the science of canine behaviour, ethical training methods, and the standards being set by MHA's National Police K9 programme — bridging the world of professional working dogs with India's growing civilian canine community.",
+      "An invited talk at the Canis Welfare Pet Club  -  a New Delhi-based canine welfare organisation dedicated to responsible dog ownership and the well-being of working and companion dogs. Col Chug addressed the audience on the science of canine behaviour, ethical training methods, and the standards being set by MHA's National Police K9 programme  -  bridging the world of professional working dogs with India's growing civilian canine community.",
   },
 ];
 
@@ -258,14 +258,14 @@ const internationalSeminars = [
       "/seminars-workshops/international/world-police-summit/IMG_7916.jpg",
     ],
     description:
-      "PDCI's representation at the prestigious World Police K9 Summit in Dubai — a premier global gathering for law enforcement K9 professionals from over 50 countries. Col Chug presented India's police K9 modernization achievements and the MHA K9 Cell initiative to an elite international audience.",
+      "PDCI's representation at the prestigious World Police K9 Summit in Dubai  -  a premier global gathering for law enforcement K9 professionals from over 50 countries. Col Chug presented India's police K9 modernization achievements and the MHA K9 Cell initiative to an elite international audience.",
   },
   {
     title: "K9 Olympics",
     location: "United States of America",
     images: ["/home-page-banner/banner-9.jpg"],
     description:
-      "Participation in the K9 Olympics in the USA — a world-class event showcasing the highest standards in K9 performance, training methodology, and sport competition. Provided PDCI an invaluable opportunity to benchmark India's K9 training standards against world-class international practitioners.",
+      "Participation in the K9 Olympics in the USA  -  a world-class event showcasing the highest standards in K9 performance, training methodology, and sport competition. Provided PDCI an invaluable opportunity to benchmark India's K9 training standards against world-class international practitioners.",
   },
   {
     title: "New Zealand Defence K9 Conference",
@@ -279,21 +279,21 @@ const internationalSeminars = [
     location: "International",
     images: ["/home-page-banner/banner-12.jpg"],
     description:
-      "PDCI's participation in the International Working Dog Breeders Association (IWDBA) Conference — the leading body for working dog breeding and performance standards. Addressed genetic selection, temperament assessment, and breeding protocols that inform PDCI's National Register for Working Dogs (NRWD).",
+      "PDCI's participation in the International Working Dog Breeders Association (IWDBA) Conference  -  the leading body for working dog breeding and performance standards. Addressed genetic selection, temperament assessment, and breeding protocols that inform PDCI's National Register for Working Dogs (NRWD).",
   },
   {
     title: "Bravo3 Conference",
     location: "International",
     images: ["/home-page-banner/banner-11.jpg"],
     description:
-      "Participation in the Bravo3 Conference — a specialized international forum for law enforcement and military K9 professionals. Covered operational K9 tactics, handler development, and emerging working dog technologies, with PDCI sharing India's unique K9 innovations on a global stage.",
+      "Participation in the Bravo3 Conference  -  a specialized international forum for law enforcement and military K9 professionals. Covered operational K9 tactics, handler development, and emerging working dog technologies, with PDCI sharing India's unique K9 innovations on a global stage.",
   },
   {
     title: "K9cop Conference",
     location: "International",
     images: ["/home-page-banner/banner-13.jpg"],
     description:
-      "Participation in the K9cop Conference — a global platform dedicated to law enforcement K9 professionals. Shared India's experience with the MHA's national K9 standardization initiative and explored international collaborations for advancing police K9 handler training standards worldwide.",
+      "Participation in the K9cop Conference  -  a global platform dedicated to law enforcement K9 professionals. Shared India's experience with the MHA's national K9 standardization initiative and explored international collaborations for advancing police K9 handler training standards worldwide.",
   },
 ];
 
@@ -332,7 +332,7 @@ export default function SeminarsWorkshopsPage() {
             K9 Seminars &amp; Workshops
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "#64748b" }}>
-            From elite CAPF establishments to international K9 summits — PDCI's
+            From elite CAPF establishments to international K9 summits  -  PDCI's
             hands-on workshops and knowledge-sharing seminars span India's entire
             law enforcement and defence ecosystem and the global working dog
             community.
@@ -354,9 +354,9 @@ export default function SeminarsWorkshopsPage() {
             </h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base">
               Hands-on K9 workshops conducted across India&apos;s Central Armed
-              Police Forces, state police units, and defence establishments —
+              Police Forces, state police units, and defence establishments  - 
               bridging performance gaps through modern operant conditioning and
-              evidence-based training methodologies — under the guiding theme
+              evidence-based training methodologies  -  under the guiding theme
               &apos;Bridging Gaps in Augmentation of K9 Performance.&apos;
             </p>
           </div>
@@ -415,7 +415,7 @@ export default function SeminarsWorkshopsPage() {
         </div>
       </section>
 
-      {/* ── SEMINARS — Two-Column Layout ────────────────────────────────────── */}
+      {/* ── SEMINARS  -  Two-Column Layout ────────────────────────────────────── */}
       <section className="bg-white py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -425,11 +425,11 @@ export default function SeminarsWorkshopsPage() {
               Seminars &amp; Conferences
             </span>
             <h2 className="text-2xl sm:text-3xl font-semibold text-navy-900 mt-2">
-              Knowledge Exchange — National &amp; International
+              Knowledge Exchange  -  National &amp; International
             </h2>
             <p className="text-gray-500 mt-3 max-w-2xl mx-auto text-sm leading-relaxed">
               From MHA&apos;s Annual National Police K9 Seminar series to prestigious global
-              summits — PDCI drives K9 knowledge-sharing across India&apos;s security
+              summits  -  PDCI drives K9 knowledge-sharing across India&apos;s security
               establishment and on the world stage.
             </p>
           </div>
@@ -521,7 +521,7 @@ export default function SeminarsWorkshopsPage() {
                     <div className="relative">
                       <ImageCarousel
                         images={s.images}
-                        alt={`${s.title} — International K9 Conference`}
+                        alt={`${s.title}  -  International K9 Conference`}
                         heightClass="h-52"
                       />
                       <div
@@ -568,3 +568,4 @@ export default function SeminarsWorkshopsPage() {
     </>
   );
 }
+

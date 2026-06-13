@@ -242,7 +242,7 @@ export default function HomePage() {
         : index - 1;
 
   return (
-    // Global page wrapper — noise texture + branded text selection
+    // Global page wrapper  -  noise texture + branded text selection
     <div
       className="selection:bg-[#D4A94D] selection:text-black"
       style={{
@@ -474,12 +474,12 @@ export default function HomePage() {
               <div className="space-y-4 text-base leading-relaxed" style={{ color: "#475569" }}>
                 <p>
                   At Police Dog Centre India, we provide specialized training and consultancy
-                  to police and law enforcement organizations — replacing coercive methods
+                  to police and law enforcement organizations  -  replacing coercive methods
                   with modern operant conditioning protocols grounded in science and data.
                 </p>
                 <p>
-                  Led by Col (Dr) PK Chug (Retd) — India's foremost military and police K9
-                  trainer with 25+ years of operational service — PDCI sets the national
+                  Led by Col (Dr) PK Chug (Retd)  -  India's foremost military and police K9
+                  trainer with 25+ years of operational service  -  PDCI sets the national
                   standard for working-dog training, certification, and deployment.
                 </p>
               </div>
@@ -492,7 +492,7 @@ export default function HomePage() {
                   color: "#0b1726",
                 }}
               >
-                Our Motto — Deter &bull; Detect &bull; Defend &bull; Dominate
+                Our Motto  -  Deter &bull; Detect &bull; Defend &bull; Dominate
               </div>
 
               <div className="mt-8 flex flex-wrap gap-6">
@@ -729,8 +729,8 @@ export default function HomePage() {
                 Forensic K9 Education
               </h2>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#94a3b8" }}>
-                In collaboration with the National Forensic Sciences University (NFSU) — a
-                Ministry of Home Affairs institution — PDCI offers India&rsquo;s first
+                In collaboration with the National Forensic Sciences University (NFSU)  -  a
+                Ministry of Home Affairs institution  -  PDCI offers India&rsquo;s first
                 Professional Diploma in Canine Forensics (PDCF). Six successful batches,
                 nearly 150 forensic and police K9 experts trained.
               </p>
@@ -785,7 +785,7 @@ export default function HomePage() {
                   "Modern Police & Military Dog Training",
                   "Canine Forensic Odorology & Scent Management",
                   "Explosive, Narcotics & Cadaver Detection",
-                  "Emerging Technologies — RASCO, Vapour Wake",
+                  "Emerging Technologies  -  RASCO, Vapour Wake",
                   "K9 Proficiency Evaluation & Certification",
                   "Court Admissibility of Canine Evidence",
                 ].map((subj) => (
@@ -835,7 +835,7 @@ export default function HomePage() {
                 fullName: "National Security Guard",
                 badge: "Counter-Terrorism",
                 location: "NSG Centre, Manesar, Haryana",
-                desc: "Elite K9 workshop for NSG Black Cats. Showcased the revolutionary K9 Vision System (KVS) — training Assault Dogs on a Wireless Command System using Remote Radio Controlled devices.",
+                desc: "Elite K9 workshop for NSG Black Cats. Showcased the revolutionary K9 Vision System (KVS)  -  training Assault Dogs on a Wireless Command System using Remote Radio Controlled devices.",
               },
               {
                 org: "Indian Army",
@@ -937,7 +937,7 @@ export default function HomePage() {
               Accreditations &amp; Recognition
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-base" style={{ color: "#475569" }}>
-              Nationally and internationally recognised — PDCI holds accreditations from
+              Nationally and internationally recognised  -  PDCI holds accreditations from
               QCI (GeM), KCI, NFSU, ICODD (USA), and Florida International University.
             </p>
           </div>
@@ -965,7 +965,7 @@ export default function HomePage() {
                 icon: Globe,
                 title: "Advisory Board Member & Assessor",
                 issuedBy: "International Commission on Detector Dogs",
-                subtext: "USA — International Body",
+                subtext: "USA  -  International Body",
                 highlight: "International",
               },
             ].map((acc) => {
@@ -1054,7 +1054,7 @@ export default function HomePage() {
           </h2>
           <p className="text-base leading-relaxed mb-10" style={{ color: "#94a3b8" }}>
             Whether you need explosive detection for an event, a patrol team for your facility,
-            or a certification audit — our team is ready within 24 hours across India.
+            or a certification audit  -  our team is ready within 24 hours across India.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

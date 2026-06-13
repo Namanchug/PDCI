@@ -9,6 +9,8 @@ type ContactFormPayload = {
   phone: string;
   organization?: string;
   service: string;
+  preferredDate?: string;
+  participants?: string;
   message: string;
 };
 
@@ -22,7 +24,7 @@ function escapeHtml(value: string) {
 }
 
 function buildTextBody(form: ContactFormPayload) {
-  return [
+  const lines = [
     "New contact form submission",
     "",
     `Name: ${form.name}`,
@@ -30,19 +32,23 @@ function buildTextBody(form: ContactFormPayload) {
     `Phone: ${form.phone}`,
     `Organization: ${form.organization?.trim() || "N/A"}`,
     `Service Required: ${form.service}`,
-    "Message:",
-    form.message,
-  ].join("\n");
+  ];
+  if (form.preferredDate?.trim()) lines.push(`Preferred Date: ${form.preferredDate}`);
+  if (form.participants?.trim()) lines.push(`No. of Participants: ${form.participants}`);
+  lines.push("", "Message:", form.message);
+  return lines.join("\n");
 }
 
 function buildHtmlBody(form: ContactFormPayload) {
-  const rows = [
+  const rows: [string, string][] = [
     ["Name", form.name],
     ["Email", form.email],
     ["Phone", form.phone],
     ["Organization", form.organization?.trim() || "N/A"],
     ["Service Required", form.service],
   ];
+  if (form.preferredDate?.trim()) rows.push(["Preferred Date", form.preferredDate]);
+  if (form.participants?.trim()) rows.push(["No. of Participants", form.participants]);
 
   return `
     <div style="font-family: Arial, sans-serif; color: #1f2937; line-height: 1.6;">
@@ -129,12 +135,16 @@ function validatePayload(payload: unknown): ContactFormPayload | null {
     return null;
   }
 
+  const preferredDate = candidate.preferredDate?.toString().trim();
+  const participants = candidate.participants?.toString().trim();
   return {
     name: candidate.name?.toString().trim() ?? "",
     email: candidate.email?.toString().trim() ?? "",
     phone: candidate.phone?.toString().trim() ?? "",
     organization: candidate.organization?.toString().trim() ?? "",
     service: candidate.service?.toString().trim() ?? "",
+    preferredDate: preferredDate || undefined,
+    participants: participants || undefined,
     message: candidate.message?.toString().trim() ?? "",
   };
 }

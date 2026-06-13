@@ -29,7 +29,7 @@ const services = [
     shortDesc: "Crime scene investigation and suspect tracking",
     image: "/k9-detection/tracking.jpg",
     description:
-      "Tracker-Trailing Dogs (TR) are deployed for crime scene investigation and suspect tracking, following scent trails across urban, rural, and forested environments. Leveraging their extraordinary olfactory capability, these dogs support law enforcement agencies in locating suspects, missing persons, and evidence — often after significant time has elapsed. Trained in accordance with MHA standards, PDCI's tracking teams are a reliable force multiplier for investigative and recovery operations.",
+      "Tracker-Trailing Dogs (TR) are deployed for crime scene investigation and suspect tracking, following scent trails across urban, rural, and forested environments. Leveraging their extraordinary olfactory capability, these dogs support law enforcement agencies in locating suspects, missing persons, and evidence  -  often after significant time has elapsed. Trained in accordance with MHA standards, PDCI's tracking teams are a reliable force multiplier for investigative and recovery operations.",
     features: [
       "Crime scene investigation and scent work",
       "Suspect tracking across urban and rural terrain",
@@ -46,7 +46,7 @@ const services = [
     shortDesc: "Threat screening for high-risk venues",
     image: "/k9-detection/explosive.jpg",
     description:
-      "Our Explosive Detection Dog Teams (EDDTs) are trained to identify all five MHA-classified classes of explosive substances — Aliphatic Nitro, Aromatic Nitro, Nitrate Ester, Nitramines, and Acid Salts — including home-made IEDs, TATP, HMTD, and military-grade ordnance. Certified under the MHA's K9 Proficiency Evaluation Test (K9 PET) protocol with a minimum 90% detection score, these teams support airport and cargo security, pre-event venue sweeps, baggage screening, vehicle checks, and route clearance.",
+      "Our Explosive Detection Dog Teams (EDDTs) are trained to identify all five MHA-classified classes of explosive substances  -  Aliphatic Nitro, Aromatic Nitro, Nitrate Ester, Nitramines, and Acid Salts  -  including home-made IEDs, TATP, HMTD, and military-grade ordnance. Certified under the MHA's K9 Proficiency Evaluation Test (K9 PET) protocol with a minimum 90% detection score, these teams support airport and cargo security, pre-event venue sweeps, baggage screening, vehicle checks, and route clearance.",
     features: [
       "Detection of all 5 MHA-classified explosive classes",
       "IED, TATP, HMTD, and home-made explosive detection",
@@ -63,7 +63,7 @@ const services = [
     shortDesc: "Targeted screening for controlled environments",
     image: "/k9-detection/narco.jpg",
     description:
-      "Our Narcotics Detection Dog Teams (NDDTs) are trained and certified to identify a wide range of controlled substances — including Marijuana, Cocaine, Heroin, Opiates, Methamphetamine, and MDMA — across airports, seaports, customs checkpoints, educational institutions, hospitality venues, and corporate facilities. Passive alert methodology ensures discreet, non-disruptive screening. All teams are certified as per the MHA AKLAN SOP with a minimum 90% detection rate, with annual recertification.",
+      "Our Narcotics Detection Dog Teams (NDDTs) are trained and certified to identify a wide range of controlled substances  -  including Marijuana, Cocaine, Heroin, Opiates, Methamphetamine, and MDMA  -  across airports, seaports, customs checkpoints, educational institutions, hospitality venues, and corporate facilities. Passive alert methodology ensures discreet, non-disruptive screening. All teams are certified as per the MHA AKLAN SOP with a minimum 90% detection rate, with annual recertification.",
     features: [
       "Mandatory substances: Marijuana and Cocaine",
       "Additional: Heroin, Meth, MDMA, Opiates, and more",
@@ -80,7 +80,7 @@ const services = [
     shortDesc: "Visible deterrence, rapid response, and assault capability",
     image: "/k9-detection/patrol.jpg",
     description:
-      "PDCI's Patrol K9 teams provide a strong deterrent and an immediate response layer for factories, warehouses, residential compounds, government facilities, and PCR van operations. Trained using modern operant conditioning techniques — not outdated coercive methods — these dogs demonstrate superior initiative, controlled aggression, and reliable off-leash obedience. Advanced Assault K9 configurations are also available for anti-terror squads, NSG-style special interventions, and building clearance operations.",
+      "PDCI's Patrol K9 teams provide a strong deterrent and an immediate response layer for factories, warehouses, residential compounds, government facilities, and PCR van operations. Trained using modern operant conditioning techniques  -  not outdated coercive methods  -  these dogs demonstrate superior initiative, controlled aggression, and reliable off-leash obedience. Advanced Assault K9 configurations are also available for anti-terror squads, NSG-style special interventions, and building clearance operations.",
     features: [
       "24/7 deployment for perimeter and access-point coverage",
       "Controlled deterrence and rapid incident response",
@@ -114,7 +114,7 @@ const services = [
     shortDesc: "Scientific selection of dogs for specialised duties",
     image: "/k9-detection/tracking.jpg",
     description:
-      "Selecting the right dog is the foundation of any high-performing K9 team. PDCI applies the advanced 'K9 Behavioural Assessment' (K9 BAT) model — developed by Col. (Dr.) P.K. Chug for the Ministry of Home Affairs — to scientifically evaluate and select pups and adult dogs for specific police and security roles. The assessment evaluates prey drive, nerve strength, temperament, trainability, and stress recovery to ensure only the most suitable dogs are matched to demanding operational roles.",
+      "Selecting the right dog is the foundation of any high-performing K9 team. PDCI applies the advanced 'K9 Behavioural Assessment' (K9 BAT) model  -  developed by Col. (Dr.) P.K. Chug for the Ministry of Home Affairs  -  to scientifically evaluate and select pups and adult dogs for specific police and security roles. The assessment evaluates prey drive, nerve strength, temperament, trainability, and stress recovery to ensure only the most suitable dogs are matched to demanding operational roles.",
     features: [
       "MHA-aligned K9 BAT assessment model",
       "Pup and adult dog evaluation for police duties",
@@ -131,7 +131,7 @@ const services = [
     shortDesc: "MHA-compliant K9 team assessment and accreditation",
     image: "/k9-detection/certifications.jpg",
     description:
-      "PDCI conducts independent, third-party K9 Proficiency Evaluation Tests (K9 PET) for Explosive Detection Dog Teams (EDDTs) and Narcotics Detection Dog Teams (NDDTs) as mandated by the MHA's AKLAN SOP (Augmentation of K9s by Licensing as per Accreditation Norms). Certification requires a minimum 91.66% pass rate across four mandatory scenario-based searches — Building, Vehicle, Open Area, and Baggage. Annual certification with six-monthly internal audit support ensures continued operational credibility and judicial admissibility.",
+      "PDCI conducts independent, third-party K9 Proficiency Evaluation Tests (K9 PET) for Explosive Detection Dog Teams (EDDTs) and Narcotics Detection Dog Teams (NDDTs) as mandated by the MHA's AKLAN SOP (Augmentation of K9s by Licensing as per Accreditation Norms). Certification requires a minimum 91.66% pass rate across four mandatory scenario-based searches  -  Building, Vehicle, Open Area, and Baggage. Annual certification with six-monthly internal audit support ensures continued operational credibility and judicial admissibility.",
     features: [
       "MHA AKLAN SOP-compliant third-party evaluation",
       "Explosive and narcotics detection dog certification",
@@ -148,7 +148,7 @@ const services = [
     shortDesc: "Professional training and care for companion dogs",
     image: "/k9-detection/patrol.jpg",
     description:
-      "PDCI extends its police-standard training expertise to pet dog owners across India. Using the same science-based operant conditioning techniques applied to police K9s, our trainers help family dogs develop reliable obedience, social confidence, and good manners. Boarding services maintain the same high standards of professional care. For dogs exhibiting problem behaviours — aggression, anxiety, reactivity, excessive barking, or leash issues — our structured behaviour modification programmes address root causes for lasting results.",
+      "PDCI extends its police-standard training expertise to pet dog owners across India. Using the same science-based operant conditioning techniques applied to police K9s, our trainers help family dogs develop reliable obedience, social confidence, and good manners. Boarding services maintain the same high standards of professional care. For dogs exhibiting problem behaviours  -  aggression, anxiety, reactivity, excessive barking, or leash issues  -  our structured behaviour modification programmes address root causes for lasting results.",
     features: [
       "Basic and advanced obedience using reward-based methods",
       "Behaviour modification for aggression, anxiety, and reactivity",
@@ -204,7 +204,7 @@ export default function K9ServicesPage() {
             K9 Security Services
           </h1>
           <p className="text-lg max-w-2xl" style={{ color: "#64748b" }}>
-            Comprehensive K9 security solutions spanning tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training — all delivered to MHA-aligned standards.
+            Comprehensive K9 security solutions spanning tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training  -  all delivered to MHA-aligned standards.
           </p>
         </div>
       </section>
@@ -239,7 +239,7 @@ export default function K9ServicesPage() {
                   <div
                     className={`grid grid-cols-1 ${service.image ? "lg:grid-cols-5" : "lg:grid-cols-1"}`}
                   >
-                    {/* Image panel — only rendered when an image exists */}
+                    {/* Image panel  -  only rendered when an image exists */}
                     {service.image && (
                       <div
                         className={`lg:col-span-2 min-h-[260px] ${!isEven ? "lg:order-last" : ""}`}
