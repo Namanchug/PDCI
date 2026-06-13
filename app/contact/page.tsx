@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { Shield } from "lucide-react";
 import Link from "next/link";
 import {
   MapPin,
