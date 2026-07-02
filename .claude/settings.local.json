@@ -16,7 +16,11 @@
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\naman\\\\Downloads\\\\\" | Where-Object { $_.Name -match \"qr|QR|upi|UPI|payment|bhim|BHIM|seminar|Seminar\" })",
       "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"C:\\\\Users\\\\naman\\\\Downloads\\\\QR Code.png\"\\); $b64 = [Convert]::ToBase64String\\($bytes\\); Write-Output \"data:image/png;base64,$b64\" | Set-Content \"C:\\\\Users\\\\naman\\\\Downloads\\\\qr_b64.txt\")",
       "PowerShell(\\(Get-Content \"C:\\\\Users\\\\naman\\\\Downloads\\\\qr_b64.txt\" -Raw\\).Length)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(where python3 *)",
+      "Bash(where python *)",
+      "Bash(/c/Python314/python.exe -)",
+      "Bash(grep -v \"base64\\\\|NFSU Affiliated\\\\|t>NFSU\\\\|alt=\\\\\"NFSU\\\\|nfsu\\\\|NFSU ×\\\\|NFSU admission\\\\|NFSU — a\\\\|NFSU\\)\\\\|NFSU</\\\\|Forensic Sciences\\\\|Canine Forensics\")"
     ]
   }
 }
