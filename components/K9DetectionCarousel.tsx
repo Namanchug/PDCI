@@ -164,9 +164,8 @@ export default function K9DetectionCarousel() {
             >
               <img
                 src={src}
-                alt=""
+                alt={`Police Dog Centre India K9 detection dog at work — photo ${((i - 1 + ORIGINALS.length) % ORIGINALS.length) + 1}`}
                 loading={isActive ? "eager" : "lazy"}
-                aria-hidden="true"
                 style={{
                   width: "100%",
                   height: "100%",

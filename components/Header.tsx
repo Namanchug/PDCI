@@ -41,7 +41,12 @@ export default function Header() {
 
                     {/* Title block */}
                     <div className="flex flex-1 flex-col items-center">
-                        <h1
+                        {/*
+                          Rendered on every page via the root layout, so this must not be an
+                          <h1> — each page supplies its own unique <h1> for its content; two
+                          H1s per page confuses heading hierarchy for SEO and screen readers.
+                        */}
+                        <p
                             className="text-center font-bold leading-none"
                             style={{
                                 fontFamily: "'Times New Roman', serif",
@@ -50,7 +55,7 @@ export default function Header() {
                             }}
                         >
                             Police Dog Centre INDIA
-                        </h1>
+                        </p>
                         <div
                             className="mt-2 w-fit px-4 py-1.5 text-center text-[0.65rem] font-semibold tracking-[0.38em] sm:text-[0.72rem]"
                             style={{

@@ -2,11 +2,27 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Shield, Target, Eye, Award, CheckCircle } from "lucide-react";
+import { breadcrumbJsonLd, jsonLdScriptProps } from "@/lib/seo";
+
+const TITLE = "About Us";
+const DESCRIPTION =
+  "Learn about Police Dog Centre India – our mission, leadership, and commitment to modernizing K9 training in India through operant conditioning.";
 
 export const metadata: Metadata = {
-  title: "About Us | Police Dog Centre India",
-  description:
-    "Learn about Police Dog Centre India – our mission, leadership, and commitment to modernizing K9 training in India through operant conditioning.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/about",
+  },
+  twitter: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 const achievements = [
@@ -64,9 +80,15 @@ const values = [
   },
 ];
 
+const breadcrumbs = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+]);
+
 export default function AboutPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
       {/* Page Header */}
       <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

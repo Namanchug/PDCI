@@ -2,11 +2,27 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ShieldCheck, Award, BookOpen, Globe, Users } from "lucide-react";
+import { breadcrumbJsonLd, jsonLdScriptProps } from "@/lib/seo";
+
+const TITLE = "Accreditations";
+const DESCRIPTION =
+  "Police Dog Centre India holds accreditations from QCI (GeM), KCI, NFSU, ICODD (USA), and Florida International University (FIU), Miami  -  nationally and internationally recognised.";
 
 export const metadata: Metadata = {
-  title: "Accreditations | Police Dog Centre India",
-  description:
-    "Police Dog Centre India holds accreditations from QCI (GeM), KCI, NFSU, ICODD (USA), and Florida International University (FIU), Miami  -  nationally and internationally recognised.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/accreditations",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/accreditations",
+  },
+  twitter: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 const nationalAccreditations = [
@@ -166,9 +182,15 @@ function AccreditationCard({
   );
 }
 
+const breadcrumbs = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "Accreditations", path: "/accreditations" },
+]);
+
 export default function AccreditationsPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
       {/* ── Page Header ── */}
       <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

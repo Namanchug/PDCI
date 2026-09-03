@@ -23,11 +23,51 @@ import {
   Target,
   Cpu,
 } from "lucide-react";
+import { breadcrumbJsonLd, jsonLdScriptProps, SITE_URL } from "@/lib/seo";
+
+const TITLE = "Forensic K9 & Education";
+const DESCRIPTION =
+  "India's pioneering Professional Diploma in Canine Forensics (PDCF)  -  a 6-month hybrid university program by NFSU in collaboration with Police Dog Centre India, bridging K9 training with forensic science and judicial admissibility.";
 
 export const metadata: Metadata = {
-  title: "Forensic K9 & Education | Police Dog Centre India",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/forensic-k9-education",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/forensic-k9-education",
+  },
+  twitter: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "Forensic K9 & Education", path: "/forensic-k9-education" },
+]);
+
+const courseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Professional Diploma in Canine Forensics (PDCF)",
   description:
-    "India's pioneering Professional Diploma in Canine Forensics (PDCF)  -  a 6-month hybrid university program by NFSU in collaboration with Police Dog Centre India, bridging K9 training with forensic science and judicial admissibility.",
+    "A 6-month hybrid university programme by NFSU in collaboration with Police Dog Centre India, bridging K9 training with forensic science and judicial admissibility.",
+  provider: {
+    "@type": "CollegeOrUniversity",
+    name: "National Forensic Sciences University (NFSU)",
+    sameAs: "https://www.nfsu.ac.in/",
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "Blended",
+    courseWorkload: "P6M",
+  },
+  url: `${SITE_URL}/forensic-k9-education`,
 };
 
 const subjects = [
@@ -122,6 +162,8 @@ const campuses = [
 export default function ForensicK9EducationPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
+      <script {...jsonLdScriptProps(courseJsonLd)} />
       {/* ── Hero ── */}
       <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

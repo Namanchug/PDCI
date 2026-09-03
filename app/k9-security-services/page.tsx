@@ -14,11 +14,27 @@ import {
   Heart,
   Award,
 } from "lucide-react";
+import { breadcrumbJsonLd, jsonLdScriptProps, SITE_URL } from "@/lib/seo";
+
+const TITLE = "K9 Security Services";
+const DESCRIPTION =
+  "Professional K9 security services covering tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training.";
 
 export const metadata: Metadata = {
-  title: "K9 Security Services | Police Dog Centre India",
-  description:
-    "Professional K9 security services covering tracking, explosive and narcotics detection, patrol, event security, behaviour assessment, proficiency certification, and pet dog training.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/k9-security-services",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/k9-security-services",
+  },
+  twitter: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 const services = [
@@ -160,6 +176,32 @@ const services = [
   },
 ];
 
+const breadcrumbs = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "K9 Security Services", path: "/k9-security-services" },
+]);
+
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: services.map((service, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Service",
+      name: service.title,
+      description: service.shortDesc,
+      url: `${SITE_URL}/k9-security-services#${service.slug}`,
+      provider: {
+        "@type": "LocalBusiness",
+        name: "Police Dog Centre India",
+        url: SITE_URL,
+      },
+      areaServed: "IN",
+    },
+  })),
+};
+
 const process = [
   {
     step: "01",
@@ -190,6 +232,8 @@ const process = [
 export default function K9ServicesPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
+      <script {...jsonLdScriptProps(servicesJsonLd)} />
       {/* Page Header */}
       <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

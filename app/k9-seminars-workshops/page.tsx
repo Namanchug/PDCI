@@ -2,11 +2,27 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, Globe } from "lucide-react";
 import ImageCarousel from "@/components/ImageCarousel";
+import { breadcrumbJsonLd, jsonLdScriptProps } from "@/lib/seo";
+
+const TITLE = "K9 Seminars & Workshops";
+const DESCRIPTION =
+  "PDCI's national Police K9 workshops with Central Armed Police Forces and state police, and participation in national and international K9 seminars and conferences worldwide.";
 
 export const metadata: Metadata = {
-  title: "K9 Seminars & Workshops | Police Dog Centre India",
-  description:
-    "PDCI's national Police K9 workshops with Central Armed Police Forces and state police, and participation in national and international K9 seminars and conferences worldwide.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/k9-seminars-workshops",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/k9-seminars-workshops",
+  },
+  twitter: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 // ─── PHOTO REPLACEMENT GUIDE ─────────────────────────────────────────────────
@@ -315,9 +331,15 @@ const badgeStyle: Record<string, { bg: string; color: string; border: string }> 
   },
 };
 
+const breadcrumbs = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "K9 Seminars & Workshops", path: "/k9-seminars-workshops" },
+]);
+
 export default function SeminarsWorkshopsPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
       {/* ── Page Header ─────────────────────────────────────────────────────── */}
       <section className="py-8" style={{ background: "#f9f6f1", borderBottom: "2px solid #c9a45a" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
